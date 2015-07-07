@@ -1,0 +1,10 @@
+# karakuri
+log             stapi.log
+log-level       DEBUG
+mongo-uri       mongodb://localhost:27017
+pid             /tmp/stapi.pid
+rest-port       8080
+
+# jira
+jira-username   jirausername
+jira-password   jirapassword

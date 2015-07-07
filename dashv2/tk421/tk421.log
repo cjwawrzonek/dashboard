@@ -1,0 +1,604 @@
+/
+2015-07-07 10:18:56,147 - tk421 - INFO - /
+tk is at REST
+2015-07-07 10:18:56,148 - tk421 - INFO - tk is at REST
+/Users/cjw/dashv2/tk421
+2015-07-07 10:18:56,149 - tk421 - INFO - /Users/cjw/dashv2/tk421
+Bottle v0.12.8 server starting up (using WSGIRefServer())...
+Listening on http://localhost:8900/
+Hit Ctrl-C to quit.
+
+127.0.0.1 - - [07/Jul/2015 10:18:59] "GET /dash HTTP/1.1" 200 14297
+127.0.0.1 - - [07/Jul/2015 10:18:59] "GET /js/jquery.js HTTP/1.1" 200 95785
+127.0.0.1 - - [07/Jul/2015 10:18:59] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
+127.0.0.1 - - [07/Jul/2015 10:18:59] "GET /css/dashboard.css HTTP/1.1" 200 2455
+127.0.0.1 - - [07/Jul/2015 10:18:59] "GET /css/bootstrap.css HTTP/1.1" 200 142081
+127.0.0.1 - - [07/Jul/2015 10:18:59] "GET /css/sb-admin.css HTTP/1.1" 200 3710
+127.0.0.1 - - [07/Jul/2015 10:18:59] "GET /js/dashboard.js HTTP/1.1" 200 12853
+127.0.0.1 - - [07/Jul/2015 10:18:59] "GET /img/MongoDB_Logo.png HTTP/1.1" 200 7084
+Time before http request : 9.56758499146
+
+2015-07-07 10:18:59,567 - stAPIclient - INFO - Time before http request : 9.56758499146
+
+Time to after http request: 9.64467597008
+
+2015-07-07 10:18:59,644 - stAPIclient - INFO - Time to after http request: 9.64467597008
+
+127.0.0.1 - - [07/Jul/2015 10:18:59] "GET /ajax/sla HTTP/1.1" 200 408
+Time before http request : 9.6480550766
+
+2015-07-07 10:18:59,648 - stAPIclient - INFO - Time before http request : 9.6480550766
+
+Time to after http request: 9.68011808395
+
+2015-07-07 10:18:59,680 - stAPIclient - INFO - Time to after http request: 9.68011808395
+
+127.0.0.1 - - [07/Jul/2015 10:18:59] "GET /ajax/fts HTTP/1.1" 200 165
+Time before http request : 9.68412899971
+
+2015-07-07 10:18:59,684 - stAPIclient - INFO - Time before http request : 9.68412899971
+
+Time to after http request: 9.70474410057
+
+2015-07-07 10:18:59,704 - stAPIclient - INFO - Time to after http request: 9.70474410057
+
+127.0.0.1 - - [07/Jul/2015 10:18:59] "GET /ajax/una HTTP/1.1" 200 142
+Time before http request : 9.70657205582
+
+2015-07-07 10:18:59,706 - stAPIclient - INFO - Time before http request : 9.70657205582
+
+Time to after http request: 9.72454500198
+
+2015-07-07 10:18:59,724 - stAPIclient - INFO - Time to after http request: 9.72454500198
+
+127.0.0.1 - - [07/Jul/2015 10:18:59] "GET /ajax/rev HTTP/1.1" 200 504
+Time before http request : 9.72728705406
+
+2015-07-07 10:18:59,727 - stAPIclient - INFO - Time before http request : 9.72728705406
+
+Time to after http request: 0.0520520210266
+
+2015-07-07 10:19:00,052 - stAPIclient - INFO - Time to after http request: 0.0520520210266
+
+127.0.0.1 - - [07/Jul/2015 10:19:00] "GET /ajax/acts HTTP/1.1" 200 26621
+127.0.0.1 - - [07/Jul/2015 10:19:00] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /dash HTTP/1.1" 200 14297
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /js/jquery.js HTTP/1.1" 200 95785
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /js/dashboard.js HTTP/1.1" 200 12853
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /css/dashboard.css HTTP/1.1" 200 2455
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /css/bootstrap.css HTTP/1.1" 200 142081
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /css/sb-admin.css HTTP/1.1" 200 3710
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /img/MongoDB_Logo.png HTTP/1.1" 200 7084
+Time before http request : 6.41047406197
+
+2015-07-07 10:19:06,410 - stAPIclient - INFO - Time before http request : 6.41047406197
+
+Time to after http request: 6.45399689674
+
+2015-07-07 10:19:06,454 - stAPIclient - INFO - Time to after http request: 6.45399689674
+
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /ajax/sla HTTP/1.1" 200 408
+Time before http request : 6.45662593842
+
+2015-07-07 10:19:06,456 - stAPIclient - INFO - Time before http request : 6.45662593842
+
+Time to after http request: 6.49254393578
+
+2015-07-07 10:19:06,492 - stAPIclient - INFO - Time to after http request: 6.49254393578
+
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /ajax/fts HTTP/1.1" 200 165
+Time before http request : 6.49881410599
+
+2015-07-07 10:19:06,498 - stAPIclient - INFO - Time before http request : 6.49881410599
+
+Time to after http request: 6.51746892929
+
+2015-07-07 10:19:06,517 - stAPIclient - INFO - Time to after http request: 6.51746892929
+
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /ajax/una HTTP/1.1" 200 142
+Time before http request : 6.52061200142
+
+2015-07-07 10:19:06,520 - stAPIclient - INFO - Time before http request : 6.52061200142
+
+Time to after http request: 6.53530311584
+
+2015-07-07 10:19:06,535 - stAPIclient - INFO - Time to after http request: 6.53530311584
+
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /ajax/rev HTTP/1.1" 200 504
+Time before http request : 6.53826093674
+
+2015-07-07 10:19:06,538 - stAPIclient - INFO - Time before http request : 6.53826093674
+
+Time to after http request: 6.89343094826
+
+2015-07-07 10:19:06,893 - stAPIclient - INFO - Time to after http request: 6.89343094826
+
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /ajax/acts HTTP/1.1" 200 26780
+127.0.0.1 - - [07/Jul/2015 10:19:06] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
+127.0.0.1 - - [07/Jul/2015 10:19:07] "GET /dash HTTP/1.1" 200 14297
+127.0.0.1 - - [07/Jul/2015 10:19:07] "GET /js/jquery.js HTTP/1.1" 200 95785
+127.0.0.1 - - [07/Jul/2015 10:19:07] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
+127.0.0.1 - - [07/Jul/2015 10:19:07] "GET /css/dashboard.css HTTP/1.1" 200 2455
+127.0.0.1 - - [07/Jul/2015 10:19:07] "GET /css/bootstrap.css HTTP/1.1" 200 142081
+127.0.0.1 - - [07/Jul/2015 10:19:07] "GET /css/sb-admin.css HTTP/1.1" 200 3710
+127.0.0.1 - - [07/Jul/2015 10:19:07] "GET /js/dashboard.js HTTP/1.1" 200 12853
+127.0.0.1 - - [07/Jul/2015 10:19:07] "GET /img/MongoDB_Logo.png HTTP/1.1" 200 7084
+Time before http request : 7.81605505943
+
+2015-07-07 10:19:07,816 - stAPIclient - INFO - Time before http request : 7.81605505943
+
+Time to after http request: 7.88346004486
+
+2015-07-07 10:19:07,883 - stAPIclient - INFO - Time to after http request: 7.88346004486
+
+127.0.0.1 - - [07/Jul/2015 10:19:07] "GET /ajax/sla HTTP/1.1" 200 409
+Time before http request : 7.88544106483
+
+2015-07-07 10:19:07,885 - stAPIclient - INFO - Time before http request : 7.88544106483
+
+Time to after http request: 7.90752911568
+
+2015-07-07 10:19:07,907 - stAPIclient - INFO - Time to after http request: 7.90752911568
+
+127.0.0.1 - - [07/Jul/2015 10:19:07] "GET /ajax/fts HTTP/1.1" 200 165
+Time before http request : 7.91215705872
+
+2015-07-07 10:19:07,912 - stAPIclient - INFO - Time before http request : 7.91215705872
+
+Time to after http request: 7.92722988129
+
+2015-07-07 10:19:07,927 - stAPIclient - INFO - Time to after http request: 7.92722988129
+
+127.0.0.1 - - [07/Jul/2015 10:19:07] "GET /ajax/una HTTP/1.1" 200 142
+Time before http request : 7.93126988411
+
+2015-07-07 10:19:07,931 - stAPIclient - INFO - Time before http request : 7.93126988411
+
+Time to after http request: 7.94122195244
+
+2015-07-07 10:19:07,941 - stAPIclient - INFO - Time to after http request: 7.94122195244
+
+127.0.0.1 - - [07/Jul/2015 10:19:07] "GET /ajax/rev HTTP/1.1" 200 504
+Time before http request : 7.94278311729
+
+2015-07-07 10:19:07,942 - stAPIclient - INFO - Time before http request : 7.94278311729
+
+Time to after http request: 8.29108691216
+
+2015-07-07 10:19:08,291 - stAPIclient - INFO - Time to after http request: 8.29108691216
+
+127.0.0.1 - - [07/Jul/2015 10:19:08] "GET /ajax/acts HTTP/1.1" 200 26780
+127.0.0.1 - - [07/Jul/2015 10:19:08] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
+127.0.0.1 - - [07/Jul/2015 10:19:08] "GET /dash HTTP/1.1" 200 14297
+127.0.0.1 - - [07/Jul/2015 10:19:08] "GET /js/jquery.js HTTP/1.1" 200 95785
+127.0.0.1 - - [07/Jul/2015 10:19:08] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
+127.0.0.1 - - [07/Jul/2015 10:19:08] "GET /js/dashboard.js HTTP/1.1" 200 12853
+127.0.0.1 - - [07/Jul/2015 10:19:08] "GET /css/dashboard.css HTTP/1.1" 200 2455
+127.0.0.1 - - [07/Jul/2015 10:19:08] "GET /css/bootstrap.css HTTP/1.1" 200 142081
+127.0.0.1 - - [07/Jul/2015 10:19:08] "GET /css/sb-admin.css HTTP/1.1" 200 3710
+127.0.0.1 - - [07/Jul/2015 10:19:08] "GET /img/MongoDB_Logo.png HTTP/1.1" 200 7084
+Time before http request : 8.92674899101
+
+2015-07-07 10:19:08,926 - stAPIclient - INFO - Time before http request : 8.92674899101
+
+Time to after http request: 8.97731089592
+
+2015-07-07 10:19:08,977 - stAPIclient - INFO - Time to after http request: 8.97731089592
+
+127.0.0.1 - - [07/Jul/2015 10:19:08] "GET /ajax/sla HTTP/1.1" 200 407
+Time before http request : 8.97938704491
+
+2015-07-07 10:19:08,979 - stAPIclient - INFO - Time before http request : 8.97938704491
+
+Time to after http request: 9.02659797668
+
+2015-07-07 10:19:09,026 - stAPIclient - INFO - Time to after http request: 9.02659797668
+
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /ajax/fts HTTP/1.1" 200 165
+Time before http request : 9.03236603737
+
+2015-07-07 10:19:09,032 - stAPIclient - INFO - Time before http request : 9.03236603737
+
+Time to after http request: 9.05147600174
+
+2015-07-07 10:19:09,051 - stAPIclient - INFO - Time to after http request: 9.05147600174
+
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /ajax/una HTTP/1.1" 200 142
+Time before http request : 9.05554103851
+
+2015-07-07 10:19:09,055 - stAPIclient - INFO - Time before http request : 9.05554103851
+
+Time to after http request: 9.07236790657
+
+2015-07-07 10:19:09,072 - stAPIclient - INFO - Time to after http request: 9.07236790657
+
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /ajax/rev HTTP/1.1" 200 504
+Time before http request : 9.07424092293
+
+2015-07-07 10:19:09,074 - stAPIclient - INFO - Time before http request : 9.07424092293
+
+Time to after http request: 9.41555595398
+
+2015-07-07 10:19:09,415 - stAPIclient - INFO - Time to after http request: 9.41555595398
+
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /ajax/acts HTTP/1.1" 200 26780
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /dash HTTP/1.1" 200 14297
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /js/jquery.js HTTP/1.1" 200 95785
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /js/dashboard.js HTTP/1.1" 200 12853
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /css/dashboard.css HTTP/1.1" 200 2455
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /css/bootstrap.css HTTP/1.1" 200 142081
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /css/sb-admin.css HTTP/1.1" 200 3710
+127.0.0.1 - - [07/Jul/2015 10:19:09] "GET /img/MongoDB_Logo.png HTTP/1.1" 200 7084
+Time before http request : 0.0127120018005
+
+2015-07-07 10:19:10,012 - stAPIclient - INFO - Time before http request : 0.0127120018005
+
+Time to after http request: 0.0558230876923
+
+2015-07-07 10:19:10,055 - stAPIclient - INFO - Time to after http request: 0.0558230876923
+
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /ajax/sla HTTP/1.1" 200 408
+Time before http request : 0.0587968826294
+
+2015-07-07 10:19:10,058 - stAPIclient - INFO - Time before http request : 0.0587968826294
+
+Time to after http request: 0.0945899486542
+
+2015-07-07 10:19:10,094 - stAPIclient - INFO - Time to after http request: 0.0945899486542
+
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /ajax/fts HTTP/1.1" 200 165
+Time before http request : 0.10217499733
+
+2015-07-07 10:19:10,102 - stAPIclient - INFO - Time before http request : 0.10217499733
+
+Time to after http request: 0.126157045364
+
+2015-07-07 10:19:10,126 - stAPIclient - INFO - Time to after http request: 0.126157045364
+
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /ajax/una HTTP/1.1" 200 142
+Time before http request : 0.130701065063
+
+2015-07-07 10:19:10,130 - stAPIclient - INFO - Time before http request : 0.130701065063
+
+Time to after http request: 0.144890069962
+
+2015-07-07 10:19:10,144 - stAPIclient - INFO - Time to after http request: 0.144890069962
+
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /ajax/rev HTTP/1.1" 200 504
+Time before http request : 0.146908998489
+
+2015-07-07 10:19:10,146 - stAPIclient - INFO - Time before http request : 0.146908998489
+
+Time to after http request: 0.495685100555
+
+2015-07-07 10:19:10,495 - stAPIclient - INFO - Time to after http request: 0.495685100555
+
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /ajax/acts HTTP/1.1" 200 26780
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /dash HTTP/1.1" 200 14297
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /js/jquery.js HTTP/1.1" 200 95785
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /css/dashboard.css HTTP/1.1" 200 2455
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /css/bootstrap.css HTTP/1.1" 200 142081
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /css/sb-admin.css HTTP/1.1" 200 3710
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /js/dashboard.js HTTP/1.1" 200 12853
+127.0.0.1 - - [07/Jul/2015 10:19:10] "GET /img/MongoDB_Logo.png HTTP/1.1" 200 7084
+Time before http request : 1.04871892929
+
+2015-07-07 10:19:11,048 - stAPIclient - INFO - Time before http request : 1.04871892929
+
+Time to after http request: 1.09536409378
+
+2015-07-07 10:19:11,095 - stAPIclient - INFO - Time to after http request: 1.09536409378
+
+127.0.0.1 - - [07/Jul/2015 10:19:11] "GET /ajax/sla HTTP/1.1" 200 409
+Time before http request : 1.09717702866
+
+2015-07-07 10:19:11,097 - stAPIclient - INFO - Time before http request : 1.09717702866
+
+Time to after http request: 1.12645602226
+
+2015-07-07 10:19:11,126 - stAPIclient - INFO - Time to after http request: 1.12645602226
+
+127.0.0.1 - - [07/Jul/2015 10:19:11] "GET /ajax/fts HTTP/1.1" 200 165
+Time before http request : 1.13203001022
+
+2015-07-07 10:19:11,132 - stAPIclient - INFO - Time before http request : 1.13203001022
+
+Time to after http request: 1.15229988098
+
+2015-07-07 10:19:11,152 - stAPIclient - INFO - Time to after http request: 1.15229988098
+
+127.0.0.1 - - [07/Jul/2015 10:19:11] "GET /ajax/una HTTP/1.1" 200 142
+Time before http request : 1.15498900414
+
+2015-07-07 10:19:11,155 - stAPIclient - INFO - Time before http request : 1.15498900414
+
+Time to after http request: 1.1723549366
+
+2015-07-07 10:19:11,172 - stAPIclient - INFO - Time to after http request: 1.1723549366
+
+127.0.0.1 - - [07/Jul/2015 10:19:11] "GET /ajax/rev HTTP/1.1" 200 504
+Time before http request : 1.17648291588
+
+2015-07-07 10:19:11,176 - stAPIclient - INFO - Time before http request : 1.17648291588
+
+Time to after http request: 1.50236010551
+
+2015-07-07 10:19:11,502 - stAPIclient - INFO - Time to after http request: 1.50236010551
+
+127.0.0.1 - - [07/Jul/2015 10:19:11] "GET /ajax/acts HTTP/1.1" 200 26780
+127.0.0.1 - - [07/Jul/2015 10:19:11] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
+127.0.0.1 - - [07/Jul/2015 10:19:11] "GET /dash HTTP/1.1" 200 14297
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /js/jquery.js HTTP/1.1" 200 95785
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /css/dashboard.css HTTP/1.1" 200 2455
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /js/dashboard.js HTTP/1.1" 200 12853
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /css/bootstrap.css HTTP/1.1" 200 142081
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /css/sb-admin.css HTTP/1.1" 200 3710
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /img/MongoDB_Logo.png HTTP/1.1" 200 7084
+Time before http request : 2.15012001991
+
+2015-07-07 10:19:12,150 - stAPIclient - INFO - Time before http request : 2.15012001991
+
+Time to after http request: 2.19270992279
+
+2015-07-07 10:19:12,192 - stAPIclient - INFO - Time to after http request: 2.19270992279
+
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /ajax/sla HTTP/1.1" 200 409
+Time before http request : 2.1950480938
+
+2015-07-07 10:19:12,195 - stAPIclient - INFO - Time before http request : 2.1950480938
+
+Time to after http request: 2.23513293266
+
+2015-07-07 10:19:12,235 - stAPIclient - INFO - Time to after http request: 2.23513293266
+
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /ajax/fts HTTP/1.1" 200 165
+Time before http request : 2.24455094337
+
+2015-07-07 10:19:12,244 - stAPIclient - INFO - Time before http request : 2.24455094337
+
+Time to after http request: 2.26686406136
+
+2015-07-07 10:19:12,266 - stAPIclient - INFO - Time to after http request: 2.26686406136
+
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /ajax/una HTTP/1.1" 200 142
+Time before http request : 2.26851511002
+
+2015-07-07 10:19:12,268 - stAPIclient - INFO - Time before http request : 2.26851511002
+
+Time to after http request: 2.2830119133
+
+2015-07-07 10:19:12,283 - stAPIclient - INFO - Time to after http request: 2.2830119133
+
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /ajax/rev HTTP/1.1" 200 504
+Time before http request : 2.28471899033
+
+2015-07-07 10:19:12,284 - stAPIclient - INFO - Time before http request : 2.28471899033
+
+Time to after http request: 2.57786107063
+
+2015-07-07 10:19:12,577 - stAPIclient - INFO - Time to after http request: 2.57786107063
+
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /ajax/acts HTTP/1.1" 200 26780
+127.0.0.1 - - [07/Jul/2015 10:19:12] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /dash HTTP/1.1" 200 14297
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /js/jquery.js HTTP/1.1" 200 95785
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /css/dashboard.css HTTP/1.1" 200 2455
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /js/dashboard.js HTTP/1.1" 200 12853
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /css/bootstrap.css HTTP/1.1" 200 142081
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /css/sb-admin.css HTTP/1.1" 200 3710
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /img/MongoDB_Logo.png HTTP/1.1" 200 7084
+Time before http request : 3.14576292038
+
+2015-07-07 10:19:13,145 - stAPIclient - INFO - Time before http request : 3.14576292038
+
+Time to after http request: 3.19174599648
+
+2015-07-07 10:19:13,191 - stAPIclient - INFO - Time to after http request: 3.19174599648
+
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /ajax/sla HTTP/1.1" 200 408
+Time before http request : 3.19360494614
+
+2015-07-07 10:19:13,193 - stAPIclient - INFO - Time before http request : 3.19360494614
+
+Time to after http request: 3.22717690468
+
+2015-07-07 10:19:13,227 - stAPIclient - INFO - Time to after http request: 3.22717690468
+
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /ajax/fts HTTP/1.1" 200 165
+Time before http request : 3.23352909088
+
+2015-07-07 10:19:13,233 - stAPIclient - INFO - Time before http request : 3.23352909088
+
+Time to after http request: 3.25116300583
+
+2015-07-07 10:19:13,251 - stAPIclient - INFO - Time to after http request: 3.25116300583
+
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /ajax/una HTTP/1.1" 200 142
+Time before http request : 3.25376200676
+
+2015-07-07 10:19:13,253 - stAPIclient - INFO - Time before http request : 3.25376200676
+
+Time to after http request: 3.26329898834
+
+2015-07-07 10:19:13,263 - stAPIclient - INFO - Time to after http request: 3.26329898834
+
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /ajax/rev HTTP/1.1" 200 504
+Time before http request : 3.26527810097
+
+2015-07-07 10:19:13,265 - stAPIclient - INFO - Time before http request : 3.26527810097
+
+Time to after http request: 3.6134250164
+
+2015-07-07 10:19:13,613 - stAPIclient - INFO - Time to after http request: 3.6134250164
+
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /ajax/acts HTTP/1.1" 200 26780
+127.0.0.1 - - [07/Jul/2015 10:19:13] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /dash HTTP/1.1" 200 14297
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /js/jquery.js HTTP/1.1" 200 95785
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /css/dashboard.css HTTP/1.1" 200 2455
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /css/bootstrap.css HTTP/1.1" 200 142081
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /css/sb-admin.css HTTP/1.1" 200 3710
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /js/dashboard.js HTTP/1.1" 200 12853
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /img/MongoDB_Logo.png HTTP/1.1" 200 7084
+Time before http request : 4.30009508133
+
+2015-07-07 10:19:14,300 - stAPIclient - INFO - Time before http request : 4.30009508133
+
+Time to after http request: 4.34113693237
+
+2015-07-07 10:19:14,341 - stAPIclient - INFO - Time to after http request: 4.34113693237
+
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /ajax/sla HTTP/1.1" 200 401
+Time before http request : 4.34367895126
+
+2015-07-07 10:19:14,343 - stAPIclient - INFO - Time before http request : 4.34367895126
+
+Time to after http request: 4.40433192253
+
+2015-07-07 10:19:14,404 - stAPIclient - INFO - Time to after http request: 4.40433192253
+
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /ajax/fts HTTP/1.1" 200 165
+Time before http request : 4.40957903862
+
+2015-07-07 10:19:14,409 - stAPIclient - INFO - Time before http request : 4.40957903862
+
+Time to after http request: 4.44089007378
+
+2015-07-07 10:19:14,440 - stAPIclient - INFO - Time to after http request: 4.44089007378
+
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /ajax/una HTTP/1.1" 200 142
+Time before http request : 4.44376993179
+
+2015-07-07 10:19:14,443 - stAPIclient - INFO - Time before http request : 4.44376993179
+
+Time to after http request: 4.46105289459
+
+2015-07-07 10:19:14,461 - stAPIclient - INFO - Time to after http request: 4.46105289459
+
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /ajax/rev HTTP/1.1" 200 504
+Time before http request : 4.46284294128
+
+2015-07-07 10:19:14,462 - stAPIclient - INFO - Time before http request : 4.46284294128
+
+Time to after http request: 4.77854299545
+
+2015-07-07 10:19:14,778 - stAPIclient - INFO - Time to after http request: 4.77854299545
+
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /ajax/acts HTTP/1.1" 200 26780
+127.0.0.1 - - [07/Jul/2015 10:19:14] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
+127.0.0.1 - - [07/Jul/2015 10:19:15] "GET /dash HTTP/1.1" 200 14297
+127.0.0.1 - - [07/Jul/2015 10:19:15] "GET /js/jquery.js HTTP/1.1" 200 95785
+127.0.0.1 - - [07/Jul/2015 10:19:15] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
+127.0.0.1 - - [07/Jul/2015 10:19:15] "GET /css/dashboard.css HTTP/1.1" 200 2455
+127.0.0.1 - - [07/Jul/2015 10:19:15] "GET /css/bootstrap.css HTTP/1.1" 200 142081
+127.0.0.1 - - [07/Jul/2015 10:19:15] "GET /js/dashboard.js HTTP/1.1" 200 12853
+127.0.0.1 - - [07/Jul/2015 10:19:15] "GET /css/sb-admin.css HTTP/1.1" 200 3710
+127.0.0.1 - - [07/Jul/2015 10:19:15] "GET /img/MongoDB_Logo.png HTTP/1.1" 200 7084
+Time before http request : 5.89787101746
+
+2015-07-07 10:19:15,897 - stAPIclient - INFO - Time before http request : 5.89787101746
+
+Time to after http request: 5.95267391205
+
+2015-07-07 10:19:15,952 - stAPIclient - INFO - Time to after http request: 5.95267391205
+
+127.0.0.1 - - [07/Jul/2015 10:19:15] "GET /ajax/sla HTTP/1.1" 200 408
+Time before http request : 5.95824503899
+
+2015-07-07 10:19:15,958 - stAPIclient - INFO - Time before http request : 5.95824503899
+
+Time to after http request: 5.99742794037
+
+2015-07-07 10:19:15,997 - stAPIclient - INFO - Time to after http request: 5.99742794037
+
+127.0.0.1 - - [07/Jul/2015 10:19:16] "GET /ajax/fts HTTP/1.1" 200 165
+Time before http request : 6.00412893295
+
+2015-07-07 10:19:16,004 - stAPIclient - INFO - Time before http request : 6.00412893295
+
+Time to after http request: 6.02979302406
+
+2015-07-07 10:19:16,029 - stAPIclient - INFO - Time to after http request: 6.02979302406
+
+127.0.0.1 - - [07/Jul/2015 10:19:16] "GET /ajax/una HTTP/1.1" 200 142
+Time before http request : 6.03229093552
+
+2015-07-07 10:19:16,032 - stAPIclient - INFO - Time before http request : 6.03229093552
+
+Time to after http request: 6.04641389847
+
+2015-07-07 10:19:16,046 - stAPIclient - INFO - Time to after http request: 6.04641389847
+
+127.0.0.1 - - [07/Jul/2015 10:19:16] "GET /ajax/rev HTTP/1.1" 200 504
+Time before http request : 6.04831695557
+
+2015-07-07 10:19:16,048 - stAPIclient - INFO - Time before http request : 6.04831695557
+
+Time to after http request: 6.48897194862
+
+2015-07-07 10:19:16,488 - stAPIclient - INFO - Time to after http request: 6.48897194862
+
+127.0.0.1 - - [07/Jul/2015 10:19:16] "GET /ajax/acts HTTP/1.1" 200 26780
+127.0.0.1 - - [07/Jul/2015 10:19:16] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
+127.0.0.1 - - [07/Jul/2015 10:19:16] "GET /dash HTTP/1.1" 200 14297
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /js/jquery.js HTTP/1.1" 200 95785
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /js/dashboard.js HTTP/1.1" 200 12853
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /css/dashboard.css HTTP/1.1" 200 2455
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /css/bootstrap.css HTTP/1.1" 200 142081
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /css/sb-admin.css HTTP/1.1" 200 3710
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /img/MongoDB_Logo.png HTTP/1.1" 200 7084
+Time before http request : 7.14653110504
+
+2015-07-07 10:19:17,146 - stAPIclient - INFO - Time before http request : 7.14653110504
+
+Time to after http request: 7.22813200951
+
+2015-07-07 10:19:17,228 - stAPIclient - INFO - Time to after http request: 7.22813200951
+
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /ajax/sla HTTP/1.1" 200 408
+Time before http request : 7.23136997223
+
+2015-07-07 10:19:17,231 - stAPIclient - INFO - Time before http request : 7.23136997223
+
+Time to after http request: 7.25486111641
+
+2015-07-07 10:19:17,254 - stAPIclient - INFO - Time to after http request: 7.25486111641
+
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /ajax/fts HTTP/1.1" 200 165
+Time before http request : 7.25932002068
+
+2015-07-07 10:19:17,259 - stAPIclient - INFO - Time before http request : 7.25932002068
+
+Time to after http request: 7.27913808823
+
+2015-07-07 10:19:17,279 - stAPIclient - INFO - Time to after http request: 7.27913808823
+
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /ajax/una HTTP/1.1" 200 142
+Time before http request : 7.28163003922
+
+2015-07-07 10:19:17,281 - stAPIclient - INFO - Time before http request : 7.28163003922
+
+Time to after http request: 7.29924106598
+
+2015-07-07 10:19:17,299 - stAPIclient - INFO - Time to after http request: 7.29924106598
+
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /ajax/rev HTTP/1.1" 200 504
+Time before http request : 7.30141711235
+
+2015-07-07 10:19:17,301 - stAPIclient - INFO - Time before http request : 7.30141711235
+
+Time to after http request: 7.61698102951
+
+2015-07-07 10:19:17,617 - stAPIclient - INFO - Time to after http request: 7.61698102951
+
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /ajax/acts HTTP/1.1" 200 26780
+127.0.0.1 - - [07/Jul/2015 10:19:17] "GET /css/bootstrap.css.map HTTP/1.1" 404 762

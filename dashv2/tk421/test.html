@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin - Bootstrap Admin Template</title>
+
+    <!-- // <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+    <script src="js/jquery.js"></script>
+    <script src="js/spin.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <!-- <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+    <link rel="shortcut icon" href="https://cdn.rawgit.com/dtgm/chocolatey-packages/8f7101024b11677be45a74b45114000b428a9c9b/icons/mongodb.png" type="image/png" />
+    <!-- <link rel="stylesheet" href="/css/bootstrap.min.css"></link> -->
+    <link rel="stylesheet" href="css/dashboard.css"></link>
+    <link rel="stylesheet" hret="css/bootstrap-responsive.min.css"></link>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <!-- <link href="css/plugins/morris.css" rel="stylesheet"> -->
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="shortcut icon" href="https://cdn.rawgit.com/dtgm/chocolatey-packages/8f7101024b11677be45a74b45114000b428a9c9b/icons/mongodb.png" type="image/png" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body style="background-color:#453823;" onhashchange="hashHandler()">
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img class="media-object" style="max-width:130%;max-height:130%;" src="https://cdn.rawgit.com/dtgm/chocolatey-packages/8f7101024b11677be45a74b45114000b428a9c9b/icons/mongodb.png" type="image/png"alt="No Image: "></a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-left top-nav">
+                <li class="navbar-brand">Support Dashboard
+                </li>
+            </ul>
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                    </li>
+                    <li>
+                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i>Elements</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                    </li>
+                    <li class="active">
+                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+            <div class="well row-fluid" style="background-color:white;" id="HEAD">
+                <!-- <div class="row col-lg-12"> -->
+                    <ul class="nav nav-pills">
+                        <li style="width:30%;font-size:20px;"><a href="#Tickets">Tickets</a></li>
+                        <li style="width:30%;font-size:20px;"><a href="#Reviews">Reviews</a></li>
+                    </ul>
+                <!-- </div> -->
+            </div>
+
+            <div class="well" style="background-color:white;">
+                <div class=" ticketinfo col-lg-6"  style="background-color:white;" id="TICKS">
+                    <div id="SLA"><h3 style="font-size:15;">SLA Tickets</h3>
+                        <table class="table table-condensed" style="border-collapse:collapse;" id="ticket-tab">
+                            <thead>
+                                <tr>
+                                    <th>Ticket ID</th>
+                                    <th>SLA Time</th>
+                                    <th>Priority</th>
+                                    <th>Assignee</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="trows">
+                                <!-- Javascript Inserts Rows Here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class=" ticketinfo col-lg-6"  style="background-color:white;" id="TICKS">
+                    <div id="FTS"><h3 style="font-size:15;">FTS Tickets</h3>
+                        <table class="table table-condensed" style="border-collapse:collapse;" id="ticket-tab">
+                            <thead>
+                                <tr>
+                                    <th>Ticket ID</th>
+                                    <th>FTS Time</th>
+                                    <th>Priority</th>
+                                    <th>Some Field</th>
+                                    <th>Other Field</th>
+                                </tr>
+                            </thead>
+                            <tbody class="trows">
+                                <!-- Javascript Inserts Rows Here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <!-- </div> -->
+
+                <div class="row-fluid">
+                    <div class=" ticketinfo col-large-6"  style="background-color:white;" id="TICKS">
+                        <div id="UNA"><h3 style="font-size:15;">UNA Tickets</h3>
+                            <table class="table table-condensed" style="border-collapse:collapse;" id="ticket-tab">
+                                <thead>
+                                    <tr>
+                                        <th>Ticket ID</th>
+                                        <th>UNA Time</th>
+                                        <th>Priority</th>
+                                        <th>Some Field</th>
+                                        <th>Other Field</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="trows">
+                                    <!-- Javascript Inserts Rows Here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class=" ticketinfo hidden"  style="background-color:white;" id="REVS">
+                        <div id="REV"><h3 style="font-size:15;">Reviews</h3>
+                            <table class="table table-condensed" style="border-collapse:collapse;" id="ticket-tab">
+                                <thead>
+                                    <tr>
+                                        <th>Ticket ID</th>
+                                        <th>Review Time</th>
+                                        <th>Priority</th>
+                                        <th>Requested By</th>
+                                        <th>Some Field</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="trows">
+                                    <!-- Javascript Inserts Rows Here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class=" ticketinfo col-large-6"  style="background-color:white;" id="TICKS">
+                        <div id="ACTS"><h3 style="font-size:15;">Remaining Active Tickets</h3>
+                            <table class="table table-condensed" style="border-collapse:collapse;" id="ticket-tab">
+                                <thead>
+                                    <tr>
+                                        <th>Ticket ID</th>
+                                        <th>Time Waiting</th>
+                                        <th>Priority</th>
+                                        <th>Assignee</th>
+                                        <th>Other Field</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="trows">
+                                    <!-- Javascript Inserts Rows Here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Page Heading -->
+                <!-- /.row -->
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <!-- // <script src="js/jquery.js"></script> -->
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/dashboard.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+<!--     // <script src="js/plugins/morris/raphael.min.js"></script>
+    // <script src="js/plugins/morris/morris.min.js"></script>
+    // <script src="js/plugins/morris/morris-data.js"></script> -->
+
+</body>
+
+</html>

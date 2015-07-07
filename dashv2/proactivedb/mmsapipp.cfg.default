@@ -1,0 +1,5 @@
+log             mmsapipp.log
+log-level       INFO
+mongo-uri       mongodb://localhost:27017
+mmsapi-user     mmsapiuser
+mmsapi-token    mmsapitoken
