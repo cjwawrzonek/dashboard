@@ -1,6 +1,0 @@
-
-The Query:
-
-{'$and': [{'jira.fields.issuetype.name': {'$nin': ['Tracking']}}, {'jira.fields.project.key': {'$in': ['CS', 'MMSSUPPORT', 'SUPPORT', 'PARTNER']}}, {'jira.fields.status.name': {'$in': ['Open', 'Reopened', 'In Progress', 'Waiting For User Input']}}]}
-
-

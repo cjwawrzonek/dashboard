@@ -37,6 +37,7 @@ import sys
 import time
 import urllib
 
+from pprint import pprint
 from datetime import datetime, timedelta
 from jirapp import jirapp
 from sfdcpp import sfdcpp
@@ -51,14 +52,14 @@ class stAPI:
         self.args = args
         self.logger = logging.getLogger("logger")
 
-        self.dash_query = {'$and': [
+        self.support_query = {'$and': [
             {'jira.fields.issuetype.name': {'$nin': ['Tracking']}},
             {'jira.fields.project.key': {'$in': ['CS', 'MMSSUPPORT', 'SUPPORT',
                 'PARTNER']}}
             ]
         }
 
-        self.summary_proj = {'_id': 0,
+        self.dash_proj = {'_id': 0,
             'dash.active.now': 1,
             'deleted': 1,
             'jira.fields.assignee': 1,
@@ -67,7 +68,7 @@ class stAPI:
             'jira.fields.summary': 1,
             'jira.fields.labels': 1,
             'jira.fields.priority.id': 1,
-            # 'jira.fields.reporter': 1,
+            'jira.fields.reporter': 1,
             'jira.fields.status': 1,
             'jira.fields.updated': 1,
             'jira.fields.comment.comments.author.emailAddress': 1,
@@ -183,19 +184,22 @@ class stAPI:
             return {'ok': False, 'payload': e}
         return {'ok': True, 'payload': doc}
 
-    def getActiveIssues(self, **kwargs):
-        """ Return all active issues """
-        self.logger.debug("getActiveIssues()")
+    def createUser(self, user, **kwargs):
+        """ Create a new user with appropriate defaults """
+        self.logger.debug("createUser(%s)", user)
 
-        if kwargs.get('query', None) is not None:
-            query = kwargs.get('query', None)
-        else:
-            query = {'$and':[{}]}
+        match = {'user': user}
+        updoc = {'groups': [],
+                 'name': '"A man needs a name..."',
+                 'token_created_date': datetime.now(),
+                 'token_expiry_date': datetime.max,
+                 'workflows': ["MyOpenTickets"]}
+        # third argument is upsert
+        return self.find_and_modify_user(match, updoc, True)
 
-        query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
-                'In Progress', 'Waiting For User Input']}})
-
-        proj = kwargs.get('proj', None)
+    def getIssues(self, query, proj=None, **kwargs):
+        """ Return all issues from query """
+        self.logger.debug("getIssues()")
 
         res = self.find(self.coll_issues, query, proj)
 
@@ -208,6 +212,30 @@ class stAPI:
             self.logger.warning(message)
         return {'ok': True, 'payload': docs}
 
+    # def getActiveIssues(self, **kwargs):
+    #     """ Return all active issues """
+    #     self.logger.debug("getActiveIssues()")
+
+    #     if kwargs.get('query', None) is not None:
+    #         query = kwargs.get('query', None)
+    #     else:
+    #         query = {'$and':[{}]}
+
+    #     query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
+    #             'In Progress', 'Waiting For User Input']}})
+
+    #     proj = kwargs.get('proj', None)
+
+    #     res = self.find(self.coll_issues, query, proj)
+
+    #     if not res['ok']:
+    #         return res
+    #     docs = res['payload']
+
+    #     if docs is None:
+    #         message = "No active issues"
+    #         self.logger.warning(message)
+    #     return {'ok': True, 'payload': docs}
 
     def getActiveReviews(self, **kwargs):
         """ Return all active reviews """
@@ -223,62 +251,66 @@ class stAPI:
             self.logger.warning(message)
         return {'ok': True, 'payload': docs}
 
-    def getActiveFTSs(self, **kwargs):
-        """ Return FTSs  """
-        self.logger.info("getActiveFTSs()")
+    # def getActiveFTSs(self, **kwargs):
+    #     """ Return FTSs  """
+    #     kw = ""
+    #     for key, value in kwargs.iteritems():
+    #         kw = kw + "{" + str(key) + ":" + str(value) + "}, "
+    #     self.logger.debug("getActiveFTSs()")
 
-        if kwargs.get('query', None) is not None:
-            query = kwargs.get('query', None)
-        else:
-            query = {'$and':[{}]}
+    #     if kwargs.get('query', None) is not None:
+    #         query = kwargs.get('query', None)
+    #     else:
+    #         query = {'$and':[{}]}
 
-        query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened', 'In Progress', 'Waiting For User Input']}})
-        query['$and'].append({'jira.fields.labels':'fs'})
-        proj = kwargs.get('proj', None)
+    #     query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened', 'In Progress', 'Waiting For User Input']}})
+    #     query['$and'].append({'jira.fields.labels':'fs'})
+    #     proj = kwargs.get('proj', None)
 
-        res = self.find(self.coll_issues, query, proj)
+    #     res = self.find(self.coll_issues, query, proj)
 
-        if not res['ok']:
-            return res
-        docs = res['payload']
+    #     if not res['ok']:
+    #         return res
+    #     docs = res['payload']
 
-        fts = []
-        for doc in docs:
-            issue = SupportIssue().fromDoc(doc)
+    #     fts = []
+    #     for doc in docs:
+    #         issue = SupportIssue().fromDoc(doc)
 
-            if self._isFTS(issue):
-                fts.append(doc)
+    #         if self._isFTS(issue):
+    #             fts.append(doc)
 
-        return {'ok': True, 'payload': fts}
+    #     return {'ok': True, 'payload': fts}
 
-    def getActiveSLAs(self, **kwargs):
-        """ Return unsatisfied SLAs """
-        self.logger.debug("getActiveSLAs()")
+    # def getActiveSLAs(self, **kwargs):
+    #     """ Return unsatisfied SLAs """
+    #     self.logger.debug("getActiveSLAs()")
 
-        if kwargs.get('query', None) is not None:
-            query = kwargs.get('query', None)
-        else:
-            query = {'$and':[{}]}
+    #     if kwargs.get('query', None) is not None:
+    #         query = kwargs.get('query', None)
+    #     else:
+    #         query = {'$and':[{}]}
 
-        query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
-                'In Progress', 'Waiting For User Input']}})
-        query['$and'].append({'sla.expireAt' : {'$ne':None}})
-        proj = kwargs.get('proj', None)
+    #     query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
+    #             'In Progress', 'Waiting For User Input']}})
+    #     query['$and'].append({'sla.expireAt' : {'$ne':None}})
+    #     proj = kwargs.get('proj', None)
 
-        res = self.find(self.coll_issues, query, proj)
+    #     res = self.find(self.coll_issues, query, proj)
 
-        if not res['ok']:
-            return res
-        docs = res['payload']
+    #     if not res['ok']:
+    #         return res
+    #     docs = res['payload']
 
-        slas = []
-        for doc in docs:
-            issue = SupportIssue().fromDoc(doc)
+    #     slas = []
+    #     for doc in docs:
 
-            if self._isSLA(issue):
-                slas.append(doc)
+    #         issue = SupportIssue().fromDoc(doc)
 
-        return {'ok': True, 'payload': slas}
+    #         if self._isSLA(issue):
+    #             slas.append(doc)
+
+    #     return {'ok': True, 'payload': slas}
 
     def getActiveUNAs(self, **kwargs):
         """ Return FTSs  """
@@ -292,9 +324,6 @@ class stAPI:
         query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
                 'In Progress', 'Waiting For User Input']}})
         query['$and'].append({'jira.fields.assignee':None})
-
-        self.logger.info("una query")
-        self.logger.info(query)
 
         proj = kwargs.get('proj', None)
 
@@ -333,84 +362,92 @@ class stAPI:
             return {'ok': False, 'payload': message}
         return {'ok': True, 'payload': doc}
 
-    def getUpdatedIssues(self, last_updated, **kwargs):
-        """return issues that have been updated since passed update string"""
-        proj = kwargs.get('proj', None)
-        if proj is None:
-            proj = {}
-        query = {'$and': [
-            {'jira.fields.issuetype.name': {'$nin': ['Tracking']}},
-            {'jira.fields.project.key': {'$in': ['CS', 'MMSSUPPORT', 'SUPPORT',
-                'PARTNER']}},
-            {"jira.fields.updated": {"$gte": last_updated}}
-            ]
-        }
+    # def getUpdatedIssues(self, last_updated, **kwargs):
+    #     """return issues that have been updated since passed update string"""
+    #     proj = kwargs.get('proj', None)
+    #     if proj is None:
+    #         proj = {}
+    #     query = {'$and': [
+    #         {'jira.fields.issuetype.name': {'$nin': ['Tracking']}},
+    #         {'jira.fields.project.key': {'$in': ['CS', 'MMSSUPPORT', 'SUPPORT',
+    #             'PARTNER']}},
+    #         {"jira.fields.updated": {"$gte": last_updated}}
+    #         ]
+    #     }
 
-        res = self.find(self.coll_issues, query, proj)
+    #     res = self.find(self.coll_issues, query, proj)
 
-        if not res['ok']:
-            return res
-        docs = res['payload']
+    #     if not res['ok']:
+    #         return res
+    #     docs = res['payload']
 
-        if docs is None:
-            message = "No updated issues"
-            self.logger.warning(message)
-        return {'ok': True, 'payload': docs}
+    #     if docs is None:
+    #         message = "No updated issues"
+    #         self.logger.warning(message)
+    #     return {'ok': True, 'payload': docs}
 
-    def _get(self, col, query=None, proj=None, **kwargs):
-        """ Return all issues that match the query. If query is in string format, 
-        creates a dictionary using bson.json_util library. Same thing for proj, if
-        one exists"""
+    # def getUserByToken(self, token, **kwargs):
+    #     """ Return the associated user document """
+    #     self.logger.debug("getUserByToken(%s)", token)
+    #     # Currently authenticating against username
+    #     # TODO: use Crowd REST API to validate token
+    #     res = self.find_one(self.coll_users, {'user': token})
+    #     if not res['ok']:
+    #         return res
+    #     user = res['payload']
+    #     if user is None:
+    #         message = "user not found for token '%s'" % token
+    #         self.logger.warning(message)
+    #         return {'ok': False, 'payload': message}
+    #     return {'ok': True, 'payload': user}
 
-        logger.debug("Time to start of self.get() : " + str(time.time() % 10) + "\n")
+    # def getWaitingIssues(self, **kwargs):
+    #     """ Return all active issues """
+    #     self.logger.debug("getWaitingIssues()")
 
-        # Set the collection
-        if col == "issues":
-            collection = self.coll_issues
-        elif col == "reviews":
-            collection = self.coll_reviews
-        elif col == "companies":
-            collection = self.coll_companies
-        else:
-            raise ValueError("Error in stapi.get(): No collection named %s" % col)
+    #     if kwargs.get('query', None) is not None:
+    #         query = kwargs.get('query', None)
+    #     else:
+    #         query = {'$and':[{}]}
 
-        if query is not None:
-            if type(query) is str:
-            	query = bson.json_util.loads(query)
-            elif type(query) is not dict:
-                raise TypeError('Error in getIssues(): '
-                    'query is of type %s. Requires <dict> or <str>' % str(type(query)))
+    #     query['$and'].append({'jira.fields.status.name': 'Waiting for Customer'})
 
-            # self.logger.debug("get(%s)", bson.json_util.dumps(query))
+    #     proj = kwargs.get('proj', None)
 
-        if proj is not None:
-            if type(proj) is str:
-                proj = bson.json_util.loads(proj)
-            elif type(proj) is not dict:
-                raise TypeError('Error in getIssues(): '
-                    'proj is of type %s. Requires <dict> or <str>' % str(type(proj)))
+    #     res = self.find(self.coll_issues, query, proj)
 
-            # self.logger.debug("get(%s)", bson.json_util.dumps(query))
+    #     if not res['ok']:
+    #         return res
+    #     docs = res['payload']
 
-        logger.debug("Time to just before find() : " + str(time.time() % 10) + "\n")
+    #     return {'ok': True, 'payload': docs}
 
-        res = self.find(collection, query, proj)
+    # def getIssuesUsrAssigned(self, **kwargs):
+    #     """ Return all issues Assigned to User """
+    #     self.logger.debug("getIssuesUserAssigned()")
 
-        ## self.find returns a payload of a pymongo.cursor.Cursor Ojbect
+    #     if kwargs.get('query', None) is not None:
+    #         query = kwargs.get('query', None)
+    #     else:
+    #         query = {'$and':[{}]}
 
-        logger.debug("Time to just after find() : " + str(time.time() % 10) + "\n")
+    #     query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
+    #             'In Progress']}})
 
-        if not res['ok']:
-            return res
-        docs = res['payload']
+    #     usr_name = kwargs['userDoc']['user']
+    #     self.logger.debug(usr_name)
+    #     if usr_name is None:
+    #         return {'ok': False, 'payload':'Could not find usr_name in kwargs'}
+    #     query['$and'].append({'jira.fields.assignee.name': usr_name})
 
-        if docs is None:
-            message = "issue for < %s > query not found" % bson.json_util.dumps(query)
-            self.logger.warning(message)
+    #     proj = kwargs.get('proj', None)
+    #     res = self.find(self.coll_issues, query, proj)
 
-        logger.debug("Time to end of self.get() : " + str(time.time() % 10) + "\n")
+    #     if not res['ok']:
+    #         return res
+    #     docs = res['payload']
 
-        return {'ok': True, 'payload': docs}
+    #     return {'ok': True, 'payload': docs}
 
     """ Return a JSON-validated dict for the string """
     def _loadJson(self, string):
@@ -456,16 +493,16 @@ class stAPI:
     # issue aggregators, null by default.
     # ----------------------------------------------------
 
-    def updateIssue(self, iid, updoc, **kwargs):
-        """ They see me rollin' """
-        """ ** They see me mowin' my front lawn """
-        self.logger.debug("updateIssue(%s,%s)", iid, updoc)
-        res = self.getObjectId(iid)
-        if not res['ok']:
-            return res
-        iid = res['payload']
-        match = {'_id': iid}
-        return self.find_and_modify_issue(match, updoc)
+    # def updateIssue(self, iid, updoc, **kwargs):
+    #     """ They see me rollin' """
+    #     """ ** They see me mowin' my front lawn """
+    #     self.logger.debug("updateIssue(%s,%s)", iid, updoc)
+    #     res = self.getObjectId(iid)
+    #     if not res['ok']:
+    #         return res
+    #     iid = res['payload']
+    #     match = {'_id': iid}
+    #     return self.find_and_modify_issue(match, updoc)
 
     def start(self):
         """ Start the RESTful interface """
@@ -489,9 +526,6 @@ class stAPI:
                     if len(kv) == 2:
                         auth_dict = {kv[0]: kv[1]}
                 token = auth_dict.get('usr_token', None)
-
-                # match = {'token': token,
-                #         'token_expiry_date': {"$gt": datetime.utcnow()}}
                 match = {'user': token}
                 doc = self.coll_users.find_one(match)
                 if not doc:
@@ -500,6 +534,16 @@ class stAPI:
                     kwargs['userDoc'] = doc
                     return func(*args, **kwargs)
             return wrapped
+
+        @b.hook('before_request')
+        def checkAndSetAccessControlAllowOriginHeader():
+            if self.args['access_control_allowed_origins'] is not None:
+                allowed_origins = self.args['access_control_allowed_origins']\
+                                      .split(',')
+                origin = bottle.request.get_header('Origin')
+                if origin in allowed_origins:
+                    bottle.response.set_header('Access-Control-Allow-Origin',
+                                               origin)
 
         def success(data=None):
 
@@ -514,16 +558,7 @@ class stAPI:
 
             content = bson.json_util.dumps(ret)
 
-            # issues_list = [i for i in data] 
-
-            logger.debug("Time to after issues_list : " + str(time.time() % 10) + "\n")
-
-            # docs = []
-
-            logger.debug("Time to before iteration : " + str(time.time() % 10) + "\n")
-
-            # for i in issues_list:
-            #     docs.append(i)
+            logger.debug("Time to after bson dump : " + str(time.time() % 10) + "\n")
 
             compressed = StringIO.StringIO()
 
@@ -538,7 +573,6 @@ class stAPI:
 
             logger.debug("Time to just after compressed.getvalue() : " + str(time.time() % 10) + "\n")
 
-            # return docs
             return temp
 
         def fail(data=None):
@@ -560,13 +594,29 @@ class stAPI:
 
         # -------------------------------------------------------------
         # Endpoints of the RESTful API
-        #
-        # NOTE: I'm leaving in the @authenticated calls in comments for
-        # reference when we add them in later
         # -------------------------------------------------------------
 
+        @b.get('/login')
+        def user_login(**kwargs):
+            """ Find a user with the specified auth_token """
+            self.logger.debug("user_login()")
+            token = bottle.request.params.get('token')
+            if token:
+                token = token.replace('%40', '@')
+                res = self.getUserByToken(token)
+                if not res['ok']:
+                    # a new user, hooray!?
+                    res = self.createUser(token)
+                    if not res['ok']:
+                        return error(res['payload'])
+                user = res['payload']
+
+                if user is not None:
+                    return success(res['payload'])
+            return error("unable to authenticate token")
+
         @b.post('/issues')
-        # @authenticated
+        @authenticated
         def issue_create(**kwargs):
             body = bottle.request.body.read()
 
@@ -581,84 +631,133 @@ class stAPI:
             return error(res['payload'])
 
         @b.route('/reviews')
-        # @authenticated
+        @authenticated
         def active_reviews(**kwargs):
         	#"""Returns all active reviews"""
             if bottle.request.query.get('active', None) is not None:
-                # self.logger.debug("here 7 \n\n")
-                # self.logger.debug(_response(self.getActiveReviews, **kwargs))
                 return _response(self.getActiveReviews, **kwargs)
             else:
                 return _response(self.get, self.coll_reviews, query={}, **kwargs)
 
-        """ Have yet to implement this guy. TODO: implement the damnt thing """
-        # @b.post('/login')
-        # def user_login(**kwargs):
-        #     """ Find a user with the specified auth_token """
-        #     self.logger.debug("user_login()")
-        #     token = bottle.request.params.get('kk_token')
-        #     if 'kk_token' in bottle.request.params:
-        #         token = bottle.request.params['kk_token']
-        #         res = self.getUserByToken(token)
-        #         if not res['ok']:
-        #             # a new user, hooray!?
-        #             res = self.createUser(token)
-        #             if not res['ok']:
-        #                 return error(res['payload'])
-        #         user = res['payload']
-
-        #         if user is not None:
-        #             return success(res['payload'])
-        #     return error("unable to authenticate token")
-
         @b.route('/reviews/<id>')
-        # @authenticated
+        @authenticated
         def review_id(id, **kwargs):
             return _response(self.getReviewByID, id=id, **kwargs)
 
         @b.route('/issues/<id>')
-        # @authenticated
+        @authenticated
         def issue_id(id, **kwargs):
             return _response(self.getIssueByID, id=id, query=query, **kwargs)
 
-        @b.route('/issues/summary')
-        # @authenticated
-        def issues_summary(**kwargs):
-            #""" Returns a trimmed (projected) set of issues """
-            proj = self.summary_proj
-            last_updated = bottle.request.query.get('last_updated', None)
+        @b.route('/issues/dash/sla')
+        @authenticated
+        def issues_sla(**kwargs):
+            proj = self.dash_proj
+            query = copy.deepcopy(self.support_query)
+            query['$and'].append({'jira.fields.status.name': 'Open'})
+            query['$and'].append({'sla.expireAt' : {'$ne':None}})
 
-            if bottle.request.query.get('dash', None) is not None:
-                query = copy.deepcopy(self.dash_query)
+            res = self.getIssues(query, proj, **kwargs)
+            if not res['ok']:
+                return error(res['payload'])
+            else:
+                docs = res['payload']
+
+            data = []
+            for i in docs:
+                issue = SupportIssue().fromDoc(i)
+                if self._isSLA(issue):
+                    data.append(i)
+                    
+            return success(data)
+
+
+        @b.route('/issues/dash/fts')
+        @authenticated
+        def issues_fts(**kwargs):
+            proj = self.dash_proj
+            query = copy.deepcopy(self.support_query)
+            query['$and'].append({
+                'jira.fields.status.name': {'$in': [
+                    'Open', 'Reopened','In Progress','Waiting for Customer',
+                    'Waiting For User Input']}})
+            query['$and'].append({'jira.fields.status.name': 'fs'})
+
+            res = self.getIssues(query, proj, **kwargs)
+            if not res['ok']:
+                return error(res['payload'])
+            else:
+                docs = res['payload']
+
+            data = []
+            for i in docs:
+                issue = SupportIssue().fromDoc(i)
+                if self._isFTS(issue):
+                    data.append(i)
+
+            return success(data)
+
+        """ Return a summary pertaining to the dashboard. The possible query
+        parameters are:
+
+        # last_updated: a time to trace updates to,
+        # support: filters only issues related to support (CS, MMSSUPPORT, etc)
+        # active: active issues
+        # una: unassigned issues
+        # wait: issues waiting for customer input
+        # usr_assigned: all issues assigned to a user name
+
+        and each parameter adds a filter in the query search """
+        @b.route('/issues/dash')
+        @authenticated
+        def dash_issues(**kwargs):
+            # Returns a trimmed (projected) set of issues 
+            proj = self.dash_proj # added because we're in the /dash summary obj
+            check_una = False
+
+            # If suppprt filter is set, only give back issues related to
+            # support
+            if bottle.request.query.get('support', None) is not None:
+                query = copy.deepcopy(self.support_query)
             else:
                 query = {'$and':[{}]}
 
-            if bottle.request.query.get('active', None) is not None:
-                return _response(self.getActiveIssues, proj=proj, query=query, 
-                    **kwargs)
-
-            elif bottle.request.query.get('sla', None) is not None or \
-                bottle.request.query.get('SLA', None) is not None:
-                return _response(self.getActiveSLAs, proj=proj, query=query, 
-                    **kwargs)
-
-            elif bottle.request.query.get('fts', None) is not None or \
-                bottle.request.query.get('FTS', None) is not None:
-                return _response(self.getActiveFTSs, proj=proj, query=query, 
-                    **kwargs)
-
-            elif bottle.request.query.get('una', None) is not None or \
-                bottle.request.query.get('UNA', None) is not None:
-                return _response(self.getActiveUNAs, proj=proj, query=query, 
-                    **kwargs)
-
-            elif last_updated is not None:
+            last_updated = bottle.request.query.get('last_updated', None)
+            if last_updated is not None:
                 logger.debug(last_updated)
                 logger.debug("that's last updated " + str(last_updated) + "\n")
                 last_updated = dateutil.parser.parse(last_updated)
                 last_updated = last_updated - timedelta(seconds=30)
-                return _response(self.getUpdatedIssues, \
-                    last_updated=last_updated, proj=proj, query=query, **kwargs)
+                query['and'].append({"jira.fields.updated": {"$gte": last_updated}})
+
+            if bottle.request.query.get('active', None) is not None:
+                if bottle.request.query.get('wait', None) is not None:
+                    query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
+                        'In Progress', 'Waiting For User Input', 'Waiting For Customer']}})
+                else: 
+                    query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
+                        'In Progress', 'Waiting For User Input']}})
+                    query['$and'].append({'dash.active.now':True})
+            elif bottle.request.query.get('wait', None) is not None:
+                query['$and'].append({'jira.fields.status.name': 'Waiting for Customer'})
+
+            if bottle.request.query.get('una', None) is not None or \
+                bottle.request.query.get('UNA', None) is not None:
+                query['$and'].append({'jira.fields.assignee':None})
+
+            if bottle.request.query.get('usr_assigned', None) is not None:
+                usr_name = kwargs['userDoc']['user']
+                self.logger.debug(usr_name)
+                self.logger.debug("here " + str(usr_name) + "\n ")
+                if usr_name is None:
+                    return {'ok': False, 'payload':'Could not find usr_name in kwargs'}
+                query['$and'].append({'jira.fields.assignee.name': usr_name})
+
+
+            self.logger.debug("here fuckers")
+            self.logger.debug(query)
+
+            return _response(self.getIssues, query=query, proj=proj, **kwargs)
 
     	b.run(host=self.args['rest_host'], port=self.args['rest_port'])
 

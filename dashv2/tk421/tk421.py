@@ -24,6 +24,8 @@ from supportissue import SupportIssue, isMongoDBEmail
 import sys
 import time
 import urlparse
+
+from pprint import pprint
 from wsgiproxy.app import WSGIProxyApp
 
 
@@ -32,15 +34,6 @@ import ctypes as c
 _get_dict = c.pythonapi._PyObject_GetDictPtr
 _get_dict.restype = c.POINTER(c.py_object)
 _get_dict.argtypes = [c.py_object]
-
-try:
-    timedelta.total_seconds
-except AttributeError:
-    def total_seconds(td):
-        return float((td.microseconds +
-                      (td.seconds + td.days * 24 * 3600) * 10**6)) / 10**6
-    d = _get_dict(timedelta)[0]
-    d['total_seconds'] = total_seconds
 
 # Potentially use this to create timezone relevant times
 utc = pytz.UTC
@@ -78,7 +71,6 @@ class tk421():
         # self.token = self.args['token']
 
         # Initialize dbs and collections
-        #REMOVE
         try:
             self.mongo = pymongo.MongoClient(self.args['mongo_uri'])
         except pymongo.errors.PyMongoError as e:
@@ -95,301 +87,82 @@ class tk421():
 
         self.lastCacheUpdate = None
 
-    def getIssues(self, data):
-        """The workhorse of refreshing the page. Given data, containing the
-        currently displayed issues and the time they were last updated, update it
-        to contain the issues that should appear on the dashboard.
-        (SLA: Service Level Agreement, we are contractually obligated to respond in
-             a certain amount of time to these issues, but haven't yet.
-         FTS: Full Time Support, issues that need 24 hr monitoring. They are tagged
-             as such in jira.
-         REV: Reviews, issues needing review from peers. Stored in a separate
-             collection in mongo.
-         UNA: Unnassigned, issues with no assignee with the last comment made by a
-             non-mongodb employee)"""
-        start = datetime.utcnow()  # Time this and log how long refreshing took.
-        # try:
-        #     cur = self.getRelevantIssues(db, data)
-        # except pymongo.errors.PyMongoError as e:
-        #     return {"error": "Error querying the Mongo database: " +
-        #             e.message}
-
-        # slas = self.sc.getActiveSLAs()
-
-        """ What the hell is this line doing to break everything ?????? """
-        fts = self.sc.getActiveFTSs()
-
-        unas = self.sc.getActiveUNAs()
-
-        acts = self.sc.getActiveIssues()
-
-        # dt = int((time.time() - stime)*1000)
-        # logfile.write("Time to after getRelevantIssues() run: ")
-        # print >> logfile, dt
-
-        count = 0
-        dbd_data = {
-            # TODO: make sets of these to make the lookups below faster
-            "SLA": data.get("SLA", []),
-            "FTS": data.get("FTS", []),
-            "REV": [],  # Just refresh these every time
-            "UNA": data.get("UNA", []),
-            "ACTS": data.get("ACTS", [])
-            # "active": data.get("active", {}),
-            # "waiting": data.get("waiting", {})
+    def getData(self, view, **kwargs):
+        newData = {
+            view:{}, 
+            'status':'error', 
+            'message':'Error: newData never updated'
         }
 
-        try:
-            revIssues = self.getREVIssues()
-        except pymongo.errors.PyMongoError as e:
-            return {"error": "Error querying the Mongo database: " +
-                    e.message}
+        if view == "TC":
+            viewData = {'SLA':[], 'FTS':[], 'UNA':[]}
+            newData['TC']['SLA'] = self.sc.getActiveSLAs(**kwargs)['payload']
+            newData['TC']['FTS'] = self.sc.getActiveFTSs(**kwargs)['payload']
+            newData['TC']['UNA'] = self.sc.getActiveUNAs(**kwargs)['payload']
+            newData = {'status':'success', 'payload':newData}
 
-        # revIssues = []
+        elif view == "REVS":
+            viewData = {'REV':[]}
+            newData['REVS']['REV'] = self.sc.getActiveReviews(**kwargs)['payload']
+            newData = {'status':'success', 'payload':newData}
 
-        updated_data = {
-            "SLA": [],
-            "FTS": [],
-            "REV": revIssues,
-            "UNA": [],
-            "ACTS": []
-        }
+        elif view == "ACTS":
+            viewData = {'ACTS':[]}
+            newData['ACTS']['ACTS'] = self.sc.getActiveIssues(**kwargs)['payload']
+            newData = {'status':'success', 'payload':newData}
 
-        # self.logger.info(cur)
-        # self.logger.info("cur\n")
+        elif view == "WAITS":
+            viewData = {'WAIT':[]}
+            newData['WAITS']['WAIT'] = self.sc.getWaitingIssues(**kwargs)['payload']
+            newData = {'status':'success', 'payload':newData}
 
-        # for i in slas:
-        #     issue = SupportIssue().fromDoc(i)
+        elif view == "USER":
+            viewData = {'USERASSIGNED':[],'USERREVIEW':[],'USERREVIEWER':[]}
+            newData['USER']['USERASSIGNED'] = self.sc.getAssignedIssues(**kwargs)['payload']
+            newData['USER']['USERREVIEW'] = {} # Must implement this api call
+            newData['USER']['USERREVIEWER'] = {} # Must implement this api call
+            newData = {'status':'success', 'payload':newData}
 
-        #     self.removeCompressedIssueIfPresent(issue, dbd_data["SLA"])
-        #     if self.isSLA(issue):
-        #         updated_data["SLA"].append(self.trimmedSLAIssue(issue))
+        elif view == "UNAS":
+            viewData = {'UNAS':[]}
+            newData['UNAS']['UNAS'] = self.sc.getUNAs(**kwargs)['payload']
+            newData = {'status':'success', 'payload':newData}
 
-        for i in fts:
-            issue = SupportIssue().fromDoc(i)
-
-            self.removeCompressedIssueIfPresent(issue, dbd_data["FTS"])
-            if self.isFTS(issue):
-                updated_data["FTS"].append(self.trimmedFTSIssue(issue))
-
-        for i in unas:
-            issue = SupportIssue().fromDoc(i)
-
-            self.removeCompressedIssueIfPresent(issue, dbd_data["UNA"])
-            if self.isUNA(issue):
-                updated_data["UNA"].append(self.trimmedUNAIssue(issue))
-
-        for i in acts:
-            issue = SupportIssue().fromDoc(i)
-
-            self.removeCompressedIssueIfPresent(issue, dbd_data["ACTS"])
-            if issue.isActive():# and not self.isSLA(issue) and not self.isFTS(issue) and not self.isUNA(issue):
-                updated_data["ACTS"].append(self.trimmedACTSIssue(issue)) # self.trimmedACTSIssue(issue)
-
-        self.mergeAndSortIssues(dbd_data, updated_data)
-
-        duration = datetime.utcnow() - start
-        logger.info("getIssues took {0}, count: {1}".format(duration, count))
-
-        return dbd_data
-
-    def getSLAs(self, data):
-        start = datetime.utcnow()  # Time this and log how long refreshing took.
-
-        slas = self.sc.getActiveSLAs()
-
-        dbd_data = {
-            # TODO: make sets of these to make the lookups below faster
-            "SLA": data.get("SLA", [])
-        }
-        # revIssues = []
-
-        updated_data = {
-            "SLA": []
-        }
-
-        for i in slas:
-            issue = SupportIssue().fromDoc(i)
-
-            self.removeCompressedIssueIfPresent(issue, dbd_data["SLA"])
-            if self.isSLA(issue):
-                updated_data["SLA"].append(self.trimmedSLAIssue(issue))
-
-        self.mergeAndSortIssuesSLAs(dbd_data, updated_data)
-
-        return dbd_data
-
-    def getFTSs(self, data):
-        start = datetime.utcnow()  # Time this and log how long refreshing took.
-
-        fts = self.sc.getActiveFTSs()
-
-        dbd_data = {
-            # TODO: make sets of these to make the lookups below faster
-            "FTS": data.get("FTS", [])
-        }
-        # revIssues = []
-
-        updated_data = {
-            "FTS": []
-        }
-
-        for i in fts:
-            issue = SupportIssue().fromDoc(i)
-
-            self.removeCompressedIssueIfPresent(issue, dbd_data["FTS"])
-            if self.isFTS(issue):
-                updated_data["FTS"].append(self.trimmedFTSIssue(issue))
-
-        self.mergeAndSortIssuesFTSs(dbd_data, updated_data)
-
-        return dbd_data
-
-    def getUNAs(self, data):
-        start = datetime.utcnow()  # Time this and log how long refreshing took.
-
-        unas = self.sc.getActiveUNAs()
-
-        dbd_data = {
-            # TODO: make sets of these to make the lookups below faster
-            "UNA": data.get("UNA", [])
-        }
-        # revIssues = []
-
-        updated_data = {
-            "UNA": []
-        }
-
-        for i in unas:
-            issue = SupportIssue().fromDoc(i)
-
-            self.removeCompressedIssueIfPresent(issue, dbd_data["UNA"])
-            if self.isUNA(issue):
-                updated_data["UNA"].append(self.trimmedUNAIssue(issue))
-
-        self.mergeAndSortIssuesUNAs(dbd_data, updated_data)
-
-        return dbd_data
-
-    def getREVs(self, data):
-        start = datetime.utcnow()  # Time this and log how long refreshing took.
-
-        dbd_data = {
-            # TODO: make sets of these to make the lookups below faster
-            "REV": data.get("FTS", [])
-        }
-        # revIssues = []
-
-        updated_data = {
-            "REV": self.getREVIssues()
-        }
-
-        self.mergeAndSortIssuesREVs(dbd_data, updated_data)
-
-        return dbd_data
-
-    def getACTS(self, data):
-        start = datetime.utcnow()  # Time this and log how long refreshing took.
-
-        acts = self.sc.getActiveIssues()
-
-        dbd_data = {
-            # TODO: make sets of these to make the lookups below faster
-            "ACTS": data.get("ACTS", [])
-        }
-        # revIssues = []
-
-        updated_data = {
-            "ACTS": []
-        }
-
-        for i in acts:
-            issue = SupportIssue().fromDoc(i)
-
-            self.removeCompressedIssueIfPresent(issue, dbd_data["ACTS"])
-            if issue.isActive():# and not self.isSLA(issue) and not self.isFTS(issue) and not self.isUNA(issue):
-                updated_data["ACTS"].append(self.trimmedACTSIssue(issue)) # self.trimmedACTSIssue(issue)
-
-        self.mergeAndSortIssuesACTS(dbd_data, updated_data)
-
-        return dbd_data
-
-    def getRelevantIssues(self, db, data):
-        """If updating dashboard, query for issues that have been updated since the
-        last load. Otherwise query for all relevant issues. data will be empty if
-        this is the first query."""
-        last_updated = data.get('updated', None)
-        # last_updated = "2015-07-01T16:54:45.908Z"
-        if last_updated is not None:
-            cur = self.sc.getUpdatedIssues(last_updated)
+        if newData['status'] == "error":
+            return {'status':'error', 'message':newData['message']}
         else:
-            cur = self.sc.getActiveIssues()
+            newData = newData['payload']
 
-        ## ---- This was the old call. This is replaced with a call to stAPI ----- #
-        # cur = db.issues.find(query, proj)
-        # cur.batch_size(100000)
-        ## ----------------------------------------------------------------------- #
-        
-        return cur
+        for dataType in newData[view]:
+            for i in newData[view][dataType]:
+                if dataType != "REV":
+                    issue = SupportIssue().fromDoc(i)
+                    viewData[dataType].append(self.trimmedDoc(issue, dataType))
+                else:
+                    viewData[dataType].append(self.trimmedDoc(i, dataType))
 
+            """ Sorting should be moved to Javascript, don't you think? """
+            self.sortData(viewData[dataType], dataType.upper())
+        return viewData
 
-    # -----------------------------------------------------------------------------
-    # FILTERS (decide which issues should be displayed on the dashboard)
-    # -----------------------------------------------------------------------------
-
-
-    def getREVIssues(self):
-        # """No fancy logic necessary here, just post all issues needing review."""
-        reviews = self.sc.getActiveReviews()
-        # self.logger.info(reviews)
-        # reviews = doc['data']['reviews']
-        revs_trim = []
-        for review in reviews:
-            revs_trim.append(self.trimmedREVDoc(review))
-
-        return revs_trim
-
-        # ----------- Old calls. Replaced by call to stAPI ------------------------------- #
-        # return map(self.trimmedREVDoc, self.sc.getActiveReviews())
-        # return map(self.trimmedREVDoc,
-        #            db.reviews.find({"done": False})) # , "lgtms": {"$exists": False}
-        # -------------------------------------------------------------------------------- #
-
-
-    def isSLA(self, issue):
-        """Return true if the issue should be displayed in the SLA row of the
-        dashboard."""
-        return (issue.isActive() and
-                issue.hasSLA() and
-                'expireAt' in issue.doc['sla'] and
-                issue.doc['sla']['expireAt'] is not None and
-                ((not issue.isProactive() and issue.firstXGenPublicComment is None)
-                    or (issue.isProactive() and
-                        issue.firstXGenPublicCommentAfterCustomerComment is None)))
-
-
-    def isFTS(self, issue):
-        """Return true if the issue should be displayed in the FTS row of the
-        dashboard."""
-        return (issue.isActive() and
-                issue.isFTS())
-
-
-    def isUNA(self, issue):
-        """Ticket qualifies as UNA if it is open, not an SLA, and has
-        no assignee. Simple"""
-        assignee = issue.doc["jira"]["fields"]["assignee"]
-        if issue.lastXGenPublicComment is None and issue.hasSLA():
-            # Will show up as an SLA
-            return False
-        elif issue.status in ("Resolved", "Closed", "Waiting for bug fix",
-                              "Waiting for Feature", "Waiting for Customer"):
-            return False
-        return (issue.isActive() and assignee is None)
-
-    # -----------------------------------------------------------------------------
+    # ---------------------------------------------------------------------------
     # TRIMMERS (trim issue with extra info into just what's needed to display it)
-    # -----------------------------------------------------------------------------
+    # ---------------------------------------------------------------------------
+
+    """ !IMPORTANT! - I haven't perfectly worked out trimming on the tickets yet.
+    What determines the time that appears on the ticket? Right now I just
+    have a general trimming method for all issues that aren't SLAs, 
+    FTSs, or REVs. This obviously needs to change. """
+
+    def trimmedDoc(self, issue, dtype):
+        if dtype == "SLA":
+            return self.trimmedSLAIssue(issue)
+        elif dtype == "FTS":
+            return self.trimmedFTSIssue(issue)
+        elif dtype == "REV":
+            return self.trimmedREVDoc(issue)
+        else:
+            return self.trimmedIssue(issue)
 
     def trimmedSLAIssue(self, issue):
         """Trim an SLA issue to just it's id and the number of hours and minutes
@@ -433,7 +206,6 @@ class tk421():
                 "minutes": mins % 60,
                 "desc": issue.doc['jira']['fields']['summary']}
 
-
     def trimmedREVDoc(self, doc):
         """Trim a REV issue to just it's id and the number of hours and minutes
         since it was created. Note here the doc does not have all the JIRA fields,
@@ -442,6 +214,7 @@ class tk421():
         """This is sketchy here. I think I just throw away 
         the tzinfo extension. Have to check this functionality later"""
         now = datetime.utcnow()
+
         lastUpdate = doc["requested_at"]
         lastUpdate = lastUpdate.replace(tzinfo=None)
 
@@ -462,10 +235,8 @@ class tk421():
                 "reviewers": eyes_on,
                 "lgtms": lgtms}
 
-    def trimmedUNAIssue(self, issue):
-        """Trim a UNA issue to just it's id and the number of hours and minutes
-        since the last public xgen comment (the last time we've paid attention to
-        it)."""
+    def trimmedIssue(self, issue):
+        """Trim the general issue to a base set of fields TO BE DETERMINED."""
         now = datetime.utcnow()
         allComments = issue.doc['jira']['fields']['comment']['comments']
         lastComment = issue.lastXGenPublicComment
@@ -497,49 +268,13 @@ class tk421():
                 "minutes": mins % 60,
                 "desc": issue.doc['jira']['fields']['summary']}
 
-    def trimmedACTSIssue(self, issue):
-        """Trim the remaining active issues to a base set of fields TO BE DETERMINED."""
-        now = datetime.utcnow()
-        allComments = issue.doc['jira']['fields']['comment']['comments']
-        lastComment = issue.lastXGenPublicComment
-        if lastComment is None:
-            lastUpdate = issue.updated.replace(tzinfo=None)
-        elif lastComment['cidx'] == len(allComments) - 1:  # It's the last comment
-            # Need when the issue was updated, not just created, so get all the
-            # comment info
-            lastUpdate = allComments[lastComment['cidx']]["updated"].replace(tzinfo=None)
-        else:
-            # There has been at least one comment since the public xgen
-            # comment, so if there are any customer comments, base timing off the
-            # first one.
-            lastUpdate = allComments[lastComment['cidx']]["updated"].replace(tzinfo=None)
-            i = lastComment['cidx'] + 1
-            while i < len(allComments):
-                if not isMongoDBEmail(allComments[i]['author']['emailAddress']):
-                    # It's a customer
-                    lastUpdate = allComments[i]["updated"].replace(tzinfo=None)
-                    break
-                i += 1
-        mins = (now - lastUpdate).seconds / 60
-        days = (now - lastUpdate).days
-        return {"id": issue.doc["jira"]["key"],
-                "priority": issue.priority,
-                "assignee": issue.assigneeDisplayName,
-                "days": days,
-                "hours": mins / 60,
-                "minutes": mins % 60,
-                "desc": issue.doc['jira']['fields']['summary']}
-
-
-    # -----------------------------------------------------------------------------
+    # ---------------------------------------------------------------------------
     # OTHER HELPERS
-    # -----------------------------------------------------------------------------
+    # ---------------------------------------------------------------------------
 
-
-    def mergeAndSortIssues(self, dbd_issues, updated_issues):
-        """Add the issues that were updated to the lists of issues on the
-        dashboard and (re)sort them by priority. The priority will be the time, but
-        which order we want them in depends on the type of issue."""
+    def sortData(self, dataWell, dataName):
+        """ Takes in a dataWell and its type (such as SLA or FTS) and sorts it
+        according to its data type. Should sorting be moved to Javascript?? """
 
         def ascendingTimeOrder(t1, t2):
             """A custom comparator to order based on the difference in times in
@@ -547,7 +282,7 @@ class tk421():
             return cmp(t1['total_seconds'], t2['total_seconds'])
 
         def descendingTimeOrder(t1, t2):
-            """A custom comparator to order based on the hour and minute properties
+            """A custom comparator to order based on the hour / minute properties
             of the issues. Puts largest times first."""
             return -cmp((t1['days'], t1['hours'], t1['minutes']),
                         (t2['days'], t2['hours'], t2['minutes']))
@@ -560,94 +295,20 @@ class tk421():
             "FTS": descendingTimeOrder,
             "REV": descendingTimeOrder,
             "UNA": descendingTimeOrder, 
-            "ACTS": descendingTimeOrder
+            "ACTS": descendingTimeOrder,
+            "WAIT": descendingTimeOrder,
+            "USERASSIGNED": descendingTimeOrder,
+            "USERREVIEW": idOrder,  # Only cause idk how to sort these yet
+            "USERREVIEWER": idOrder, # Only cause idk how to sort these yet
+            "UNAS": descendingTimeOrder
         }
 
-        self.logger.info(dbd_issues)
-        self.logger.info("dbd issues in NON slas")
-
-        for category in sorters:
-            if category is not "ACTS":
-                dbd_issues[category].extend(updated_issues[category])
-                dbd_issues[category].sort(sorters[category])
-            elif category is "ACTS":
-                dbd_issues[category].extend(updated_issues[category])
-
-    def mergeAndSortIssuesSLAs(self, dbd_issues, updated_issues):
-
-        def ascendingTimeOrder(t1, t2):
-            return cmp(t1['total_seconds'], t2['total_seconds'])
-
-        sorters = {
-            "SLA": ascendingTimeOrder
-        }
-
-        for category in sorters:
-            dbd_issues[category].extend(updated_issues[category])
-            dbd_issues[category].sort(sorters[category])
-
-    def mergeAndSortIssuesFTSs(self, dbd_issues, updated_issues):
-
-        def descendingTimeOrder(t1, t2):
-            return -cmp((t1['days'], t1['hours'], t1['minutes']),
-                        (t2['days'], t2['hours'], t2['minutes']))
-
-        sorters = {
-            "FTS": descendingTimeOrder
-        }
-        for category in sorters:
-            dbd_issues[category].extend(updated_issues[category])
-            dbd_issues[category].sort(sorters[category])
-
-    def mergeAndSortIssuesUNAs(self, dbd_issues, updated_issues):
-
-        def descendingTimeOrder(t1, t2):
-            return -cmp((t1['days'], t1['hours'], t1['minutes']),
-                        (t2['days'], t2['hours'], t2['minutes']))
-
-        sorters = {
-            "UNA": descendingTimeOrder
-        }
-        for category in sorters:
-            dbd_issues[category].extend(updated_issues[category])
-            dbd_issues[category].sort(sorters[category])
-
-    def mergeAndSortIssuesACTS(self, dbd_issues, updated_issues):
-
-        def descendingTimeOrder(t1, t2):
-            return -cmp((t1['days'], t1['hours'], t1['minutes']),
-                        (t2['days'], t2['hours'], t2['minutes']))
-
-        sorters = {
-            "ACTS": descendingTimeOrder
-        }
-        for category in sorters:
-            dbd_issues[category].extend(updated_issues[category])
-
-    def mergeAndSortIssuesREVs(self, dbd_issues, updated_issues):
-
-        def descendingTimeOrder(t1, t2):
-            return -cmp((t1['days'], t1['hours'], t1['minutes']),
-                        (t2['days'], t2['hours'], t2['minutes']))
-
-        sorters = {
-            "REV": descendingTimeOrder
-        }
-        for category in sorters:
-            dbd_issues[category].extend(updated_issues[category])
-            dbd_issues[category].sort(sorters[category])
-
-    def removeCompressedIssueIfPresent(self, issue, compressed_issues):
-        """compressed_issues is a list of issues, but stripped down to just the
-        information relevant to display them. Search through that list and remove
-        the issue that has the same key as the one given, if one exists."""
-        for i in compressed_issues:
-            if i['id'] == issue.key:
-                compressed_issues.remove(i)
-                return
+        sorter = {dataName:sorters[dataName]}
+        for category in sorter:
+            dataWell.sort(sorter[category])
 
     def start(self):
-        """ Start the RESTful interface """
+        """ Gentlemen, start your engines. """
         self.logger.info(os.getcwd())        
 
         self.logger.debug("start()")
@@ -658,118 +319,130 @@ class tk421():
 
         self.logger.info(self.args['root_webdir'])
 
-        # def tokenize(func):
-        #     """ A decorator for bottle-route callback functions to pass
-        #     auth_user cookies """
-        #     def wrapped(*args, **kwargs):
-        #         # NOTE this is a corp cookie!
-        #         kwargs['token'] = bottle.request.get_cookie("auth_user", '')
-        #         # unescape escaped html characters!!
-        #         # just @ for now as there are plenty of user@10gen.com's
-        #         if kwargs['token'] is not None:
-        #             kwargs['token'] = kwargs['token'].replace('%40', '@')
-        #         return func(*args, **kwargs)
-        #     return wrapped
+        def tokenize(func):
+            """ A decorator for bottle-route callback functions to pass
+            auth_user cookies """
+            def wrapped(*args, **kwargs):
+                kwargs['token'] = bottle.request.cookies.get("auth_user", None)
 
-        # -----------------------------------------------------------------------------
+                if kwargs['token'] is None:
+                    return bson.json_util.dumps({'status':'error', 'message':'Login to Corp'})
+
+                # if kwargs['token'] is None:
+                #     kwargs['token'] = "jacob.ribnik"
+
+                # unescape escaped html characters!!
+                # just @ for now as there are plenty of user@10gen.com's
+                if kwargs['token'] is not None:
+                    kwargs['token'] = kwargs['token'].replace('%40', '@')
+                return func(*args, **kwargs)
+            return wrapped
+
+        """ Not sure why this is necessary. Leaving for further investigation """
+        def response(result, cookies=None, template=None, template_data=None):
+            if result['status'] == "success":
+                if cookies is not None:
+                    for cookie in cookies:
+                        if not isinstance(cookie[1], unicode):
+                            try:
+                                val = bson.json_util.dumps(cookie[1])
+                            except Exception as e:
+                                val = e
+                        else:
+                            val = cookie[1]
+                        bottle.response.set_cookie(str(cookie[0]), val)
+                bottle.response.status = 200
+                if template is not None:
+                    data = {'data': result['data']}
+                    if template_data is not None:
+                        for datum in template_data:
+                            data[datum] = template_data[datum]
+                    return bottle.template(template, data=data)
+            elif result['status'] == "fail":
+                bottle.response.status = 500
+            elif result['status'] == "error":
+                bottle.response.status = 400
+
+            self.logger.info(result)
+            return bson.json_util.dumps(result)
+
+        # ---------------------------------------------------------------------
         # Static Files
-        # -----------------------------------------------------------------------------
+        # ---------------------------------------------------------------------
 
         @b.route('/js/<filename:re:.*\.js>')
         def send_js(filename):
             return bottle.static_file(filename, 
-                root="%s/js" % self.args['root_webdir'], mimetype="text/javascript")
+                root="%s/js" % self.args['root_webdir'], 
+                mimetype="text/javascript")
 
 
         @b.route('/css/<filename:re:.*\.css>')
         def send_css(filename):
             return bottle.static_file(filename, 
-                root='%s/css' % self.args['root_webdir'], mimetype="text/css")
+                root='%s/css' % self.args['root_webdir'], 
+                mimetype="text/css")
 
 
         @b.route('/fonts/<filename>')
         def send_fonts(filename):
-            return bottle.static_file(filename, root='%s/fonts' % self.args['root_webdir'])
+            return bottle.static_file(filename, 
+                root='%s/fonts' % self.args['root_webdir'])
 
         @b.route('/img/<filename:re:.*\.png>')
         def send_image(filename):
-            return bottle.static_file(filename, root='%s/img' % self.args['root_webdir'])
+            return bottle.static_file(filename, 
+                root='%s/img' % self.args['root_webdir'])
+
+        @b.route('/')
+        def index():
+            return bottle.redirect('/dash')
 
         @b.route('/dash')
         # @tokenize
-        def index():
-            # return bottle.template('dash_home')
-            return bottle.template('test')
+        def dash(**kwargs):
+            return bottle.template('dash')
 
-        @b.route('/ajax/sla')
-        def ajax_response():
+        @b.get('/login')
+        def login():
+            token = bottle.request.get_cookie("auth_user")
+
+            # reimplement this when ported
+            if token is None:
+                return bson.json_util.dumps({'status':'error', 'message':'Login to Corp'})
+
+            # if token is None:
+            #     token = "jacob.ribnik"
+
+            # unescape escaped html characters!!
+            # just @ for now as there are plenty of user@10gen.com's
+            token = token.replace('%40', '@')
+            res = self.sc.getUserInfo(token=token)
+            if res['status'] == 'success':
+                self.logger.info(res)
+                user = res['payload']
+                cookies = [(prop, user[prop]) for prop in user]
+            else:
+                cookies = None
+            # self.logger.info(pprint(res))
+            # return response(res, cookies=cookies)
+            return bson.json_util.dumps(user)
+
+        """ This guy here is really the workhorse of the dashboard.
+        All views are updated with ajax calls through this route. """
+        @b.route('/ajax/<view>')
+        @tokenize
+        def ajax_response(view, **kwargs):
             try:
-                if (bottle.request.json):# and 'totals' in bottle.request.json):
-                    slas = self.getSLAs(bottle.request.json)
-
-                else:
-                    slas = self.getSLAs({})
+                data = self.getData(view.upper(), **kwargs)
             except Exception as err:
-                logger.exception("Something went wrong in getIssues.")
-                return bson.json_util.dumps({"error": "Internal error: " + err.message})
+                logger.exception("Something went wrong in getData")
+                return bson.json_util.dumps({
+                    'status':"error", 
+                    'message':"Internal error: " + str(err.message)
+                })
 
-            return bson.json_util.dumps(slas)
-
-        @b.route('/ajax/fts')
-        def ajax_response():
-            try:
-                if (bottle.request.json):# and 'totals' in bottle.request.json):
-                    fts = self.getFTSs(bottle.request.json)
-
-                else:
-                    fts = self.getFTSs({})
-            except Exception as err:
-                logger.exception("Something went wrong in getIssues.")
-                return bson.json_util.dumps({"error": "Internal error: " + err.message})
-
-            return bson.json_util.dumps(fts)
-
-        @b.route('/ajax/una')
-        def ajax_response():
-            try:
-                if (bottle.request.json):# and 'totals' in bottle.request.json):
-                    una = self.getUNAs(bottle.request.json)
-
-                else:
-                    una = self.getUNAs({})
-            except Exception as err:
-                logger.exception("Something went wrong in getIssues.")
-                return bson.json_util.dumps({"error": "Internal error: " + err.message})
-
-            return bson.json_util.dumps(una)
-
-        @b.route('/ajax/acts')
-        def ajax_response():
-            try:
-                if (bottle.request.json):# and 'totals' in bottle.request.json):
-                    acts = self.getACTS(bottle.request.json)
-
-                else:
-                    acts = self.getACTS({})
-            except Exception as err:
-                logger.exception("Something went wrong in getIssues.")
-                return bson.json_util.dumps({"error": "Internal error: " + err.message})
-
-            return bson.json_util.dumps(acts)
-
-        @b.route('/ajax/rev')
-        def ajax_response():
-            try:
-                if (bottle.request.json):# and 'totals' in bottle.request.json):
-                    rev = self.getREVs(bottle.request.json)
-
-                else:
-                    rev = self.getREVs({})
-            except Exception as err:
-                logger.exception("Something went wrong in getIssues.")
-                return bson.json_util.dumps({"error": "Internal error: " + err.message})
-
-            return bson.json_util.dumps(rev)
+            return bson.json_util.dumps(data)
 
         b.run(host=self.args['server_host'], port=self.args['server_port'])
 
@@ -852,7 +525,7 @@ if __name__ == "__main__":
         print("Please specify a log file")
         sys.exit(1)
 
-    # Lock it down
+    # Lock it up. You better lock it up. Lock it up!
     pidfile = pidlockfile.PIDLockFile(args.pid)
 
     if args.command == "start":
@@ -881,14 +554,14 @@ if __name__ == "__main__":
     fh = logging.FileHandler(args.log)
     logger.addHandler(fh)
 
-    # This is daemon territory
+    # This is daemon territory - Not enough mana.
     context = daemon.DaemonContext(pidfile=pidfile,
                                    stderr=fh.stream, stdout=fh.stream)
     context.files_preserve = [fh.stream]
-    # TODO implment signal_map
+    # TODO implment signal_map // whats a signal map?
 
 # -----------------------------------------------------------------------------
-# LAUNCHING SERVER AS A DAEMON
+# LAUNCHING SERVER AS A DAEMON - My god... what have we done?
 # -----------------------------------------------------------------------------
 
     print('Starting...')
