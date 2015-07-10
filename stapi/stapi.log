@@ -1,7 +1,7 @@
 start()
-2015-07-10 15:05:59,279 - stapi - DEBUG - start()
+2015-07-10 18:19:34,595 - stapi - DEBUG - start()
 stAPI is at REST
-2015-07-10 15:05:59,280 - stapi - INFO - stAPI is at REST
+2015-07-10 18:19:34,596 - stapi - INFO - stAPI is at REST
 Bottle v0.12.8 server starting up (using WSGIRefServer())...
 Listening on http://localhost:8080/
 Hit Ctrl-C to quit.
