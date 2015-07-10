@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 """
 # -----------------------------------------------------------------------
 # stAPI = SupporT API. This is an interface to all data relevant
@@ -7,7 +6,7 @@
 # accessed through a RESTful API interface to the MongoDB
 # support database.
 #
-# TODO: Add authentication so that all sensitive requests and 
+# TODO: Add authentication so that all sensitive requests and
 # DB changes require user authentication
 #
 # TODO: Make the main API methods static so they don't necessarily have
@@ -24,30 +23,25 @@ import copy
 import daemon
 import dateutil.parser
 import gzip
-import isodate
 import logging
 import os
 import pidlockfile
 import pymongo
-import re
 import signal
-import string
 import StringIO
 import sys
 import time
-import urllib
 
-from pprint import pprint
+# from pprint import pprint
 from datetime import datetime, timedelta
-from jirapp import jirapp
-from sfdcpp import sfdcpp
-from supportissue import SupportIssue, isMongoDBEmail
-from ses_handler import SESHandler
+# from jirapp import jirapp
+# from sfdcpp import sfdcpp
+from supportissue import SupportIssue  # , isMongoDBEmail
 
 class stAPI:
     """ A centralized support API that is waiting for a name from Pete... """
     def __init__(self, args):
-    	if not isinstance(args, dict):
+        if not isinstance(args, dict):
             args = vars(args)
         self.args = args
         self.logger = logging.getLogger("logger")
@@ -77,8 +71,8 @@ class stAPI:
             'jira.fields.comment.comments.visibility': 1,
             'jira.key': 1,
             'jira.tags': 1,
-            'sla': 1,
-            }
+            'sla': 1
+        }
 
         self.jira = None
         self.sfdc = None
@@ -95,50 +89,12 @@ class stAPI:
             self.logger.exception(e)
             raise e
 
-        """ TODO: Users should either be moved to the support DB or be its 
+        """ TODO: Users should either be moved to the support DB or be its
         own DB. It should not reside in the karakuri DB"""
         self.coll_users = self.mongo.karakuri.users
         self.coll_issues = self.mongo.support.issues
         self.coll_companies = self.mongo.support.companies
         self.coll_reviews = self.mongo.support.reviews
-
-    def createIssue(self, fields, **kwargs):
-        """ Create a new issue """
-        self.logger.debug("createIssue(%s)", fields)
-
-        # ------ Not entirely sure what this callbacks feature is ------ #
-        # callbacks = None
-        # if 'karakuri' in fields and fields['karakuri'] is not None:
-        #     # These arguments are for us, not the ticket
-        #     callbacks = copy.deepcopy(fields['karakuri'])
-        #     del fields['karakuri']
-        # -------------------------------------------------------------- #
-        fields = SupportIssue(fields).getJIRAFields()
-        res = self.issuer.createIssue(fields)
-        if not res['ok']:
-            return res
-        key = res['payload']
-        self.logger.info("Created issue %s", key)
-        # Execute callbacks if there are any
-
-        # ------ More callback shtuff ---------------------------------- #
-        # if callbacks is not None:
-        #     for cb in callbacks:
-        #         # Add developer comment to newly created ticket if specified
-        #         if 'addDeveloperComment' in cb and\
-        #                 cb['addDeveloperComment'] is not None:
-        #             res1 = self.issuer.\
-        #                 addDeveloperComment(key, cb['addDeveloperComment'])
-        #             if not res1['ok']:
-        #                 # Not returning on failure because the caller expects
-        #                 # an issue key if the issue was created. That's more
-        #                 # important than the result of this addDeveloperComment
-        #                 # action
-        #                 self.logger.\
-        #                     warning("Failed to add developer comment to %s",
-        #                             key)
-        # -------------------------------------------------------------- #
-        return res
 
     def find(self, collection, query, proj=None):
         """ Wrapper for find that handles exceptions """
@@ -221,7 +177,8 @@ class stAPI:
     #     else:
     #         query = {'$and':[{}]}
 
-    #     query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
+    #     query['$and'].append({'jira.fields.status.name':
+    #                            {'$in': ['Open', 'Reopened',
     #             'In Progress', 'Waiting For User Input']}})
 
     #     proj = kwargs.get('proj', None)
@@ -263,7 +220,8 @@ class stAPI:
     #     else:
     #         query = {'$and':[{}]}
 
-    #     query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened', 'In Progress', 'Waiting For User Input']}})
+    #     query['$and'].append({'jira.fields.status.name':
+    # {'$in': ['Open', 'Reopened', 'In Progress', 'Waiting For User Input']}})
     #     query['$and'].append({'jira.fields.labels':'fs'})
     #     proj = kwargs.get('proj', None)
 
@@ -291,7 +249,8 @@ class stAPI:
     #     else:
     #         query = {'$and':[{}]}
 
-    #     query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
+    #     query['$and'].append({'jira.fields.status.name': {'$in':
+    #               ['Open', 'Reopened',
     #             'In Progress', 'Waiting For User Input']}})
     #     query['$and'].append({'sla.expireAt' : {'$ne':None}})
     #     proj = kwargs.get('proj', None)
@@ -319,11 +278,13 @@ class stAPI:
         if kwargs.get('query', None) is not None:
             query = kwargs.get('query', None)
         else:
-            query = {'$and':[{}]}
+            query = {'$and': [{}]}
 
-        query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
-                'In Progress', 'Waiting For User Input']}})
-        query['$and'].append({'jira.fields.assignee':None})
+        query['$and'].append({'jira.fields.status.name':
+                            {'$in': ['Open', 'Reopened',
+                                    'In Progress',
+                                    'Waiting For User Input']}})
+        query['$and'].append({'jira.fields.assignee': None})
 
         proj = kwargs.get('proj', None)
 
@@ -362,93 +323,6 @@ class stAPI:
             return {'ok': False, 'payload': message}
         return {'ok': True, 'payload': doc}
 
-    # def getUpdatedIssues(self, last_updated, **kwargs):
-    #     """return issues that have been updated since passed update string"""
-    #     proj = kwargs.get('proj', None)
-    #     if proj is None:
-    #         proj = {}
-    #     query = {'$and': [
-    #         {'jira.fields.issuetype.name': {'$nin': ['Tracking']}},
-    #         {'jira.fields.project.key': {'$in': ['CS', 'MMSSUPPORT', 'SUPPORT',
-    #             'PARTNER']}},
-    #         {"jira.fields.updated": {"$gte": last_updated}}
-    #         ]
-    #     }
-
-    #     res = self.find(self.coll_issues, query, proj)
-
-    #     if not res['ok']:
-    #         return res
-    #     docs = res['payload']
-
-    #     if docs is None:
-    #         message = "No updated issues"
-    #         self.logger.warning(message)
-    #     return {'ok': True, 'payload': docs}
-
-    # def getUserByToken(self, token, **kwargs):
-    #     """ Return the associated user document """
-    #     self.logger.debug("getUserByToken(%s)", token)
-    #     # Currently authenticating against username
-    #     # TODO: use Crowd REST API to validate token
-    #     res = self.find_one(self.coll_users, {'user': token})
-    #     if not res['ok']:
-    #         return res
-    #     user = res['payload']
-    #     if user is None:
-    #         message = "user not found for token '%s'" % token
-    #         self.logger.warning(message)
-    #         return {'ok': False, 'payload': message}
-    #     return {'ok': True, 'payload': user}
-
-    # def getWaitingIssues(self, **kwargs):
-    #     """ Return all active issues """
-    #     self.logger.debug("getWaitingIssues()")
-
-    #     if kwargs.get('query', None) is not None:
-    #         query = kwargs.get('query', None)
-    #     else:
-    #         query = {'$and':[{}]}
-
-    #     query['$and'].append({'jira.fields.status.name': 'Waiting for Customer'})
-
-    #     proj = kwargs.get('proj', None)
-
-    #     res = self.find(self.coll_issues, query, proj)
-
-    #     if not res['ok']:
-    #         return res
-    #     docs = res['payload']
-
-    #     return {'ok': True, 'payload': docs}
-
-    # def getIssuesUsrAssigned(self, **kwargs):
-    #     """ Return all issues Assigned to User """
-    #     self.logger.debug("getIssuesUserAssigned()")
-
-    #     if kwargs.get('query', None) is not None:
-    #         query = kwargs.get('query', None)
-    #     else:
-    #         query = {'$and':[{}]}
-
-    #     query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
-    #             'In Progress']}})
-
-    #     usr_name = kwargs['userDoc']['user']
-    #     self.logger.debug(usr_name)
-    #     if usr_name is None:
-    #         return {'ok': False, 'payload':'Could not find usr_name in kwargs'}
-    #     query['$and'].append({'jira.fields.assignee.name': usr_name})
-
-    #     proj = kwargs.get('proj', None)
-    #     res = self.find(self.coll_issues, query, proj)
-
-    #     if not res['ok']:
-    #         return res
-    #     docs = res['payload']
-
-    #     return {'ok': True, 'payload': docs}
-
     """ Return a JSON-validated dict for the string """
     def _loadJson(self, string):
         self.logger.debug("loadJson(%s)", string)
@@ -466,9 +340,11 @@ class stAPI:
                 issue.hasSLA() and
                 'expireAt' in issue.doc['sla'] and
                 issue.doc['sla']['expireAt'] is not None and
-                ((not issue.isProactive() and issue.firstXGenPublicComment is None)
+                ((not issue.isProactive() and
+                    issue.firstXGenPublicComment is None)
                     or (issue.isProactive() and
-                        issue.firstXGenPublicCommentAfterCustomerComment is None)))
+                        issue.firstXGenPublicCommentAfterCustomerComment
+                            is None)))
 
     def _isFTS(self, issue):
         """Return true if the issue should be displayed in the FTS row of the
@@ -489,7 +365,7 @@ class stAPI:
         return (issue.isActive() and assignee is None)
 
     # ----------------------------------------------------
-    # Set the ticketing system to include one of the 
+    # Set the ticketing system to include one of the
     # issue aggregators, null by default.
     # ----------------------------------------------------
 
@@ -547,31 +423,37 @@ class stAPI:
 
         def success(data=None):
 
-            logger.debug("Time to start of success() : " + str(time.time() % 10) + "\n")
+            logger.debug("Time to start of success() : " +
+                str(time.time() % 10) + "\n")
 
             ret = {'status': 'success', 'data': data}
 
             bottle.response.status = 200
             bottle.response.add_header("Content-Encoding", "gzip")
 
-            logger.debug("Time to before issues_list : " + str(time.time() % 10) + "\n")
+            logger.debug("Time to before issues_list : " +
+                str(time.time() % 10) + "\n")
 
             content = bson.json_util.dumps(ret)
 
-            logger.debug("Time to after bson dump : " + str(time.time() % 10) + "\n")
+            logger.debug("Time to after bson dump : " +
+                str(time.time() % 10) + "\n")
 
             compressed = StringIO.StringIO()
 
-            logger.debug("Time to after iteration : " + str(time.time() % 10) + "\n")
+            logger.debug("Time to after iteration : " +
+                str(time.time() % 10) + "\n")
 
             with gzip.GzipFile(fileobj=compressed, mode='w') as f:
                 f.write(content)
 
-            logger.debug("Time to after gzip compress : " + str(time.time() % 10) + "\n")
+            logger.debug("Time to after gzip compress : " +
+                str(time.time() % 10) + "\n")
 
             temp = compressed.getvalue()
 
-            logger.debug("Time to just after compressed.getvalue() : " + str(time.time() % 10) + "\n")
+            logger.debug("Time to just after compressed.getvalue() : " +
+                str(time.time() % 10) + "\n")
 
             return temp
 
@@ -584,7 +466,6 @@ class stAPI:
             ret = {'status': 'error', 'message': str(message)}
             bottle.response.status = 403
             return bson.json_util.dumps(ret)
-
 
         def _response(method, **kwargs):
             res = method(**kwargs)
@@ -620,7 +501,7 @@ class stAPI:
         def issue_create(**kwargs):
             body = bottle.request.body.read()
 
-            res = self._loadJson(body) #loadJson() is being moved to a common lib
+            res = self._loadJson(body)  # move loadJson() to common lib
             if not res['ok']:
                 return res
             fields = res['payload']
@@ -633,11 +514,12 @@ class stAPI:
         @b.route('/reviews')
         @authenticated
         def active_reviews(**kwargs):
-        	#"""Returns all active reviews"""
+            # """Returns all active reviews"""
             if bottle.request.query.get('active', None) is not None:
                 return _response(self.getActiveReviews, **kwargs)
             else:
-                return _response(self.get, self.coll_reviews, query={}, **kwargs)
+                return _response(self.get, self.coll_reviews,
+                                    query={}, **kwargs)
 
         @b.route('/reviews/<id>')
         @authenticated
@@ -647,7 +529,7 @@ class stAPI:
         @b.route('/issues/<id>')
         @authenticated
         def issue_id(id, **kwargs):
-            return _response(self.getIssueByID, id=id, query=query, **kwargs)
+            return _response(self.getIssueByID, id=id, **kwargs)
 
         @b.route('/issues/dash/sla')
         @authenticated
@@ -655,7 +537,7 @@ class stAPI:
             proj = self.dash_proj
             query = copy.deepcopy(self.support_query)
             query['$and'].append({'jira.fields.status.name': 'Open'})
-            query['$and'].append({'sla.expireAt' : {'$ne':None}})
+            query['$and'].append({'sla.expireAt': {'$ne': None}})
 
             res = self.getIssues(query, proj, **kwargs)
             if not res['ok']:
@@ -668,9 +550,7 @@ class stAPI:
                 issue = SupportIssue().fromDoc(i)
                 if self._isSLA(issue):
                     data.append(i)
-                    
             return success(data)
-
 
         @b.route('/issues/dash/fts')
         @authenticated
@@ -679,7 +559,7 @@ class stAPI:
             query = copy.deepcopy(self.support_query)
             query['$and'].append({
                 'jira.fields.status.name': {'$in': [
-                    'Open', 'Reopened','In Progress','Waiting for Customer',
+                    'Open', 'Reopened', 'In Progress', 'Waiting for Customer',
                     'Waiting For User Input']}})
             query['$and'].append({'jira.fields.status.name': 'fs'})
 
@@ -694,7 +574,6 @@ class stAPI:
                 issue = SupportIssue().fromDoc(i)
                 if self._isFTS(issue):
                     data.append(i)
-
             return success(data)
 
         """ Return a summary pertaining to the dashboard. The possible query
@@ -711,16 +590,15 @@ class stAPI:
         @b.route('/issues/dash')
         @authenticated
         def dash_issues(**kwargs):
-            # Returns a trimmed (projected) set of issues 
-            proj = self.dash_proj # added because we're in the /dash summary obj
-            check_una = False
+            # Returns a trimmed (projected) set of issues
+            proj = self.dash_proj  # added cuz we're in the /dash summary obj
 
             # If suppprt filter is set, only give back issues related to
             # support
             if bottle.request.query.get('support', None) is not None:
                 query = copy.deepcopy(self.support_query)
             else:
-                query = {'$and':[{}]}
+                query = {'$and': [{}]}
 
             last_updated = bottle.request.query.get('last_updated', None)
             if last_updated is not None:
@@ -728,38 +606,42 @@ class stAPI:
                 logger.debug("that's last updated " + str(last_updated) + "\n")
                 last_updated = dateutil.parser.parse(last_updated)
                 last_updated = last_updated - timedelta(seconds=30)
-                query['and'].append({"jira.fields.updated": {"$gte": last_updated}})
+                query['and'].append({"jira.fields.updated": {"$gte":
+                                                            last_updated}})
 
             if bottle.request.query.get('active', None) is not None:
                 if bottle.request.query.get('wait', None) is not None:
-                    query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
-                        'In Progress', 'Waiting For User Input', 'Waiting For Customer']}})
-                else: 
-                    query['$and'].append({'jira.fields.status.name': {'$in': ['Open', 'Reopened',
-                        'In Progress', 'Waiting For User Input']}})
-                    query['$and'].append({'dash.active.now':True})
+                    query['$and'].append({'jira.fields.status.name': {'$in': [
+                                            'Open', 'Reopened',
+                                            'In Progress',
+                                            'Waiting For User Input',
+                                            'Waiting For Customer']}})
+                else:
+                    query['$and'].append({'jira.fields.status.name': {'$in': [
+                                            'Open', 'Reopened',
+                                            'In Progress',
+                                            'Waiting For User Input']}})
+                    query['$and'].append({'dash.active.now': True})
             elif bottle.request.query.get('wait', None) is not None:
-                query['$and'].append({'jira.fields.status.name': 'Waiting for Customer'})
+                query['$and'].append({'jira.fields.status.name':
+                                        'Waiting for Customer'})
 
-            if bottle.request.query.get('una', None) is not None or \
-                bottle.request.query.get('UNA', None) is not None:
-                query['$and'].append({'jira.fields.assignee':None})
+            if bottle.request.query.get('una', None) is not None:
+                query['$and'].append({'jira.fields.assignee': None})
 
             if bottle.request.query.get('usr_assigned', None) is not None:
                 usr_name = kwargs['userDoc']['user']
                 self.logger.debug(usr_name)
                 self.logger.debug("here " + str(usr_name) + "\n ")
                 if usr_name is None:
-                    return {'ok': False, 'payload':'Could not find usr_name in kwargs'}
+                    return {'ok': False, 'payload':
+                                        'Could not find usr_name in kwargs'}
                 query['$and'].append({'jira.fields.assignee.name': usr_name})
 
+            return _response(self.getIssues, query=query, proj=proj,
+                **kwargs)
 
-            self.logger.debug("here fuckers")
-            self.logger.debug(query)
-
-            return _response(self.getIssues, query=query, proj=proj, **kwargs)
-
-    	b.run(host=self.args['rest_host'], port=self.args['rest_port'])
+        b.run(host=self.args['rest_host'], port=self.args['rest_port'])
 
 if __name__ == "__main__":
     desc = "An API for all read/write access to the suppport database"

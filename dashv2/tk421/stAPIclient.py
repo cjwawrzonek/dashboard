@@ -1,14 +1,11 @@
-import argumentparserpp
 import bson.json_util
 import logging
 import requests
 import time
-import urllib
-from datetime import datetime, timedelta
 
-""" --------------------------------------------------------------------------- #
+""" ------------------------------------------------------------------------ #
 A nifty little client for interacting with the support api restful interface.
-# --------------------------------------------------------------------------- """
+# ------------------------------------------------------------------------ """
 
 
 class stAPIclient:
@@ -35,13 +32,11 @@ class stAPIclient:
                 tmp = self.args[arg]
             self.logger.debug("%s %s" % (arg, tmp))
 
-    
-    """ ----------------------------------------------------------------------- #
+    """ -------------------------------------------------------------------- #
     # These are the base API functions that I could think of people (including
     # myself) potentially needing. Feel free to add/suggest more if you think
     # of more use cases.
-    # ----------------------------------------------------------------------- """
-            
+    # -------------------------------------------------------------------- """
     # Public API function
     # @staticmethod # I want to eventually implement these as static methods
     def getActiveIssues(self, **kwargs):
@@ -112,10 +107,10 @@ class stAPIclient:
         params['support'] = "true"
         return self._request(endpoint, params=params, **kwargs)
 
-    """ ----------------------------------------------------------------------- #
+    """ -------------------------------------------------------------------- #
     # These are private functions for the stapiclient to handle API requests.
     # They shouldn't be available/used by the application directly.
-    # ------------------------------------------------------------------------ """
+    # --------------------------------------------------------------------- """
 
     def _request(self, endpoint, method="GET", data=None, **kwargs):
         self.logger.debug("request(%s,%s,%s)", endpoint, method, data)
@@ -129,25 +124,30 @@ class stAPIclient:
                    'Authorization': "usr_token=%s" % token}
         params = kwargs.get('params', None)
 
-        self.logger.debug("Time before http request : " + str(time.time() % 10) + "\n")
+        self.logger.debug("Time before http request : " + str(
+            time.time() % 10) + "\n")
 
         try:
-            res = requests.request(method, url, params=params, headers=headers, data=data)
+            res = requests.request(method, url, params=params,
+                                    headers=headers, data=data)
         except requests.adapters.ConnectionError as e:
             self.logger.exception(e)
             message = 'stapi: %s' % e
             return {'status': 'error', 'message': str(message)}
 
-        self.logger.debug("Time to after http request: " + str(time.time() % 10) + "\n")
+        self.logger.debug("Time to after http request: " + str(
+            time.time() % 10) + "\n")
 
         if res is not None:
             if res.status_code == requests.codes.ok:
                 try:
-                    return {'status':'success', 'payload':bson.json_util.loads(res.content)['data']}
+                    return {'status': 'success', 'payload':
+                            bson.json_util.loads(res.content)['data']}
                 except Exception as e:
                     message = e
             elif res.status_code == 401:
-                return {'status':'error','message':'Unauthorized User. Please log into Corp.'}                
+                return {'status': 'error', 'message':
+                        'Unauthorized User. Please log into Corp.'}
             else:
                 try:
                     ret = bson.json_util.loads(res.text)

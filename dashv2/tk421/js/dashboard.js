@@ -1,4 +1,4 @@
-var pollDelay = 15000;
+var pollDelay = 15;
 var gRefreshWarningDelay = 30;
 var gData = {};
 var loaded = false;
@@ -38,7 +38,7 @@ var hashHandler = function() {
     } else if (hash == "#Waiting") {
         view = "waits";
     } else if (hash == "#User") {
-        view = "user"
+        view = "user";
     }
     $('.' + view).css('background-color', 'black');
 
@@ -66,7 +66,7 @@ var hashHandler = function() {
                 thisOne.removeClass("hidden");}
         }
     });
-}
+};
 
 /* This function is called every 'pollDelay' seconds, and refreshes the 
 data for each view passed in 'views' */
@@ -106,10 +106,10 @@ var refreshData = function(views) {
 // This stuff should be done after the ajax response comes back
 var onResponse = function(view) {
     refresh(view);
-    $(".revs-count").html(allData['REVS']['REV'].length);
-    $(".unas-count").html(allData['UNAS']['UNAS'].length);
-    $(".waits-count").html(allData['WAITS']['WAIT'].length);
-    $(".acts-count").html(allData['ACTS']['ACTS'].length);
+    $(".revs-count").html(allData.REVS.REV.length);
+    $(".unas-count").html(allData.UNAS.UNAS.length);
+    $(".waits-count").html(allData.WAITS.WAIT.length);
+    $(".acts-count").html(allData.ACTS.ACTS.length);
     // This is for the expanding row functionality. Don't worry about it
     // too much. I'm switching to bootstrap's accordion library soon
     // for (var dataName in allData[view]) {
@@ -125,7 +125,7 @@ var onResponse = function(view) {
 
 // This refreshes the html for a single view (tab) give the data for that view
 var refresh = function(view) {
-    if (allData[view]['status'] == 'error') {
+    if (allData[view].status == 'error') {
         $('.table-container').hide();
         var errorText = '<h1>Error: ' + allData[view]['message'] + '</h1>';
         $('.warning-container').html(errorText);

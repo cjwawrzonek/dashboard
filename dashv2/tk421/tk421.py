@@ -1,33 +1,22 @@
 import argumentparserpp
 import daemon
-from datetime import datetime, timedelta
-import dateutil.parser
+from datetime import datetime
+# import dateutil.parser
 import bottle
 import bson
 import bson.json_util
 import bson.son
-import json
-import karakuriclient
 import logging
-import math
-# from models import groups, tests, mdiag
 import os
 import pidlockfile
 import pymongo
 import pytz
-import re
-from sfdcpp import sfdcpp
+# from sfdcpp import sfdcpp
 import signal
 import stAPIclient
-import string
 from supportissue import SupportIssue, isMongoDBEmail
 import sys
-import time
-import urlparse
-
-from pprint import pprint
-from wsgiproxy.app import WSGIProxyApp
-
+# from pprint import pprint
 
 # Timedelta has a new method in 2.7 that has to be hacked for 2.6
 import ctypes as c
@@ -88,56 +77,61 @@ class tk421():
         self.lastCacheUpdate = None
 
     def getData(self, view, **kwargs):
-        newData = {
-            view:{}, 
-            'status':'error', 
-            'message':'Error: newData never updated'
+        nData = {
+            view: {},
+            'status': 'error',
+            'message': 'Error: nData never updated'
         }
 
         if view == "TC":
-            viewData = {'SLA':[], 'FTS':[], 'UNA':[]}
-            newData['TC']['SLA'] = self.sc.getActiveSLAs(**kwargs)['payload']
-            newData['TC']['FTS'] = self.sc.getActiveFTSs(**kwargs)['payload']
-            newData['TC']['UNA'] = self.sc.getActiveUNAs(**kwargs)['payload']
-            newData = {'status':'success', 'payload':newData}
+            viewData = {'SLA': [], 'FTS': [], 'UNA': []}
+            nData['TC']['SLA'] = self.sc.getActiveSLAs(**kwargs)['payload']
+            nData['TC']['FTS'] = self.sc.getActiveFTSs(**kwargs)['payload']
+            nData['TC']['UNA'] = self.sc.getActiveUNAs(**kwargs)['payload']
+            nData = {'status': 'success', 'payload': nData}
 
         elif view == "REVS":
-            viewData = {'REV':[]}
-            newData['REVS']['REV'] = self.sc.getActiveReviews(**kwargs)['payload']
-            newData = {'status':'success', 'payload':newData}
+            viewData = {'REV': []}
+            nData['REVS']['REV'] = \
+                self.sc.getActiveReviews(**kwargs)['payload']
+            nData = {'status': 'success', 'payload': nData}
 
         elif view == "ACTS":
-            viewData = {'ACTS':[]}
-            newData['ACTS']['ACTS'] = self.sc.getActiveIssues(**kwargs)['payload']
-            newData = {'status':'success', 'payload':newData}
+            viewData = {'ACTS': []}
+            nData['ACTS']['ACTS'] = \
+                self.sc.getActiveIssues(**kwargs)['payload']
+            nData = {'status': 'success', 'payload': nData}
 
         elif view == "WAITS":
-            viewData = {'WAIT':[]}
-            newData['WAITS']['WAIT'] = self.sc.getWaitingIssues(**kwargs)['payload']
-            newData = {'status':'success', 'payload':newData}
+            viewData = {'WAIT': []}
+            nData['WAITS']['WAIT'] = \
+                self.sc.getWaitingIssues(**kwargs)['payload']
+            nData = {'status': 'success', 'payload': nData}
 
         elif view == "USER":
-            viewData = {'USERASSIGNED':[],'USERREVIEW':[],'USERREVIEWER':[]}
-            newData['USER']['USERASSIGNED'] = self.sc.getAssignedIssues(**kwargs)['payload']
-            newData['USER']['USERREVIEW'] = {} # Must implement this api call
-            newData['USER']['USERREVIEWER'] = {} # Must implement this api call
-            newData = {'status':'success', 'payload':newData}
+            viewData = {'USERASSIGNED': [], 'USERREVIEW': [],
+                        'USERREVIEWER': []}
+            nData['USER']['USERASSIGNED'] = \
+                self.sc.getAssignedIssues(**kwargs)['payload']
+            nData['USER']['USERREVIEW'] = {}  # Must implement this api call
+            nData['USER']['USERREVIEWER'] = {}  # Must implement this api call
+            nData = {'status': 'success', 'payload': nData}
 
         elif view == "UNAS":
-            viewData = {'UNAS':[]}
-            newData['UNAS']['UNAS'] = self.sc.getUNAs(**kwargs)['payload']
-            newData = {'status':'success', 'payload':newData}
+            viewData = {'UNAS': []}
+            nData['UNAS']['UNAS'] = self.sc.getUNAs(**kwargs)['payload']
+            nData = {'status': 'success', 'payload': nData}
 
-        if newData['status'] == "error":
-            return {'status':'error', 'message':newData['message']}
+        if nData['status'] == "error":
+            return {'status': 'error', 'message': nData['message']}
         else:
-            newData = newData['payload']
+            nData = nData['payload']
 
-        for dataType in newData[view]:
-            for i in newData[view][dataType]:
+        for dataType in nData[view]:
+            for i in nData[view][dataType]:
                 if dataType != "REV":
-                    issue = SupportIssue().fromDoc(i)
-                    viewData[dataType].append(self.trimmedDoc(issue, dataType))
+                    iss = SupportIssue().fromDoc(i)
+                    viewData[dataType].append(self.trimmedDoc(iss, dataType))
                 else:
                     viewData[dataType].append(self.trimmedDoc(i, dataType))
 
@@ -145,13 +139,13 @@ class tk421():
             self.sortData(viewData[dataType], dataType.upper())
         return viewData
 
-    # ---------------------------------------------------------------------------
-    # TRIMMERS (trim issue with extra info into just what's needed to display it)
-    # ---------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
+    # TRIMMERS (trim issue into just what's needed to display it)
+    # ------------------------------------------------------------------------
 
-    """ !IMPORTANT! - I haven't perfectly worked out trimming on the tickets yet.
+    """ IMPORTANT -I haven't perfectly worked out trimming on the tickets yet.
     What determines the time that appears on the ticket? Right now I just
-    have a general trimming method for all issues that aren't SLAs, 
+    have a general trimming method for all issues that aren't SLAs,
     FTSs, or REVs. This obviously needs to change. """
 
     def trimmedDoc(self, issue, dtype):
@@ -165,7 +159,7 @@ class tk421():
             return self.trimmedIssue(issue)
 
     def trimmedSLAIssue(self, issue):
-        """Trim an SLA issue to just it's id and the number of hours and minutes
+        """Trim an SLA issue to its id and the number of hours and minutes
         until it expires."""
         now = datetime.utcnow()
         started = issue.doc["sla"]["startAt"].replace(tzinfo=None)
@@ -183,9 +177,8 @@ class tk421():
                 "percentExpired": percent_expired,
                 "desc": issue.doc['jira']['fields']['summary']}
 
-
     def trimmedFTSIssue(self, issue):
-        """Trim an FTS issue to just it's id and the number of hours and minutes
+        """Trim an FTS issue to its id and the number of hours and minutes
         since someone with a mongodb email commented publicly on it."""
         now = datetime.utcnow()
         allComments = issue.doc['jira']['fields']['comment']['comments']
@@ -193,9 +186,10 @@ class tk421():
         if lastComment is None:
             lastUpdate = issue.updated.replace(tzinfo=None)
         else:
-            # Need when the issue was updated, not just created, so get all the
+            # Need when the issue was updated, not just created so get all the
             # comment info
-            lastUpdate = allComments[lastComment['cidx']]["updated"].replace(tzinfo=None)
+            lastUpdate = allComments[lastComment['cidx']]["updated"].\
+                replace(tzinfo=None)
         mins = (now - lastUpdate).seconds / 60
         days = (now - lastUpdate).days
         return {"id": issue.doc["jira"]["key"],
@@ -207,11 +201,11 @@ class tk421():
                 "desc": issue.doc['jira']['fields']['summary']}
 
     def trimmedREVDoc(self, doc):
-        """Trim a REV issue to just it's id and the number of hours and minutes
-        since it was created. Note here the doc does not have all the JIRA fields,
+        """Trim a REV issue to its id and the number of hours and minutes
+        since it was created. Note the doc doesn't have all the JIRA fields,
         but lives in a separate reviews collection"""
-        
-        """This is sketchy here. I think I just throw away 
+
+        """This is sketchy here. I think I just throw away
         the tzinfo extension. Have to check this functionality later"""
         now = datetime.utcnow()
 
@@ -236,26 +230,30 @@ class tk421():
                 "lgtms": lgtms}
 
     def trimmedIssue(self, issue):
-        """Trim the general issue to a base set of fields TO BE DETERMINED."""
+        """Trim the gen issue to a base set of fields TO BE DETERMINED."""
         now = datetime.utcnow()
         allComments = issue.doc['jira']['fields']['comment']['comments']
         lastComment = issue.lastXGenPublicComment
         if lastComment is None:
             lastUpdate = issue.updated.replace(tzinfo=None)
-        elif lastComment['cidx'] == len(allComments) - 1:  # It's the last comment
-            # Need when the issue was updated, not just created, so get all the
+        elif lastComment['cidx'] == len(allComments) - 1:  # Its last comment
+            # Need when the issue was updated, not just created so get all the
             # comment info
-            lastUpdate = allComments[lastComment['cidx']]["updated"].replace(tzinfo=None)
+            lastUpdate = allComments[lastComment['cidx']]["updated"].\
+                replace(tzinfo=None)
         else:
             # There has been at least one comment since the public xgen
-            # comment, so if there are any customer comments, base timing off the
-            # first one.
-            lastUpdate = allComments[lastComment['cidx']]["updated"].replace(tzinfo=None)
+            # comment, so if there are any customer comments, base timing
+            # off of the first one.
+            lastUpdate = allComments[lastComment['cidx']]["updated"].\
+                replace(tzinfo=None)
             i = lastComment['cidx'] + 1
             while i < len(allComments):
-                if not isMongoDBEmail(allComments[i]['author']['emailAddress']):
+                eml = 'emailAddress'
+                if not isMongoDBEmail(allComments[i]['author'][eml]):
                     # It's a customer
-                    lastUpdate = allComments[i]["updated"].replace(tzinfo=None)
+                    lastUpdate = allComments[i]["updated"].\
+                        replace(tzinfo=None)
                     break
                 i += 1
         mins = (now - lastUpdate).seconds / 60
@@ -268,21 +266,21 @@ class tk421():
                 "minutes": mins % 60,
                 "desc": issue.doc['jira']['fields']['summary']}
 
-    # ---------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
     # OTHER HELPERS
-    # ---------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
     def sortData(self, dataWell, dataName):
         """ Takes in a dataWell and its type (such as SLA or FTS) and sorts it
-        according to its data type. Should sorting be moved to Javascript?? """
+        according to its data type. Should sorting be moved to Javascript? """
 
         def ascendingTimeOrder(t1, t2):
-            """A custom comparator to order based on the difference in times in
+            """A custom comparator to order based on the diff in times in
             seconds. """
             return cmp(t1['total_seconds'], t2['total_seconds'])
 
         def descendingTimeOrder(t1, t2):
-            """A custom comparator to order based on the hour / minute properties
+            """A custom comparator to order based on the hours / minutes
             of the issues. Puts largest times first."""
             return -cmp((t1['days'], t1['hours'], t1['minutes']),
                         (t2['days'], t2['hours'], t2['minutes']))
@@ -294,22 +292,22 @@ class tk421():
             "SLA": ascendingTimeOrder,
             "FTS": descendingTimeOrder,
             "REV": descendingTimeOrder,
-            "UNA": descendingTimeOrder, 
+            "UNA": descendingTimeOrder,
             "ACTS": descendingTimeOrder,
             "WAIT": descendingTimeOrder,
             "USERASSIGNED": descendingTimeOrder,
             "USERREVIEW": idOrder,  # Only cause idk how to sort these yet
-            "USERREVIEWER": idOrder, # Only cause idk how to sort these yet
+            "USERREVIEWER": idOrder,  # Only cause idk how to sort these yet
             "UNAS": descendingTimeOrder
         }
 
-        sorter = {dataName:sorters[dataName]}
+        sorter = {dataName: sorters[dataName]}
         for category in sorter:
             dataWell.sort(sorter[category])
 
     def start(self):
         """ Gentlemen, start your engines. """
-        self.logger.info(os.getcwd())        
+        self.logger.info(os.getcwd())
 
         self.logger.debug("start()")
         self.logger.info("tk is at REST")
@@ -326,7 +324,8 @@ class tk421():
                 kwargs['token'] = bottle.request.cookies.get("auth_user", None)
 
                 if kwargs['token'] is None:
-                    return bson.json_util.dumps({'status':'error', 'message':'Login to Corp'})
+                    return bson.json_util.dumps({'status': 'error', 'message':
+                                                'Login to Corp'})
 
                 # if kwargs['token'] is None:
                 #     kwargs['token'] = "jacob.ribnik"
@@ -338,7 +337,7 @@ class tk421():
                 return func(*args, **kwargs)
             return wrapped
 
-        """ Not sure why this is necessary. Leaving for further investigation """
+        """Unsure why this is necessary. Leaving for further investigation """
         def response(result, cookies=None, template=None, template_data=None):
             if result['status'] == "success":
                 if cookies is not None:
@@ -366,32 +365,30 @@ class tk421():
             self.logger.info(result)
             return bson.json_util.dumps(result)
 
-        # ---------------------------------------------------------------------
+        # --------------------------------------------------------------------
         # Static Files
-        # ---------------------------------------------------------------------
+        # --------------------------------------------------------------------
 
         @b.route('/js/<filename:re:.*\.js>')
         def send_js(filename):
-            return bottle.static_file(filename, 
-                root="%s/js" % self.args['root_webdir'], 
+            return bottle.static_file(filename,
+                root="%s/js" % self.args['root_webdir'],
                 mimetype="text/javascript")
-
 
         @b.route('/css/<filename:re:.*\.css>')
         def send_css(filename):
-            return bottle.static_file(filename, 
-                root='%s/css' % self.args['root_webdir'], 
+            return bottle.static_file(filename,
+                root='%s/css' % self.args['root_webdir'],
                 mimetype="text/css")
-
 
         @b.route('/fonts/<filename>')
         def send_fonts(filename):
-            return bottle.static_file(filename, 
+            return bottle.static_file(filename,
                 root='%s/fonts' % self.args['root_webdir'])
 
         @b.route('/img/<filename:re:.*\.png>')
         def send_image(filename):
-            return bottle.static_file(filename, 
+            return bottle.static_file(filename,
                 root='%s/img' % self.args['root_webdir'])
 
         @b.route('/')
@@ -409,7 +406,8 @@ class tk421():
 
             # reimplement this when ported
             if token is None:
-                return bson.json_util.dumps({'status':'error', 'message':'Login to Corp'})
+                return bson.json_util.dumps({'status': 'error', 'message':
+                                            'Login to Corp'})
 
             # if token is None:
             #     token = "jacob.ribnik"
@@ -421,11 +419,6 @@ class tk421():
             if res['status'] == 'success':
                 self.logger.info(res)
                 user = res['payload']
-                cookies = [(prop, user[prop]) for prop in user]
-            else:
-                cookies = None
-            # self.logger.info(pprint(res))
-            # return response(res, cookies=cookies)
             return bson.json_util.dumps(user)
 
         """ This guy here is really the workhorse of the dashboard.
@@ -438,15 +431,13 @@ class tk421():
             except Exception as err:
                 logger.exception("Something went wrong in getData")
                 return bson.json_util.dumps({
-                    'status':"error", 
-                    'message':"Internal error: " + str(err.message)
+                    'status': "error",
+                    'message': "Internal error: " + str(err.message)
                 })
 
             return bson.json_util.dumps(data)
 
         b.run(host=self.args['server_host'], port=self.args['server_port'])
-
-
 
 if __name__ == "__main__":
     desc = "TK-421, why aren't you at your post?"
@@ -560,9 +551,9 @@ if __name__ == "__main__":
     context.files_preserve = [fh.stream]
     # TODO implment signal_map // whats a signal map?
 
-# -----------------------------------------------------------------------------
+# ----------------------------------------------------------------------------
 # LAUNCHING SERVER AS A DAEMON - My god... what have we done?
-# -----------------------------------------------------------------------------
+# ----------------------------------------------------------------------------
 
     print('Starting...')
 
