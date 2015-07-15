@@ -1,0 +1,117 @@
+#next-update {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    position: relative;
+}
+.row {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+#outer-div h1 {
+    margin-top: 0px;
+    font-size: 5em;
+}
+
+#totals h1 {
+    margin-top: 0px;
+}
+.tickets {
+    overflow-y: hidden;
+    height: 163px;
+    margin-bottom: 0px;
+}
+.list-group-item {
+    color: #000;
+}
+#SLA .list-group-item-success {
+    background: #97d297;
+}
+#SLA .list-group-item-warning {
+    background: #f0ad4e;
+}
+#SLA .list-group-item-danger {
+    background: #d9807c;
+}
+.list-group-item-success {
+    background: rgb(223, 240, 216);
+}
+.list-group-item-warning {
+    background: rgb(252, 248, 227);
+}
+.list-group-item-danger {
+    background: rgb(242, 222, 222);
+}
+
+.time {
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0px;
+}
+
+.time .glyphicon-exclamation-sign {
+    font-size: 23px;
+    margin-right: 5px;
+}
+
+
+.priority {
+    margin: 0px;
+}
+
+span.priority {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.priority.danger {
+    color: #d90000;
+}
+
+.sla.danger {
+    background-color: #d90000;
+}
+
+.priority.warning {
+    color: #f08b00;
+}
+
+.sla.warning {
+    background-color: #f08b00;
+}
+
+.priority.success {
+    color: #5cb85c;
+}
+
+.sla.success {
+    background-color: #5cb85c;
+}
+
+.priority.info {
+    color: #5bc0de;
+}
+
+.sla.info {
+    background-color: #5bc0de;
+}
+
+.hidden {
+    display: none;
+}
+
+.table.legend {
+    margin-top: -20px;
+    margin-bottom: 0px;
+}
+
+.table.legend tr td {
+    border: none;
+}
+
+#current-container, #updated-container {
+    font-size: 40px !important;
+    margin: 0px;
+    text-align: right;
+}

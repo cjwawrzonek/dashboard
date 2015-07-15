@@ -1,9 +1,0 @@
-#tk421
-log             tk421.log
-log-level       INFO
-pid             /tmp/tk421.pid
-karakuri-host   localhost
-karakuri-port   8080
-server-host localhost
-server-port 8900
-mongo-uri   mongodb://localhost:24000

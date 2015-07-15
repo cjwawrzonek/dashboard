@@ -1,0 +1,5 @@
+log             sfdcpp.log
+log-level       INFO
+mongo-uri       mongodb://localhost:27017
+sfdc-username   sfdcusername
+sfdc-password   sfdcpassword (remember to prefix with security hash!)

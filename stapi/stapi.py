@@ -75,10 +75,9 @@ class stAPI:
             'sla': 1
         }
 
+        # These are just placeholders until I add functionality for these two
         self.jira = None
         self.sfdc = None
-        # The issue tracking system
-        self.issuer = None
 
         # Are we hot!? "F**k it! We'll do it live!"
         self.live = self.args['live']
@@ -123,16 +122,6 @@ class stAPI:
             self.logger.exception(e)
             return {'ok': False, 'payload': e}
         return {'ok': True, 'payload': doc}
-
-    def find_and_modify_issue(self, match, updoc):
-        """ find_and_modify for support.issues that automatically updates the
-        'updated' timestamp """
-        self.logger.debug("find_and_modify_issue(%s,%s)", match, updoc)
-        if "$set" in updoc:
-            updoc["$set"]['updated'] = datetime.utcnow()
-        else:
-            updoc["$set"] = {'updated': datetime.utcnow()}
-        return self.find_and_modify(self.coll_issues, match, updoc)
 
     def find_one(self, collection, match):
         """ Wrapper for find_one that handles exceptions """
@@ -392,7 +381,7 @@ class stAPI:
     def _isUNA(self, issue):
         """Ticket qualifies as UNA if it is open, not an SLA, and has
         no assignee. Simple"""
-        assignee = issue.doc["jira"]["fields"]["assignee"]
+        assignee = issue.getAssignee()
         if issue.lastXGenPublicComment is None and issue.hasSLA():
             # Will show up as an SLA
             return False
@@ -460,7 +449,7 @@ class stAPI:
 
         def success(data=None):
 
-            logger.debug("Time to start of success() : " +
+            self.logger.debug("Time to start of success() : " +
                 str(time.time() % 10) + "\n")
 
             ret = {'status': 'success', 'data': data}
@@ -468,28 +457,28 @@ class stAPI:
             bottle.response.status = 200
             bottle.response.add_header("Content-Encoding", "gzip")
 
-            logger.debug("Time to before issues_list : " +
+            self.logger.debug("Time to before issues_list : " +
                 str(time.time() % 10) + "\n")
 
             content = bson.json_util.dumps(ret)
 
-            logger.debug("Time to after bson dump : " +
+            self.logger.debug("Time to after bson dump : " +
                 str(time.time() % 10) + "\n")
 
             compressed = StringIO.StringIO()
 
-            logger.debug("Time to after iteration : " +
+            self.logger.debug("Time to after iteration : " +
                 str(time.time() % 10) + "\n")
 
             with gzip.GzipFile(fileobj=compressed, mode='w') as f:
                 f.write(content)
 
-            logger.debug("Time to after gzip compress : " +
+            self.logger.debug("Time to after gzip compress : " +
                 str(time.time() % 10) + "\n")
 
             temp = compressed.getvalue()
 
-            logger.debug("Time to just after compressed.getvalue() : " +
+            self.logger.debug("Time to just after compressed.getvalue() : " +
                 str(time.time() % 10) + "\n")
 
             return temp
@@ -520,6 +509,7 @@ class stAPI:
             self.logger.debug("user_login()")
             token = bottle.request.params.get('token')
             if token:
+                # replace url encodings for email related tokens
                 token = token.replace('%40', '@')
                 res = self.getUserByToken(token)
                 if not res['ok']:
@@ -533,21 +523,6 @@ class stAPI:
                     return success(res['payload'])
             return error("unable to authenticate token")
 
-        @b.post('/issues')
-        @authenticated
-        def issue_create(**kwargs):
-            body = bottle.request.body.read()
-
-            res = self._loadJson(body)  # move loadJson() to common lib
-            if not res['ok']:
-                return res
-            fields = res['payload']
-
-            res = self.createIssue(fields, **kwargs)
-            if res['ok']:
-                return success({'issue': res['payload']})
-            return error(res['payload'])
-
         @b.route('/reviews')
         @authenticated
         def active_reviews(**kwargs):
@@ -555,8 +530,10 @@ class stAPI:
             if bottle.request.query.get('active', None) is not None:
                 return _response(self.getActiveReviews, **kwargs)
             else:
-                return _response(self.get, self.coll_reviews,
-                                    query={}, **kwargs)
+                # return _response(self.get, self.coll_reviews,
+                #     query={}, **kwargs)
+                # This is temporary. Add more general functionality here
+                return _response(self.getActiveReviews, **kwargs)
 
         @b.route('/reviews/<id>')
         @authenticated
@@ -633,7 +610,6 @@ class stAPI:
             data = []
             for i in docs:
                 issue = SupportIssue().fromDoc(i)
-
                 if self._isFTS(issue):
                     data.append(i)
             return success(data)
@@ -664,8 +640,6 @@ class stAPI:
 
             last_updated = bottle.request.query.get('last_updated', None)
             if last_updated is not None:
-                logger.debug(last_updated)
-                logger.debug("that's last updated " + str(last_updated) + "\n")
                 last_updated = dateutil.parser.parse(last_updated)
                 last_updated = last_updated - timedelta(seconds=30)
                 query['and'].append({"jira.fields.updated": {"$gte":
@@ -708,8 +682,8 @@ class stAPI:
 if __name__ == "__main__":
     desc = "An API for all read/write access to the suppport database"
 
-    if os.path.isfile("stapi.log"):
-        os.remove("stapi.log")
+    # if os.path.isfile("stapi.log"):
+    #     os.remove("stapi.log")
 
     parser = argumentparserpp.CliArgumentParser(description=desc)
 

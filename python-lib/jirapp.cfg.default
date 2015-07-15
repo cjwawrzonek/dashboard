@@ -1,0 +1,5 @@
+log             jirapp.log
+log-level       INFO
+mongo-uri       mongodb://localhost:27017
+jira-username   jirausername
+jira-password   jirapassword

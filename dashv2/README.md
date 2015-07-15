@@ -1,1 +1,0 @@
-# 10gen-support-services
