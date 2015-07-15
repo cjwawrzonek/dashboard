@@ -25,10 +25,6 @@
 
 </head>
 
-<style>
-
-</style>
-
 <body style="background-color:white" onhashchange="hashHandler()">
 
     <div id="wrapper">
@@ -37,7 +33,7 @@
                 <nav id="primary-navbar">
                     <a  href="dash">
                         <img class="hero-extended" style="position:relative" src="/img/logo.png">
-                        <span class="logo-extended" style="font-family:'Trebuchet';text-decoration:none;color:#FFFFFF;font-size:22px;">Greatest Tool </span><span class="logo-extended" style="font-family:'Trebuchet';text-decoration:none;color:#CCCCCC;font-size:22px;">Ever</span>
+                        <span class="logo-extended" style="font-family:'Trebuchet';text-decoration:none;color:#FFFFFF;font-size:22px;">Support </span><span class="logo-extended" style="font-family:'Trebuchet';text-decoration:none;color:#CCCCCC;font-size:22px;">Hub</span>
                     </a>
                     <ul class="list-unstyled menu nav navbar-right top-nav">
                         <li class="header dropdown">
@@ -65,29 +61,32 @@
                         <span class="icon-bar" id="toggle-icon"></span>
                         <span class="icon-bar" id="toggle-icon"></span>
                     </button></li>
-                    </ul>
-                    <div class="collapse navbar-collapse navbar-ex1-collapse" id="dash-nav">
+                    <!-- </ul> -->
+                    <li><div class="collapse navbar-collapse navbar-ex1-collapse" id="dash-nav">
                         <ul class="nav navbar-nav side-nav">
                             <li class="tcop view">
                                 <a href="#Tcop"><i class="fa fa-fw "></i>Traffic Cop</a>
                             </li>
-                            <li class="revs view">
-                                <a href="#Reviews"><i class="fa fa-fw"></i>Reviews <span style="font-size: 10px;" class="revs-count badge">0</span></a>
-                            </li>
-                            <li class="unas view">
-                                <a href="#Una"><i class="fa fa-fw"></i>Unassigned <span style="font-size: 10px;" class="unas-count badge">0</span></a>
-                            </li>
                             <li class="acts view">
-                                <a href="#Active"><i class="fa fa-fw"></i>Active <span style="font-size: 10px;" class="acts-count badge">0</span></a>
+                                <a href="#Active"><i class="fa fa-fw"></i>Active <span style="font-size: 10px;float:right;" class="acts-count badge">0</span></a>
                             </li>
                             <li class="waits view">
-                                <a href="#Waiting"><i class="fa fa-fw"></i>Waiting <span style="font-size: 10px;" class="waits-count badge">0</span></a>
+                                <a href="#Waiting"><i class="fa fa-fw"></i>Waiting <span style="font-size: 10px;float:right;" class="waits-count badge">0</span></a>
+                            </li>
+                            <li><hr></li>
+                            <li class="revs view">
+                                <a href="#Reviews"><i class="fa fa-fw"></i>Reviews <span style="font-size: 10px;float:right;" class="revs-count badge">0</span></a>
+                            </li>
+                            <li><hr></li>
+                            <li class="unas view">
+                                <a href="#Una"><i class="fa fa-fw"></i>Unassigned <span style="font-size: 10px;float:right;" class="unas-count badge">0</span></a>
                             </li>
                             <li class="user view">
-                                <a href="#User"><span class="dash-user-name dash-user" id="usr_name_space">Dafuq?</span>'s Tickets</a>
+                                <a href="#User"><span class="dash-user-name dash-user" id="usr_name_space">-Error-</span>'s Tickets</a>
                             </li>
                         </ul>
-                    </div>
+                    </div></li>
+                    </ul>
                     <!-- /.navbar-collapse -->
                 </nav>
             </div>
@@ -126,9 +125,64 @@
                         <div id="FTS"><h3 style="font-size:15;">Follow the Sun <span style="font-size: 16px;" class="count badge">0</span></h3>
                             <table class="table table-condensed table-hover table-responsive" style="border-collapse:collapse;table-layout:fixed;" id="ticket-tab">
                                 <thead>
+                                    <tr>
+                                        <th colspan="2">Ticket ID</th>
+                                        <th colspan="2">Time Waiting</th>
+                                        <th colspan="1">Priority</th>
+                                        <th colspan="2">Assignee</th>
+                                        <th colspan="5">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="trows">
                                     <!-- Javascript Inserts Rows Here -->
                                 </tbody>
                             </table>
+<!--                               <div class="bs-example" data-example-id="collapse-accordion">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                      <span class="panel-title row">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed col-md-4">
+                                          Collapsible Group Item #1
+                                        </a><span class="col-md-4">Text</span><span class="col-md-4">Text2</span>
+                                      </span>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                                      <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingTwo">
+                                      <span class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                          Collapsible Group Item #2
+                                        </a>
+                                      </span>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
+                                      <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingThree">
+                                      <span class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                          Collapsible Group Item #3
+                                        </a>
+                                      </span>
+                                    </div>
+                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false">
+                                      <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div> -->
                         </div>
                     </div>
                 
@@ -287,7 +341,7 @@
                     </div>
 
                     <div class=" ticketinfo "  style="background-color:white;" id="NOUSER">
-                        <div id="NO_USER"><h3 style="font-size:15;">No user logged in. A man needs a name...</h3>
+                        <div id="NO_USER"><h3 style="font-size:15;">No user logged in.</h3>
                         </div>
                     </div>
                 </div>

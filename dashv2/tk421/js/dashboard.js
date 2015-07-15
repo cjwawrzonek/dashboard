@@ -46,27 +46,32 @@ var hashHandler = function() {
         var thisOne = $(this);
         var id = $(this).attr('id');
         if (view == "tcop") {
-            if (id != "TCOP") {thisOne.addClass("hidden");}
+            if (id != "TCOP" && id != "NOUSER") {thisOne.addClass("hidden");}
             else if (id == "TCOP") {thisOne.removeClass("hidden");}
         } else if (view == "revs") {
-            if (id != "REVS") {thisOne.addClass("hidden");}
+            if (id != "REVS" && id != "NOUSER") {thisOne.addClass("hidden");}
             else if (id == "REVS") {thisOne.removeClass("hidden");}
         } else if (view == "acts") {
-            if (id != "ACTIVE") {thisOne.addClass("hidden");}
+            if (id != "ACTIVE" && id != "NOUSER") {thisOne.addClass("hidden");}
             else if (id == "ACTIVE") {thisOne.removeClass("hidden");}
         } else if (view == "unas") {
-            if (id != "UNAS") {thisOne.addClass("hidden");}
+            if (id != "UNAS" && id != "NOUSER") {thisOne.addClass("hidden");}
             else if (id == "UNAS") {thisOne.removeClass("hidden");}
         } else if (view == "waits") {
-            if (id != "WAITING") {thisOne.addClass("hidden");}
+            if (id != "WAITING" && id != "NOUSER") {thisOne.addClass("hidden");}
             else if (id == "WAITING") {thisOne.removeClass("hidden");}
         } else if (view == "user") {
             if (id != "USER" && id != "NOUSER") {thisOne.addClass("hidden");}
-            else if (id == "USER" || id == "NOUSER") {
-                thisOne.removeClass("hidden");}
+            else if (id == "USER") {thisOne.removeClass("hidden");}
         }
     });
 };
+
+var repeatRefresh = function(views) {
+    refreshData(views);
+    var delay = pollDelay*1000;
+    setTimeout(repeatRefresh, [delay, dataViews]);
+}
 
 /* This function is called every 'pollDelay' seconds, and refreshes the 
 data for each view passed in 'views' */
@@ -99,28 +104,34 @@ var refreshData = function(views) {
             onResponse(this);
         }); 
     }
-    var delay = pollDelay*1000;
-    setTimeout(refreshData, [delay, dataViews]);
 };
 
 // This stuff should be done after the ajax response comes back
 var onResponse = function(view) {
     refresh(view);
-    $(".revs-count").html(allData.REVS.REV.length);
-    $(".unas-count").html(allData.UNAS.UNAS.length);
-    $(".waits-count").html(allData.WAITS.WAIT.length);
-    $(".acts-count").html(allData.ACTS.ACTS.length);
+    if (view != "TC" && view != "USER") {
+        // tag = "." + view.toLowerCase(); + "-count";
+        if (view == "REVS") {
+            $(".revs-count").html(allData.REVS.REV.length);
+        } else if (view == "UNAS") {
+            $(".unas-count").html(allData.UNAS.UNAS.length);
+        } else if (view == "WAITS") {
+            $(".waits-count").html(allData.WAITS.WAIT.length);
+        } else if (view == "ACTS") {
+            $(".acts-count").html(allData.ACTS.ACTS.length);
+        }
+    }
     // This is for the expanding row functionality. Don't worry about it
     // too much. I'm switching to bootstrap's accordion library soon
-    // for (var dataName in allData[view]) {
-    //     $("#" + dataName + " #ticket-tab tr:odd").addClass("master");
-    //     $("#" + dataName + " #ticket-tab tr:not(.master)").hide();
-    //     $("#" + dataName + " #ticket-tab tr:first-child").show();
-    //     $("#" + dataName + " #ticket-tab tr.master ").click(function(){
-    //         $(this).next("tr").toggle();
-    //         $(this).find(".arrow").toggleClass("up");
-    //     });
-    // }
+    for (var dataName in allData[view]) {
+        $("#" + dataName + " #ticket-tab tr:odd").addClass("master");
+        $("#" + dataName + " #ticket-tab tr:not(.master)").hide();
+        $("#" + dataName + " #ticket-tab tr:first-child").show();
+        $("#" + dataName + " #ticket-tab tr.master ").click(function(){
+            $(this).next("tr").toggle();
+            $(this).find(".arrow").toggleClass("up");
+        });
+    }
 };
 
 // This refreshes the html for a single view (tab) give the data for that view
@@ -207,7 +218,7 @@ var buildRowHTML = function(state, ticket) {
     html = html + '</td>\n<td colspan="2">' + getAssignee(ticket.assignee) + '</td>';
     html += '<td colspan="5" style="width:40%;overflow:hidden;">\n';
     html += ticket.desc;
-    html += '</td></tr>';
+    html += '</td></tr><tr><td></td></tr>';
         // <tr><td colspan="3"><div class="collapse in" id="demo1"><button type="button" class="btn my-btn">Ping Team</button></div></td>\
         // </td><td colspan="3"><div class="collapse in" id="demo1"><button type="button" class="btn my-btn">Claim Ticket</button></div></td>\
         // <td colspan="6"><div class="collapse in" id="demo1">\
@@ -215,7 +226,11 @@ var buildRowHTML = function(state, ticket) {
     return html;
 }
 
-// And this one...
+// This variable is a quick hack. This NEEDS to change. -------------
+var added = false;
+// ------------------------------------------------------------------
+
+// And this one is a mess as well.
 var buildReviewHTML = function(state, ticket) {
     var days = ticket.days;
     var hours = ticket.hours;
@@ -246,34 +261,131 @@ var buildReviewHTML = function(state, ticket) {
     for (var i in ticket.reviewers) {
         html = html + ticket.reviewers[i] + ", ";
     }
+    if (ticket.reviewers.length > 0) {html = html.substring(0, html.length - 2);}
     html += '</td>';
     html += '<td style="width:40%;overflow:hidden;">\n';
     for (var i in ticket.lgtms) {
         html = html + ticket.lgtms[i] + ", ";
     }
-    html += '</td></tr>';
-    // <tr><td><div class="collapse in" id="demo1">\
-    //     <button type="button" class="btn my-btn">\
-    //     Add Reviewer\
-    //     </button></div></td>\
-    // <td><div class="collapse in" id="demo1">\
-    //     <button type="button" class="btn my-btn">\
-    //     Needs Work\
-    //     </button></div></td>\
-    // <td><div class="collapse in" id="demo1">\
-    //     <button type="button" class="btn my-btn">\
-    //     Looking\
-    //     </button></div></td>\
-    // <td><div class="collapse in" id="demo1">\
-    //     <button type="button" class="btn my-btn">\
-    //     LGTM\
-    //     </button></div></td>\
-    // <td><div class="collapse in" id="demo1">\
-    //     <button type="button" class="btn my-btn">\
-    //     Close\
-    //     </button></div></td></tr>';
+
+    if (!added) {var text = "Review";} 
+    else {var text = "Un-Review";}
+
+    if (ticket.lgtms.length > 0) {html = html.substring(0, html.length - 2);}
+    html = html + '</td></tr>\
+    <tr><td><div class="collapse in" id="demo1">\
+        <button type="button" onclick="reviewerClick(this.value)"\
+        value="' + ticket.id + '" \
+        class="btn my-btn">' + text + '\
+        </button></div></td>\
+    <td><div class="collapse in" id="demo1">\
+        <button type="button" class="btn my-btn">\
+        Looking\
+        </button></div></td>\
+    <td><div class="collapse in" id="demo1">\
+        <button type="button" class="btn my-btn">\
+        LGTM\
+        </button></div></td>\
+    <td><div class="collapse in" id="demo1">\
+        <button type="button" class="btn my-btn">\
+        Close\
+        </button></div></td>\
+    <td><div class="collapse in" id="demo1">\
+        </div></td></tr>';
     return html;
-    // }
+        // <td><div class="collapse in" id="demo1">\
+        // <button type="button" onclick="removeReviewer(this.value)"\
+        // value="' + ticket.id + '" \
+        // class="btn my-btn">\
+        // Un-Review\
+        // </button></div></td>\
+}
+
+var reviewerClick = function(key) {
+    if (!added) {
+        addReviewer(key);
+        added = true;
+    } else {
+        removeReviewer(key);
+        added = false;
+    }
+
+}
+
+var addReviewer = function(key) {
+    url_str = "./reviews/" + key + "/reviewer/self";
+    console.log(url_str);
+    $.ajax({
+        type: "PUT",
+        // data: JSON.stringify(allData[view]),
+        contentType: "application/json",
+        url: url_str,
+        context: key
+    }).done(function(response) {
+        // var change = JSON.parse(response);
+        console.log(response);
+    }).fail(function( jqXHR, textStatus ) {
+        alert('failure in addReviewer');
+    });
+    console.log(key);
+    refreshData(['REVS']);
+}
+
+var removeReviewer = function(key) {
+    url_str = "./reviews/" + key + "/unreview/self";
+    console.log(url_str);
+    $.ajax({
+        type: "PUT",
+        // data: JSON.stringify(allData[view]),
+        contentType: "application/json",
+        url: url_str,
+        context: key
+    }).done(function(response) {
+        // var change = JSON.parse(response);
+        console.log(response);
+    }).fail(function( jqXHR, textStatus ) {
+        alert('failure in removeReviewer');
+    }); 
+    console.log(key);
+    refreshData(['REVS']);
+}
+
+var addLooking = function(key) {
+    url_str = "./reviews/" + key + "/looking/self";
+    console.log(url_str);
+    $.ajax({
+        type: "PUT",
+        // data: JSON.stringify(allData[view]),
+        contentType: "application/json",
+        url: url_str,
+        context: key
+    }).done(function(response) {
+        // var change = JSON.parse(response);
+        console.log(response);
+    }).fail(function( jqXHR, textStatus ) {
+        alert('failure in addLooking');
+    });
+    console.log(key);
+    refreshData(['REVS'])
+}
+
+var removeLooking = function(key) {
+    url_str = "./reviews/" + key + "/unlooking/self";
+    console.log(url_str);
+    $.ajax({
+        type: "PUT",
+        // data: JSON.stringify(allData[view]),
+        contentType: "application/json",
+        url: url_str,
+        context: key
+    }).done(function(response) {
+        // var change = JSON.parse(response);
+        console.log(response);
+    }).fail(function( jqXHR, textStatus ) {
+        alert('failure in removeLooking');
+    });
+    console.log(key);
+    refreshData(['REVS'])
 }
 
 var getPriorityColor = function(priority) {
@@ -371,7 +483,13 @@ var logIn = function() {
     $(".log-link").text("Log Out");
     $(".usr-alerts").html(alert_str);
     $("div #USER").show();
+    $("div #TCOP").show();
+    $("div #REVS").show();
+    $("div #UNAS").show();
+    $("div #ACTIVE").show();
+    $("div #WAITING").show();
     $("div #NOUSER").hide();
+    $("div #NOUSER").addClass('hidden');
 };
 
 var toggleLog = function() {
@@ -399,7 +517,13 @@ var logOut = function() {
     $(".log-link").text("Log In");
     $(".usr-alerts").html("<h4>Log in Please</h4>");
     $("div #USER").hide();
+    $("div #TCOP").hide();
+    $("div #REVS").hide();
+    $("div #UNAS").hide();
+    $("div #ACTIVE").hide();
+    $("div #WAITING").hide();
     $("div #NOUSER").show();
+    $("div #NOUSER").removeClass('hidden');
 };
 
 /* These are the first views to be loaded as they are the most critical
@@ -416,4 +540,7 @@ $( document ).ready(function() {
     hashHandler();
     logIn();
     refreshData(['ACTS', 'UNAS', 'WAITS'])
+    // Now, all data has been manually loaded, so 
+    // set a timeout and then call the polling refreshser
+    setTimeout(repeatRefresh, [15000, dataViews]);
 });

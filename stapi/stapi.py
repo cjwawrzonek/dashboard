@@ -27,12 +27,13 @@ import logging
 import os
 import pidlockfile
 import pymongo
+import review_queue
 import signal
 import StringIO
 import sys
 import time
 
-# from pprint import pprint
+from pprint import pprint
 from datetime import datetime, timedelta
 # from jirapp import jirapp
 # from sfdcpp import sfdcpp
@@ -96,6 +97,9 @@ class stAPI:
         self.coll_companies = self.mongo.support.companies
         self.coll_reviews = self.mongo.support.reviews
 
+        # This the review_queue.py functions created by J-man Wahlin
+        self.RQ = review_queue.ReviewQueue(self.mongo.support)
+
     def find(self, collection, query, proj=None):
         """ Wrapper for find that handles exceptions """
         """NOTE: query is assumed to be in correct format"""
@@ -107,14 +111,14 @@ class stAPI:
             return {'ok': False, 'payload': e}
         return {'ok': True, 'payload': docs}
 
-    def find_and_modify(self, collection, match, updoc, upsert=False):
+    def find_and_modify(self, collection, match, updoc, upsert=False, proj={}):
         """ Wrapper for find_and_modify that handles exceptions """
         self.logger.debug("find_and_modify(%s,%s,%s)", collection, match,
                           updoc)
         try:
             # return the 'new' updated document
-            doc = collection.find_and_modify(match, updoc, upsert=upsert,
-                                             new=True)
+            doc = collection.find_one_and_update(match, updoc, upsert=upsert,
+                projection=proj, return_document=ReturnDocument.AFTER)
         except pymongo.errors.PyMongoError as e:
             self.logger.exception(e)
             return {'ok': False, 'payload': e}
@@ -139,6 +143,112 @@ class stAPI:
             self.logger.exception(e)
             return {'ok': False, 'payload': e}
         return {'ok': True, 'payload': doc}
+
+    def addReviewer(self, id, reviewer, **kwargs):
+        """ Add a reviewer to the given review """
+        self.logger.debug("addReviewer(%s, %s)" % (id, reviewer))
+
+        add_rev_req = {'action': 'add_reviewer'}
+        add_rev_req['review_id'] = id
+        add_rev_req['reviewer'] = reviewer
+        try:
+            self.RQ.add_reviewer(add_rev_req)
+            res = {"ok": True, "payload": {"id": id, "added reviewer": reviewer}}
+        except Exception as e:
+            res = {"ok": False, "payload": e}
+
+        # match = {"key": id}
+        # updoc = {"reviewer": }
+        # proj = {"_id": 0, "key": 1, "done": 1, "requested_by": 1,
+        #         "reviewers": 1, "lgtms": 1
+        #         }
+        # res = self.find_and_modify(self.coll_reviews, match, proj, )
+
+        if not res['ok']:
+            return res
+        result = res['payload']
+
+        if result is None:
+            message = "Something went wrong in addReviewer. Result is None."
+            self.logger.warning(message)
+            return {"ok": False, "payload": message}
+        return {'ok': True, 'payload': result}
+
+    def addlooking(self, id, looker, **kwargs):
+        """ Add a looking to the given review """
+        self.logger.debug("addlooking(%s, %s)" % (id, looker))
+
+        req = {'action': 'add_looking'}
+        req['review_id'] = id
+        req['lookin'] = looking
+        try:
+            self.RQ.add_looking(req)
+            res = {"ok": True, "payload": {"id": id, "added looking": looking}}
+        except Exception as e:
+            res = {"ok": False, "payload": e}
+
+        # match = {"key": id}
+        # updoc = {"reviewer": }
+        # proj = {"_id": 0, "key": 1, "done": 1, "requested_by": 1,
+        #         "reviewers": 1, "lgtms": 1
+        #         }
+        # res = self.find_and_modify(self.coll_reviews, match, proj, )
+
+        if not res['ok']:
+            return res
+        result = res['payload']
+
+        if result is None:
+            message = "Something went wrong in addLooking. Result is None."
+            self.logger.warning(message)
+            return {"ok": False, "payload": message}
+        return {'ok': True, 'payload': result}
+
+    def removelooking(self, id, looker, **kwargs):
+        """ Remove a looker from the given review """
+        self.logger.debug("removelooking(%s, %s)" % (id, looker))
+
+        req = {'action': 'remove_looking'}
+        req['review_id'] = id
+        req['looker'] = looker
+        try:
+            self.RQ.remove_looking(req)
+            res = {"ok": True, "payload": {"id": id, "removed looking": looker}}
+        except Exception as e:
+            res = {"ok": False, "payload": e}
+
+        if not res['ok']:
+            return res
+        result = res['payload']
+
+        if result is None:
+            message = "Something went wrong in addLooking. Result is None."
+            self.logger.warning(message)
+            return {"ok": False, "payload": message}
+        return {'ok': True, 'payload': result}
+
+    def removeReviewer(self, id, reviewer, **kwargs):
+        """ Remove a reviewer from the given review """
+        self.logger.debug("removeReviewer(%s, %s)" % (id, reviewer))
+
+        rem_rev_req = {'action': 'remove_reviewer'}
+        rem_rev_req['review_id'] = id
+        rem_rev_req['reviewer'] = reviewer
+        try:
+            self.RQ.remove_reviewer(rem_rev_req)
+            res = {"ok": True, "payload": {"id": id, "removed reviewer": reviewer}}
+        except Exception as e:
+            res = {"ok": False, "payload": e}
+
+        if not res['ok']:
+            return res
+        result = res['payload']
+
+        if result is None:
+            message = "Something went wrong in removeReviewer. Result is None."
+            self.logger.warning(message)
+            return {"ok": False, "payload": message}
+        return {'ok': True, 'payload': result}
 
     def createUser(self, user, **kwargs):
         """ Create a new user with appropriate defaults """
@@ -168,32 +278,6 @@ class stAPI:
             self.logger.warning(message)
         return {'ok': True, 'payload': docs}
 
-    # def getActiveIssues(self, **kwargs):
-    #     """ Return all active issues """
-    #     self.logger.debug("getActiveIssues()")
-
-    #     if kwargs.get('query', None) is not None:
-    #         query = kwargs.get('query', None)
-    #     else:
-    #         query = {'$and':[{}]}
-
-    #     query['$and'].append({'jira.fields.status.name':
-    #                            {'$in': ['Open', 'Reopened',
-    #             'In Progress', 'Waiting For User Input']}})
-
-    #     proj = kwargs.get('proj', None)
-
-    #     res = self.find(self.coll_issues, query, proj)
-
-    #     if not res['ok']:
-    #         return res
-    #     docs = res['payload']
-
-    #     if docs is None:
-    #         message = "No active issues"
-    #         self.logger.warning(message)
-    #     return {'ok': True, 'payload': docs}
-
     def getActiveReviews(self, **kwargs):
         """ Return all active reviews """
         self.logger.debug("getActiveReviews()")
@@ -207,69 +291,6 @@ class stAPI:
             message = "No active reviews"
             self.logger.warning(message)
         return {'ok': True, 'payload': docs}
-
-    # def getActiveFTSs(self, **kwargs):
-    #     """ Return FTSs  """
-    #     kw = ""
-    #     for key, value in kwargs.iteritems():
-    #         kw = kw + "{" + str(key) + ":" + str(value) + "}, "
-    #     self.logger.debug("getActiveFTSs()")
-
-    #     if kwargs.get('query', None) is not None:
-    #         query = kwargs.get('query', None)
-    #     else:
-    #         query = {'$and':[{}]}
-
-    #     query['$and'].append({'jira.fields.status.name':
-    # {'$in': ['Open', 'Reopened', 'In Progress', 'Waiting For User Input']}})
-    #     query['$and'].append({'jira.fields.labels':'fs'})
-    #     proj = kwargs.get('proj', None)
-
-    #     res = self.find(self.coll_issues, query, proj)
-
-    #     if not res['ok']:
-    #         return res
-    #     docs = res['payload']
-
-    #     fts = []
-    #     for doc in docs:
-    #         issue = SupportIssue().fromDoc(doc)
-
-    #         if self._isFTS(issue):
-    #             fts.append(doc)
-
-    #     return {'ok': True, 'payload': fts}
-
-    # def getActiveSLAs(self, **kwargs):
-    #     """ Return unsatisfied SLAs """
-    #     self.logger.debug("getActiveSLAs()")
-
-    #     if kwargs.get('query', None) is not None:
-    #         query = kwargs.get('query', None)
-    #     else:
-    #         query = {'$and':[{}]}
-
-    #     query['$and'].append({'jira.fields.status.name': {'$in':
-    #               ['Open', 'Reopened',
-    #             'In Progress', 'Waiting For User Input']}})
-    #     query['$and'].append({'sla.expireAt' : {'$ne':None}})
-    #     proj = kwargs.get('proj', None)
-
-    #     res = self.find(self.coll_issues, query, proj)
-
-    #     if not res['ok']:
-    #         return res
-    #     docs = res['payload']
-
-    #     slas = []
-    #     for doc in docs:
-
-    #         issue = SupportIssue().fromDoc(doc)
-
-    #         if self._isSLA(issue):
-    #             slas.append(doc)
-
-    #     return {'ok': True, 'payload': slas}
 
     def getActiveUNAs(self, **kwargs):
         """ Return FTSs  """
@@ -322,6 +343,22 @@ class stAPI:
             self.logger.warning(message)
             return {'ok': False, 'payload': message}
         return {'ok': True, 'payload': doc}
+
+    def getUserByToken(self, token, **kwargs):
+        """ Return the associated user document """
+        self.logger.debug("getUserByToken(%s)", token)
+        # Currently authenticating against username
+        # TODO: use Crowd REST API to validate token
+        res = self.find_one(self.coll_users, {'user': token})
+        if not res['ok']:
+            return res
+        user = res['payload']
+
+        if user is None:
+            message = "user not found for token '%s'" % token
+            self.logger.warning(message)
+            return {'ok': False, 'payload': message}
+        return {'ok': True, 'payload': user}
 
     """ Return a JSON-validated dict for the string """
     def _loadJson(self, string):
@@ -526,12 +563,36 @@ class stAPI:
         def review_id(id, **kwargs):
             return _response(self.getReviewByID, id=id, **kwargs)
 
+        @b.route('/reviews/<id>/reviewer/self')
+        @authenticated
+        def reviewer_self(id, **kwargs):
+            reviewer = kwargs['userDoc']['name']
+            return _response(self.addReviewer, id=id, reviewer=reviewer, **kwargs)
+
+        @b.route('/reviews/<id>/looking/self')
+        @authenticated
+        def looking_self(id, **kwargs):
+            looker = kwargs['userDoc']['name']
+            return _response(self.addlooking, id=id, looker=looker, **kwargs)
+
+        @b.route('/reviews/<id>/unlooking/self')
+        @authenticated
+        def unlooking_self(id, **kwargs):
+            looker = kwargs['userDoc']['name']
+            return _response(self.removelooking, id=id, looker=looker, **kwargs)
+
+        @b.route('/reviews/<id>/unreview/self')
+        @authenticated
+        def unreview_self(id, **kwargs):
+            reviewer = kwargs['userDoc']['name']
+            return _response(self.removeReviewer, id=id, reviewer=reviewer, **kwargs)
+
         @b.route('/issues/<id>')
         @authenticated
         def issue_id(id, **kwargs):
             return _response(self.getIssueByID, id=id, **kwargs)
 
-        @b.route('/issues/dash/sla')
+        @b.route('/issues/summary/sla')
         @authenticated
         def issues_sla(**kwargs):
             proj = self.dash_proj
@@ -552,16 +613,16 @@ class stAPI:
                     data.append(i)
             return success(data)
 
-        @b.route('/issues/dash/fts')
+        @b.route('/issues/summary/fts')
         @authenticated
         def issues_fts(**kwargs):
             proj = self.dash_proj
             query = copy.deepcopy(self.support_query)
             query['$and'].append({
                 'jira.fields.status.name': {'$in': [
-                    'Open', 'Reopened', 'In Progress', 'Waiting for Customer',
+                    'Open', 'Reopened', 'In Progress',
                     'Waiting For User Input']}})
-            query['$and'].append({'jira.fields.status.name': 'fs'})
+            query['$and'].append({'jira.fields.labels': 'fs'})
 
             res = self.getIssues(query, proj, **kwargs)
             if not res['ok']:
@@ -572,6 +633,7 @@ class stAPI:
             data = []
             for i in docs:
                 issue = SupportIssue().fromDoc(i)
+
                 if self._isFTS(issue):
                     data.append(i)
             return success(data)
@@ -587,7 +649,7 @@ class stAPI:
         # usr_assigned: all issues assigned to a user name
 
         and each parameter adds a filter in the query search """
-        @b.route('/issues/dash')
+        @b.route('/issues/summary')
         @authenticated
         def dash_issues(**kwargs):
             # Returns a trimmed (projected) set of issues

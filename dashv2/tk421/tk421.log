@@ -1,289 +1,61 @@
 parsed args:
-2015-07-10 18:19:11,182 - tk421 - DEBUG - parsed args:
+2015-07-15 11:30:15,620 - tk421 - DEBUG - parsed args:
 log_level DEBUG
-2015-07-10 18:19:11,182 - tk421 - DEBUG - log_level DEBUG
-log /Users/cjw/support-services/tk421/tk421.log
-2015-07-10 18:19:11,182 - tk421 - DEBUG - log /Users/cjw/support-services/tk421/tk421.log
+2015-07-15 11:30:15,620 - tk421 - DEBUG - log_level DEBUG
+log /Users/cjw/dashboard/dashv2/tk421/tk421.log
+2015-07-15 11:30:15,620 - tk421 - DEBUG - log /Users/cjw/dashboard/dashv2/tk421/tk421.log
 stapi_port 8080
-2015-07-10 18:19:11,183 - tk421 - DEBUG - stapi_port 8080
+2015-07-15 11:30:15,620 - tk421 - DEBUG - stapi_port 8080
 pid /tmp/tk421.pid
-2015-07-10 18:19:11,183 - tk421 - DEBUG - pid /tmp/tk421.pid
+2015-07-15 11:30:15,621 - tk421 - DEBUG - pid /tmp/tk421.pid
 server_host localhost
-2015-07-10 18:19:11,183 - tk421 - DEBUG - server_host localhost
+2015-07-15 11:30:15,621 - tk421 - DEBUG - server_host localhost
 command restart
-2015-07-10 18:19:11,183 - tk421 - DEBUG - command restart
+2015-07-15 11:30:15,621 - tk421 - DEBUG - command restart
 server_port 8900
-2015-07-10 18:19:11,183 - tk421 - DEBUG - server_port 8900
+2015-07-15 11:30:15,621 - tk421 - DEBUG - server_port 8900
 stapi_host localhost
-2015-07-10 18:19:11,183 - tk421 - DEBUG - stapi_host localhost
-root_webdir /Users/cjw/support-services/tk421
-2015-07-10 18:19:11,183 - tk421 - DEBUG - root_webdir /Users/cjw/support-services/tk421
-config /Users/cjw/support-services/tk421/tk421.config
-2015-07-10 18:19:11,183 - tk421 - DEBUG - config /Users/cjw/support-services/tk421/tk421.config
+2015-07-15 11:30:15,621 - tk421 - DEBUG - stapi_host localhost
+root_webdir /Users/cjw/dashboard/dashv2/tk421
+2015-07-15 11:30:15,621 - tk421 - DEBUG - root_webdir /Users/cjw/dashboard/dashv2/tk421
+config /Users/cjw/dashboard/dashv2/tk421/tk421.config
+2015-07-15 11:30:15,621 - tk421 - DEBUG - config /Users/cjw/dashboard/dashv2/tk421/tk421.config
 mongo_uri mongodb://localhost:24000
-2015-07-10 18:19:11,183 - tk421 - DEBUG - mongo_uri mongodb://localhost:24000
+2015-07-15 11:30:15,621 - tk421 - DEBUG - mongo_uri mongodb://localhost:24000
 parsed args:
-2015-07-10 18:19:11,183 - stAPIclient - DEBUG - parsed args:
+2015-07-15 11:30:15,621 - stAPIclient - DEBUG - parsed args:
 log_level DEBUG
-2015-07-10 18:19:11,183 - stAPIclient - DEBUG - log_level DEBUG
-log /Users/cjw/support-services/tk421/tk421.log
-2015-07-10 18:19:11,184 - stAPIclient - DEBUG - log /Users/cjw/support-services/tk421/tk421.log
+2015-07-15 11:30:15,621 - stAPIclient - DEBUG - log_level DEBUG
+log /Users/cjw/dashboard/dashv2/tk421/tk421.log
+2015-07-15 11:30:15,622 - stAPIclient - DEBUG - log /Users/cjw/dashboard/dashv2/tk421/tk421.log
 stapi_port 8080
-2015-07-10 18:19:11,184 - stAPIclient - DEBUG - stapi_port 8080
+2015-07-15 11:30:15,622 - stAPIclient - DEBUG - stapi_port 8080
 pid /tmp/tk421.pid
-2015-07-10 18:19:11,184 - stAPIclient - DEBUG - pid /tmp/tk421.pid
+2015-07-15 11:30:15,622 - stAPIclient - DEBUG - pid /tmp/tk421.pid
 server_host localhost
-2015-07-10 18:19:11,184 - stAPIclient - DEBUG - server_host localhost
+2015-07-15 11:30:15,622 - stAPIclient - DEBUG - server_host localhost
 command restart
-2015-07-10 18:19:11,184 - stAPIclient - DEBUG - command restart
+2015-07-15 11:30:15,622 - stAPIclient - DEBUG - command restart
 server_port 8900
-2015-07-10 18:19:11,184 - stAPIclient - DEBUG - server_port 8900
+2015-07-15 11:30:15,622 - stAPIclient - DEBUG - server_port 8900
 stapi_host localhost
-2015-07-10 18:19:11,184 - stAPIclient - DEBUG - stapi_host localhost
-root_webdir /Users/cjw/support-services/tk421
-2015-07-10 18:19:11,184 - stAPIclient - DEBUG - root_webdir /Users/cjw/support-services/tk421
-config /Users/cjw/support-services/tk421/tk421.config
-2015-07-10 18:19:11,184 - stAPIclient - DEBUG - config /Users/cjw/support-services/tk421/tk421.config
+2015-07-15 11:30:15,622 - stAPIclient - DEBUG - stapi_host localhost
+root_webdir /Users/cjw/dashboard/dashv2/tk421
+2015-07-15 11:30:15,622 - stAPIclient - DEBUG - root_webdir /Users/cjw/dashboard/dashv2/tk421
+config /Users/cjw/dashboard/dashv2/tk421/tk421.config
+2015-07-15 11:30:15,622 - stAPIclient - DEBUG - config /Users/cjw/dashboard/dashv2/tk421/tk421.config
 mongo_uri mongodb://localhost:24000
-2015-07-10 18:19:11,184 - stAPIclient - DEBUG - mongo_uri mongodb://localhost:24000
+2015-07-15 11:30:15,622 - stAPIclient - DEBUG - mongo_uri mongodb://localhost:24000
 /
-2015-07-10 18:19:11,186 - tk421 - INFO - /
+2015-07-15 11:30:15,624 - tk421 - INFO - /
 start()
-2015-07-10 18:19:11,186 - tk421 - DEBUG - start()
+2015-07-15 11:30:15,625 - tk421 - DEBUG - start()
 tk is at REST
-2015-07-10 18:19:11,187 - tk421 - INFO - tk is at REST
-/Users/cjw/support-services/tk421
-2015-07-10 18:19:11,187 - tk421 - INFO - /Users/cjw/support-services/tk421
+2015-07-15 11:30:15,625 - tk421 - INFO - tk is at REST
+/Users/cjw/dashboard/dashv2/tk421
+2015-07-15 11:30:15,626 - tk421 - INFO - /Users/cjw/dashboard/dashv2/tk421
 Bottle v0.12.8 server starting up (using WSGIRefServer())...
 Listening on http://localhost:8900/
 Hit Ctrl-C to quit.
 
-127.0.0.1 - - [10/Jul/2015 18:19:38] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:19:38] "GET /js/jquery.js HTTP/1.1" 200 95785
-127.0.0.1 - - [10/Jul/2015 18:19:38] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 200 3121
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /js/dashboard.js HTTP/1.1" 200 16128
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /css/bootstrap.css HTTP/1.1" 200 142194
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /css/dashboard.css HTTP/1.1" 200 6262
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /css/sb-admin.css HTTP/1.1" 200 2651
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /img/logo.png HTTP/1.1" 200 12510
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /ajax/acts HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /ajax/unas HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /ajax/waits HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:19:39] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /js/jquery.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /css/bootstrap.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /js/dashboard.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /img/logo.png HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /ajax/acts HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /ajax/unas HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /ajax/waits HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:19:54] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /js/jquery.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /css/bootstrap.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /js/dashboard.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /js/bootstrap.min.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /img/logo.png HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /ajax/acts HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /ajax/unas HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /ajax/waits HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:36] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /js/jquery.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /css/bootstrap.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /js/dashboard.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /js/bootstrap.min.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /img/logo.png HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /ajax/acts HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /ajax/unas HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /ajax/waits HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
-127.0.0.1 - - [10/Jul/2015 18:42:37] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /js/jquery.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /css/bootstrap.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /js/dashboard.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /js/bootstrap.min.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /img/logo.png HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/acts HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/unas HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/waits HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /js/jquery.js HTTP/1.1" 200 95785
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /css/bootstrap.css HTTP/1.1" 200 142194
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 200 3121
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /js/dashboard.js HTTP/1.1" 200 16128
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /js/bootstrap.min.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /img/logo.png HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/acts HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/unas HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/waits HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /js/jquery.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /js/bootstrap.min.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /css/bootstrap.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /js/dashboard.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /img/logo.png HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/acts HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/unas HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /ajax/waits HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:38] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /js/jquery.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /js/bootstrap.min.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /css/bootstrap.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /js/dashboard.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /img/logo.png HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /ajax/acts HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /ajax/unas HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /ajax/waits HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /js/dashboard.js HTTP/1.1" 200 16128
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 200 3121
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /css/bootstrap.css HTTP/1.1" 200 142194
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /css/dashboard.css HTTP/1.1" 200 6262
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /js/jquery.js HTTP/1.1" 200 95785
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /css/sb-admin.css HTTP/1.1" 200 2651
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /img/logo.png HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /ajax/acts HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /ajax/unas HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /ajax/waits HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /js/bootstrap.min.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /css/bootstrap.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /js/dashboard.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:39] "GET /js/jquery.js HTTP/1.1" 200 95785
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /img/logo.png HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /js/bootstrap.min.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /css/bootstrap.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /js/dashboard.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /js/jquery.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /img/logo.png HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /js/bootstrap.min.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /js/dashboard.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /css/bootstrap.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /js/jquery.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /img/logo.png HTTP/1.1" 200 12510
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /js/bootstrap.min.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /css/bootstrap.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /js/dashboard.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /ajax/acts HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /ajax/unas HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /ajax/waits HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
-127.0.0.1 - - [10/Jul/2015 18:42:40] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /js/bootstrap.min.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /css/bootstrap.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /js/dashboard.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 200 3121
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /js/bootstrap.min.js HTTP/1.1" 200 35951
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /css/bootstrap.css HTTP/1.1" 200 142194
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /css/dashboard.css HTTP/1.1" 200 6262
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /css/sb-admin.css HTTP/1.1" 200 2651
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /js/dashboard.js HTTP/1.1" 200 16128
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /ajax/acts HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /ajax/unas HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /ajax/waits HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:41] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /dash HTTP/1.1" 200 17447
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /js/jquery.cookie/jquery.cookie.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /js/bootstrap.min.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /css/bootstrap.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /js/dashboard.js HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /css/dashboard.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /css/sb-admin.css HTTP/1.1" 304 0
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /ajax/tc HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /ajax/revs HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /ajax/user HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /ajax/acts HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /ajax/unas HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /ajax/waits HTTP/1.1" 200 47
-127.0.0.1 - - [10/Jul/2015 18:42:42] "GET /css/bootstrap.css.map HTTP/1.1" 404 762
+Terminating on signal 15

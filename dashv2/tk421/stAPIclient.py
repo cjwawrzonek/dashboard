@@ -39,15 +39,31 @@ class stAPIclient:
     # -------------------------------------------------------------------- """
     # Public API function
     # @staticmethod # I want to eventually implement these as static methods
+    def addReviewerSelf(self, id, method="PUT", **kwargs):
+        endpoint = '/reviews/' + id + '/reviewer/self'
+        return self._request(endpoint, **kwargs)
+
+    def addLookingSelf(self, id, method="PUT", **kwargs):
+        endpoint = '/reviews/' + id + '/looking/self'
+        return self._request(endpoint, **kwargs)
+
+    def removeReviewerSelf(self, id, method="PUT", **kwargs):
+        endpoint = '/reviews/' + id + '/unreview/self'
+        return self._request(endpoint, **kwargs)
+
+    def removeLookingSelf(self, id, method="PUT", **kwargs):
+        endpoint = '/reviews/' + id + '/unlooking/self'
+        return self._request(endpoint, **kwargs)
+
     def getActiveIssues(self, **kwargs):
-        endpoint = '/issues/dash'
+        endpoint = '/issues/summary'
         params = {}
         params['active'] = "true"
         params['support'] = "true"
         return self._request(endpoint, params=params, **kwargs)
 
     def getActiveFTSs(self, **kwargs):
-        endpoint = '/issues/dash/fts'
+        endpoint = '/issues/summary/fts'
         params = {}
         return self._request(endpoint, params=params, **kwargs)
 
@@ -58,12 +74,12 @@ class stAPIclient:
         return self._request(endpoint, params=params, **kwargs)
 
     def getActiveSLAs(self, **kwargs):
-        endpoint = '/issues/dash/sla'
+        endpoint = '/issues/summary/sla'
         params = {}
         return self._request(endpoint, params=params, **kwargs)
 
     def getActiveUNAs(self, **kwargs):
-        endpoint = '/issues/dash'
+        endpoint = '/issues/summary'
         params = {}
         params['una'] = "true"
         params['support'] = "true"
@@ -71,7 +87,7 @@ class stAPIclient:
         return self._request(endpoint, params=params, **kwargs)
 
     def getAssignedIssues(self, **kwargs):
-        endpoint = '/issues/dash'
+        endpoint = '/issues/summary'
         params = {}
         params['support'] = "true"
         params['usr_assigned'] = "true"
@@ -79,14 +95,14 @@ class stAPIclient:
         return self._request(endpoint, params=params, **kwargs)
 
     def getUpdatedIssues(self, last_updated, **kwargs):
-        endpoint = '/issues/dash'
+        endpoint = '/issues/summary'
         params = {}
         params['last_updated'] = last_updated
         params['support'] = "true"
         return self._request(endpoint, params=params, **kwargs)
 
     def getUNAs(self, **kwargs):
-        endpoint = '/issues/dash'
+        endpoint = '/issues/summary'
         params = {}
         params['una'] = "true"
         params['support'] = "true"
@@ -101,7 +117,7 @@ class stAPIclient:
         return self._request(endpoint, params=params, **kwargs)
 
     def getWaitingIssues(self, **kwargs):
-        endpoint = '/issues/dash'
+        endpoint = '/issues/summary'
         params = {}
         params['wait'] = "true"
         params['support'] = "true"
@@ -122,6 +138,7 @@ class stAPIclient:
             token = self.token
         headers = {'Accept-Encoding': 'compress, gzip, deflate, identity',
                    'Authorization': "usr_token=%s" % token}
+        headers['Content-Type'] = 'application/json'
         params = kwargs.get('params', None)
 
         self.logger.debug("Time before http request : " + str(
@@ -133,7 +150,7 @@ class stAPIclient:
         except requests.adapters.ConnectionError as e:
             self.logger.exception(e)
             message = 'stapi: %s' % e
-            return {'status': 'error', 'message': str(message)}
+            return {'status': 'error', 'payload': str(message)}
 
         self.logger.debug("Time to after http request: " + str(
             time.time() % 10) + "\n")
@@ -146,14 +163,14 @@ class stAPIclient:
                 except Exception as e:
                     message = e
             elif res.status_code == 401:
-                return {'status': 'error', 'message':
+                return {'status': 'error', 'payload':
                         'Unauthorized User. Please log into Corp.'}
             else:
                 try:
                     ret = bson.json_util.loads(res.text)
                     message = str(ret['message'])
                 except Exception as e:
-                    message = str(e) + " at point [The Q] in _request()"
+                    message = str(e) + " at point [failure] in stapiclient._request()"
         else:
             message = "request(%s,%s) failed" % (endpoint, method)
-        return {'status': 'error', 'message': message}
+        return {'status': 'error', 'payload': message}

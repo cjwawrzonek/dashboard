@@ -215,8 +215,9 @@ class tk421():
         mins = (now - lastUpdate).seconds / 60
         days = (now - lastUpdate).days
         eyes_on = doc["reviewers"]
+        lookers = []
         if 'lookers' in doc:
-            eyes_on = doc['lookers'] + eyes_on
+            lookers = doc['lookers']
         if 'lgtms' in doc:
             lgtms = doc["lgtms"]
         else:
@@ -227,7 +228,8 @@ class tk421():
                 "minutes": mins % 60,
                 "requestedby": doc["requested_by"],
                 "reviewers": eyes_on,
-                "lgtms": lgtms}
+                "lgtms": lgtms,
+                "lookers": lookers}
 
     def trimmedIssue(self, issue):
         """Trim the gen issue to a base set of fields TO BE DETERMINED."""
@@ -323,12 +325,12 @@ class tk421():
             def wrapped(*args, **kwargs):
                 kwargs['token'] = bottle.request.cookies.get("auth_user", None)
 
-                if kwargs['token'] is None:
-                    return bson.json_util.dumps({'status': 'error', 'message':
-                                                'Login to Corp'})
-
                 # if kwargs['token'] is None:
-                #     kwargs['token'] = "jacob.ribnik"
+                #     return bson.json_util.dumps({'status': 'error', 'message':
+                #                                 'Login to Corp'})
+
+                if kwargs['token'] is None:
+                    kwargs['token'] = "jacob.ribnik"
 
                 # unescape escaped html characters!!
                 # just @ for now as there are plenty of user@10gen.com's
@@ -405,12 +407,12 @@ class tk421():
             token = bottle.request.get_cookie("auth_user")
 
             # reimplement this when ported
-            if token is None:
-                return bson.json_util.dumps({'status': 'error', 'message':
-                                            'Login to Corp'})
-
             # if token is None:
-            #     token = "jacob.ribnik"
+            #     return bson.json_util.dumps({'status': 'error', 'message':
+            #                                 'Login to Corp'})
+
+            if token is None:
+                token = "jacob.ribnik"
 
             # unescape escaped html characters!!
             # just @ for now as there are plenty of user@10gen.com's
@@ -419,7 +421,9 @@ class tk421():
             if res['status'] == 'success':
                 self.logger.info(res)
                 user = res['payload']
-            return bson.json_util.dumps(user)
+                return bson.json_util.dumps(user)
+            else:
+                return res
 
         """ This guy here is really the workhorse of the dashboard.
         All views are updated with ajax calls through this route. """
@@ -436,6 +440,70 @@ class tk421():
                 })
 
             return bson.json_util.dumps(data)
+
+        @b.put('/reviews/<id>/reviewer/self')
+        @tokenize
+        def put_reviewer(id, **kwargs):
+            try:
+                response = self.sc.addReviewerSelf(id, **kwargs)
+                if response['status'] == 'error':
+                    return bson.json_util.dumps({'status': 'error',
+                        'message': response['payload']})
+            except Exception as err:
+                logger.exception("Something went wrong in put_reviewer")
+                return bson.json_util.dumps({
+                    'status': "error",
+                    'message': "Internal error: " + str(err.message)
+                })
+            return bson.json_util.dumps(response)
+
+        @b.put('/reviews/<id>/unreview/self')
+        @tokenize
+        def put_unreview(id, **kwargs):
+            try:
+                response = self.sc.removeReviewerSelf(id, **kwargs)
+                if response['status'] == 'error':
+                    return bson.json_util.dumps({'status': 'error',
+                        'message': response['payload']})
+            except Exception as err:
+                logger.exception("Something went wrong in put_unreview")
+                return bson.json_util.dumps({
+                    'status': "error",
+                    'message': "Internal error: " + str(err.message)
+                })
+            return bson.json_util.dumps(response)
+
+        @b.put('/reviews/<id>/looking/self')
+        @tokenize
+        def put_looking(id, **kwargs):
+            try:
+                response = self.sc.addLookingSelf(id, **kwargs)
+                if response['status'] == 'error':
+                    return bson.json_util.dumps({'status': 'error',
+                        'message': response['payload']})
+            except Exception as err:
+                logger.exception("Something went wrong in put_looking")
+                return bson.json_util.dumps({
+                    'status': "error",
+                    'message': "Internal error: " + str(err.message)
+                })
+            return bson.json_util.dumps(response)
+
+        @b.put('/reviews/<id>/unlooking/self')
+        @tokenize
+        def put_unlooking(id, **kwargs):
+            try:
+                response = self.sc.removeLookingSelf(id, **kwargs)
+                if response['status'] == 'error':
+                    return bson.json_util.dumps({'status': 'error',
+                        'message': response['payload']})
+            except Exception as err:
+                logger.exception("Something went wrong in put_unooking")
+                return bson.json_util.dumps({
+                    'status': "error",
+                    'message': "Internal error: " + str(err.message)
+                })
+            return bson.json_util.dumps(response)
 
         b.run(host=self.args['server_host'], port=self.args['server_port'])
 

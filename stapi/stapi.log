@@ -1,8 +1,5805 @@
 start()
-2015-07-10 18:19:34,595 - stapi - DEBUG - start()
+2015-07-15 10:40:09,296 - stapi - DEBUG - start()
 stAPI is at REST
-2015-07-10 18:19:34,596 - stapi - INFO - stAPI is at REST
+2015-07-15 10:40:09,296 - stapi - INFO - stAPI is at REST
 Bottle v0.12.8 server starting up (using WSGIRefServer())...
 Listening on http://localhost:8080/
 Hit Ctrl-C to quit.
 
+here is origin
+
+2015-07-15 10:40:11,462 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:11,463 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:11,463 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:11,463 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:11,463 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:11,463 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:11,465 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.47787809372
+
+2015-07-15 10:40:11,477 - stapi - DEBUG - Time to start of success() : 1.47787809372
+
+Time to before issues_list : 1.47840690613
+
+2015-07-15 10:40:11,478 - stapi - DEBUG - Time to before issues_list : 1.47840690613
+
+Time to after bson dump : 1.47890806198
+
+2015-07-15 10:40:11,478 - stapi - DEBUG - Time to after bson dump : 1.47890806198
+
+Time to after iteration : 1.47921204567
+
+2015-07-15 10:40:11,479 - stapi - DEBUG - Time to after iteration : 1.47921204567
+
+Time to after gzip compress : 1.47979307175
+
+2015-07-15 10:40:11,479 - stapi - DEBUG - Time to after gzip compress : 1.47979307175
+
+Time to just after compressed.getvalue() : 1.48012089729
+
+2015-07-15 10:40:11,480 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.48012089729
+
+127.0.0.1 - - [15/Jul/2015 10:40:11] "GET /issues/summary/sla HTTP/1.1" 200 52
+here is origin
+
+2015-07-15 10:40:11,488 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:11,488 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:11,489 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:11,489 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:11,489 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:11,489 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:11,490 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.5135641098
+
+2015-07-15 10:40:11,513 - stapi - DEBUG - Time to start of success() : 1.5135641098
+
+Time to before issues_list : 1.51472401619
+
+2015-07-15 10:40:11,514 - stapi - DEBUG - Time to before issues_list : 1.51472401619
+
+Time to after bson dump : 1.51556611061
+
+2015-07-15 10:40:11,515 - stapi - DEBUG - Time to after bson dump : 1.51556611061
+
+Time to after iteration : 1.51609897614
+
+2015-07-15 10:40:11,516 - stapi - DEBUG - Time to after iteration : 1.51609897614
+
+Time to after gzip compress : 1.5164809227
+
+2015-07-15 10:40:11,516 - stapi - DEBUG - Time to after gzip compress : 1.5164809227
+
+Time to just after compressed.getvalue() : 1.51684689522
+
+2015-07-15 10:40:11,516 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.51684689522
+
+127.0.0.1 - - [15/Jul/2015 10:40:11] "GET /issues/summary/fts HTTP/1.1" 200 52
+here is origin
+
+2015-07-15 10:40:11,529 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:11,529 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:11,530 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:11,530 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:11,530 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:11,530 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:11,531 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.53248000145
+
+2015-07-15 10:40:11,532 - stapi - DEBUG - Time to start of success() : 1.53248000145
+
+Time to before issues_list : 1.53270792961
+
+2015-07-15 10:40:11,532 - stapi - DEBUG - Time to before issues_list : 1.53270792961
+
+Time to after bson dump : 1.56389904022
+
+2015-07-15 10:40:11,563 - stapi - DEBUG - Time to after bson dump : 1.56389904022
+
+Time to after iteration : 1.56422400475
+
+2015-07-15 10:40:11,564 - stapi - DEBUG - Time to after iteration : 1.56422400475
+
+Time to after gzip compress : 1.56477093697
+
+2015-07-15 10:40:11,564 - stapi - DEBUG - Time to after gzip compress : 1.56477093697
+
+Time to just after compressed.getvalue() : 1.5649600029
+
+2015-07-15 10:40:11,565 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.5649600029
+
+127.0.0.1 - - [15/Jul/2015 10:40:11] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 1613
+here is origin
+
+2015-07-15 10:40:11,575 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:11,575 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:11,576 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:11,576 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:11,576 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:11,576 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 10:40:11,578 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 1.57906794548
+
+2015-07-15 10:40:11,579 - stapi - DEBUG - Time to start of success() : 1.57906794548
+
+Time to before issues_list : 1.57949304581
+
+2015-07-15 10:40:11,579 - stapi - DEBUG - Time to before issues_list : 1.57949304581
+
+Time to after bson dump : 1.60245394707
+
+2015-07-15 10:40:11,602 - stapi - DEBUG - Time to after bson dump : 1.60245394707
+
+Time to after iteration : 1.60272908211
+
+2015-07-15 10:40:11,602 - stapi - DEBUG - Time to after iteration : 1.60272908211
+
+Time to after gzip compress : 1.60307192802
+
+2015-07-15 10:40:11,603 - stapi - DEBUG - Time to after gzip compress : 1.60307192802
+
+Time to just after compressed.getvalue() : 1.60328388214
+
+2015-07-15 10:40:11,603 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.60328388214
+
+127.0.0.1 - - [15/Jul/2015 10:40:11] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 10:40:11,611 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:11,612 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:11,612 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:11,612 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:11,612 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:11,613 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 10:40:11,614 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 10:40:11,615 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 10:40:11,615 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.61559796333
+
+2015-07-15 10:40:11,615 - stapi - DEBUG - Time to start of success() : 1.61559796333
+
+Time to before issues_list : 1.61578011513
+
+2015-07-15 10:40:11,615 - stapi - DEBUG - Time to before issues_list : 1.61578011513
+
+Time to after bson dump : 1.62340211868
+
+2015-07-15 10:40:11,623 - stapi - DEBUG - Time to after bson dump : 1.62340211868
+
+Time to after iteration : 1.62422704697
+
+2015-07-15 10:40:11,624 - stapi - DEBUG - Time to after iteration : 1.62422704697
+
+Time to after gzip compress : 1.62529110909
+
+2015-07-15 10:40:11,625 - stapi - DEBUG - Time to after gzip compress : 1.62529110909
+
+Time to just after compressed.getvalue() : 1.62601709366
+
+2015-07-15 10:40:11,626 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.62601709366
+
+127.0.0.1 - - [15/Jul/2015 10:40:11] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 10:40:11,640 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:11,641 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:11,642 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:11,642 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:11,642 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:11,642 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:11,644 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.64475107193
+
+2015-07-15 10:40:11,644 - stapi - DEBUG - Time to start of success() : 1.64475107193
+
+Time to before issues_list : 1.64530491829
+
+2015-07-15 10:40:11,645 - stapi - DEBUG - Time to before issues_list : 1.64530491829
+
+Time to after bson dump : 2.07925796509
+
+2015-07-15 10:40:12,079 - stapi - DEBUG - Time to after bson dump : 2.07925796509
+
+Time to after iteration : 2.07973909378
+
+2015-07-15 10:40:12,079 - stapi - DEBUG - Time to after iteration : 2.07973909378
+
+Time to after gzip compress : 2.1071999073
+
+2015-07-15 10:40:12,107 - stapi - DEBUG - Time to after gzip compress : 2.1071999073
+
+Time to just after compressed.getvalue() : 2.10757994652
+
+2015-07-15 10:40:12,107 - stapi - DEBUG - Time to just after compressed.getvalue() : 2.10757994652
+
+127.0.0.1 - - [15/Jul/2015 10:40:12] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 58600
+here is origin
+
+2015-07-15 10:40:12,266 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:12,266 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:12,266 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:12,266 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:12,266 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:12,266 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:12,267 - stapi - DEBUG - getIssues()
+Time to start of success() : 2.26802611351
+
+2015-07-15 10:40:12,268 - stapi - DEBUG - Time to start of success() : 2.26802611351
+
+Time to before issues_list : 2.26883101463
+
+2015-07-15 10:40:12,268 - stapi - DEBUG - Time to before issues_list : 2.26883101463
+
+Time to after bson dump : 2.30297493935
+
+2015-07-15 10:40:12,303 - stapi - DEBUG - Time to after bson dump : 2.30297493935
+
+Time to after iteration : 2.30330610275
+
+2015-07-15 10:40:12,303 - stapi - DEBUG - Time to after iteration : 2.30330610275
+
+Time to after gzip compress : 2.30473709106
+
+2015-07-15 10:40:12,304 - stapi - DEBUG - Time to after gzip compress : 2.30473709106
+
+Time to just after compressed.getvalue() : 2.30528092384
+
+2015-07-15 10:40:12,305 - stapi - DEBUG - Time to just after compressed.getvalue() : 2.30528092384
+
+127.0.0.1 - - [15/Jul/2015 10:40:12] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 3702
+here is origin
+
+2015-07-15 10:40:12,320 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:12,321 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:12,322 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:12,323 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:12,323 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:12,323 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:12,324 - stapi - DEBUG - getIssues()
+Time to start of success() : 2.32458806038
+
+2015-07-15 10:40:12,324 - stapi - DEBUG - Time to start of success() : 2.32458806038
+
+Time to before issues_list : 2.32477688789
+
+2015-07-15 10:40:12,324 - stapi - DEBUG - Time to before issues_list : 2.32477688789
+
+Time to after bson dump : 3.61142396927
+
+2015-07-15 10:40:13,611 - stapi - DEBUG - Time to after bson dump : 3.61142396927
+
+Time to after iteration : 3.61172509193
+
+2015-07-15 10:40:13,611 - stapi - DEBUG - Time to after iteration : 3.61172509193
+
+Time to after gzip compress : 3.67988109589
+
+2015-07-15 10:40:13,679 - stapi - DEBUG - Time to after gzip compress : 3.67988109589
+
+Time to just after compressed.getvalue() : 3.68031096458
+
+2015-07-15 10:40:13,680 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.68031096458
+
+127.0.0.1 - - [15/Jul/2015 10:40:13] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 186673
+here is origin
+
+2015-07-15 10:40:23,414 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:23,414 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:23,414 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:23,414 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:23,414 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:23,415 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:23,416 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.42537593842
+
+2015-07-15 10:40:23,425 - stapi - DEBUG - Time to start of success() : 3.42537593842
+
+Time to before issues_list : 3.4259390831
+
+2015-07-15 10:40:23,425 - stapi - DEBUG - Time to before issues_list : 3.4259390831
+
+Time to after bson dump : 3.43026995659
+
+2015-07-15 10:40:23,430 - stapi - DEBUG - Time to after bson dump : 3.43026995659
+
+Time to after iteration : 3.4308989048
+
+2015-07-15 10:40:23,430 - stapi - DEBUG - Time to after iteration : 3.4308989048
+
+Time to after gzip compress : 3.43142795563
+
+2015-07-15 10:40:23,431 - stapi - DEBUG - Time to after gzip compress : 3.43142795563
+
+Time to just after compressed.getvalue() : 3.4316649437
+
+2015-07-15 10:40:23,431 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.4316649437
+
+127.0.0.1 - - [15/Jul/2015 10:40:23] "GET /issues/summary/sla HTTP/1.1" 200 1293
+here is origin
+
+2015-07-15 10:40:23,438 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:23,439 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:23,439 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:23,439 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:23,439 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:23,440 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:23,441 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.45342707634
+
+2015-07-15 10:40:23,453 - stapi - DEBUG - Time to start of success() : 3.45342707634
+
+Time to before issues_list : 3.45372200012
+
+2015-07-15 10:40:23,453 - stapi - DEBUG - Time to before issues_list : 3.45372200012
+
+Time to after bson dump : 3.45397806168
+
+2015-07-15 10:40:23,453 - stapi - DEBUG - Time to after bson dump : 3.45397806168
+
+Time to after iteration : 3.45416092873
+
+2015-07-15 10:40:23,454 - stapi - DEBUG - Time to after iteration : 3.45416092873
+
+Time to after gzip compress : 3.45442509651
+
+2015-07-15 10:40:23,454 - stapi - DEBUG - Time to after gzip compress : 3.45442509651
+
+Time to just after compressed.getvalue() : 3.45460510254
+
+2015-07-15 10:40:23,454 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.45460510254
+
+127.0.0.1 - - [15/Jul/2015 10:40:23] "GET /issues/summary/fts HTTP/1.1" 200 52
+here is origin
+
+2015-07-15 10:40:23,459 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:23,460 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:23,460 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:23,460 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:23,460 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:23,460 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:23,461 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.46190595627
+
+2015-07-15 10:40:23,461 - stapi - DEBUG - Time to start of success() : 3.46190595627
+
+Time to before issues_list : 3.46211600304
+
+2015-07-15 10:40:23,462 - stapi - DEBUG - Time to before issues_list : 3.46211600304
+
+Time to after bson dump : 3.47533202171
+
+2015-07-15 10:40:23,475 - stapi - DEBUG - Time to after bson dump : 3.47533202171
+
+Time to after iteration : 3.47563505173
+
+2015-07-15 10:40:23,475 - stapi - DEBUG - Time to after iteration : 3.47563505173
+
+Time to after gzip compress : 3.47634196281
+
+2015-07-15 10:40:23,476 - stapi - DEBUG - Time to after gzip compress : 3.47634196281
+
+Time to just after compressed.getvalue() : 3.47659301758
+
+2015-07-15 10:40:23,476 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.47659301758
+
+127.0.0.1 - - [15/Jul/2015 10:40:23] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 2176
+here is origin
+
+2015-07-15 10:40:23,486 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:23,486 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:23,487 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:23,487 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:23,487 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:23,487 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 10:40:23,488 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 3.48860692978
+
+2015-07-15 10:40:23,488 - stapi - DEBUG - Time to start of success() : 3.48860692978
+
+Time to before issues_list : 3.48880791664
+
+2015-07-15 10:40:23,488 - stapi - DEBUG - Time to before issues_list : 3.48880791664
+
+Time to after bson dump : 3.49575996399
+
+2015-07-15 10:40:23,496 - stapi - DEBUG - Time to after bson dump : 3.49575996399
+
+Time to after iteration : 3.496311903
+
+2015-07-15 10:40:23,496 - stapi - DEBUG - Time to after iteration : 3.496311903
+
+Time to after gzip compress : 3.49708390236
+
+2015-07-15 10:40:23,497 - stapi - DEBUG - Time to after gzip compress : 3.49708390236
+
+Time to just after compressed.getvalue() : 3.49735498428
+
+2015-07-15 10:40:23,497 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.49735498428
+
+127.0.0.1 - - [15/Jul/2015 10:40:23] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 10:40:23,504 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:23,504 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:23,505 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:23,505 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:23,505 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:23,505 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 10:40:23,506 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 10:40:23,507 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 10:40:23,507 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.50777411461
+
+2015-07-15 10:40:23,507 - stapi - DEBUG - Time to start of success() : 3.50777411461
+
+Time to before issues_list : 3.50797390938
+
+2015-07-15 10:40:23,507 - stapi - DEBUG - Time to before issues_list : 3.50797390938
+
+Time to after bson dump : 3.51374101639
+
+2015-07-15 10:40:23,513 - stapi - DEBUG - Time to after bson dump : 3.51374101639
+
+Time to after iteration : 3.51407194138
+
+2015-07-15 10:40:23,514 - stapi - DEBUG - Time to after iteration : 3.51407194138
+
+Time to after gzip compress : 3.51460003853
+
+2015-07-15 10:40:23,514 - stapi - DEBUG - Time to after gzip compress : 3.51460003853
+
+Time to just after compressed.getvalue() : 3.51484394073
+
+2015-07-15 10:40:23,514 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.51484394073
+
+127.0.0.1 - - [15/Jul/2015 10:40:23] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 10:40:23,531 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:23,532 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:23,533 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:23,533 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:23,533 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:23,534 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:23,536 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.5367629528
+
+2015-07-15 10:40:23,536 - stapi - DEBUG - Time to start of success() : 3.5367629528
+
+Time to before issues_list : 3.53696990013
+
+2015-07-15 10:40:23,536 - stapi - DEBUG - Time to before issues_list : 3.53696990013
+
+Time to after bson dump : 3.91536402702
+
+2015-07-15 10:40:23,915 - stapi - DEBUG - Time to after bson dump : 3.91536402702
+
+Time to after iteration : 3.91586208344
+
+2015-07-15 10:40:23,915 - stapi - DEBUG - Time to after iteration : 3.91586208344
+
+Time to after gzip compress : 3.94416809082
+
+2015-07-15 10:40:23,944 - stapi - DEBUG - Time to after gzip compress : 3.94416809082
+
+Time to just after compressed.getvalue() : 3.94449210167
+
+2015-07-15 10:40:23,944 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.94449210167
+
+127.0.0.1 - - [15/Jul/2015 10:40:23] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 57861
+here is origin
+
+2015-07-15 10:40:24,083 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:24,084 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:24,084 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:24,085 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:24,085 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:24,086 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:24,086 - stapi - DEBUG - getIssues()
+Time to start of success() : 4.08709692955
+
+2015-07-15 10:40:24,087 - stapi - DEBUG - Time to start of success() : 4.08709692955
+
+Time to before issues_list : 4.08730006218
+
+2015-07-15 10:40:24,087 - stapi - DEBUG - Time to before issues_list : 4.08730006218
+
+Time to after bson dump : 4.11964988708
+
+2015-07-15 10:40:24,119 - stapi - DEBUG - Time to after bson dump : 4.11964988708
+
+Time to after iteration : 4.12005496025
+
+2015-07-15 10:40:24,120 - stapi - DEBUG - Time to after iteration : 4.12005496025
+
+Time to after gzip compress : 4.12145400047
+
+2015-07-15 10:40:24,121 - stapi - DEBUG - Time to after gzip compress : 4.12145400047
+
+Time to just after compressed.getvalue() : 4.12169289589
+
+2015-07-15 10:40:24,121 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.12169289589
+
+127.0.0.1 - - [15/Jul/2015 10:40:24] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 4058
+here is origin
+
+2015-07-15 10:40:24,135 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:24,136 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:24,137 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:24,137 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:24,137 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:24,137 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:24,138 - stapi - DEBUG - getIssues()
+Time to start of success() : 4.13908696175
+
+2015-07-15 10:40:24,139 - stapi - DEBUG - Time to start of success() : 4.13908696175
+
+Time to before issues_list : 4.13928794861
+
+2015-07-15 10:40:24,139 - stapi - DEBUG - Time to before issues_list : 4.13928794861
+
+Time to after bson dump : 5.23766994476
+
+2015-07-15 10:40:25,237 - stapi - DEBUG - Time to after bson dump : 5.23766994476
+
+Time to after iteration : 5.23799395561
+
+2015-07-15 10:40:25,238 - stapi - DEBUG - Time to after iteration : 5.23799395561
+
+Time to after gzip compress : 5.30917406082
+
+2015-07-15 10:40:25,309 - stapi - DEBUG - Time to after gzip compress : 5.30917406082
+
+Time to just after compressed.getvalue() : 5.30972290039
+
+2015-07-15 10:40:25,309 - stapi - DEBUG - Time to just after compressed.getvalue() : 5.30972290039
+
+127.0.0.1 - - [15/Jul/2015 10:40:25] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 186874
+here is origin
+
+2015-07-15 10:40:30,257 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:30,258 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:30,258 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:30,258 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:30,258 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:30,258 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:30,259 - stapi - DEBUG - getIssues()
+Time to start of success() : 0.267589092255
+
+2015-07-15 10:40:30,267 - stapi - DEBUG - Time to start of success() : 0.267589092255
+
+Time to before issues_list : 0.267927885056
+
+2015-07-15 10:40:30,267 - stapi - DEBUG - Time to before issues_list : 0.267927885056
+
+Time to after bson dump : 0.273240089417
+
+2015-07-15 10:40:30,273 - stapi - DEBUG - Time to after bson dump : 0.273240089417
+
+Time to after iteration : 0.273566007614
+
+2015-07-15 10:40:30,273 - stapi - DEBUG - Time to after iteration : 0.273566007614
+
+Time to after gzip compress : 0.274051904678
+
+2015-07-15 10:40:30,274 - stapi - DEBUG - Time to after gzip compress : 0.274051904678
+
+Time to just after compressed.getvalue() : 0.274259090424
+
+2015-07-15 10:40:30,274 - stapi - DEBUG - Time to just after compressed.getvalue() : 0.274259090424
+
+127.0.0.1 - - [15/Jul/2015 10:40:30] "GET /issues/summary/sla HTTP/1.1" 200 1498
+here is origin
+
+2015-07-15 10:40:30,280 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:30,280 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:30,280 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:30,281 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:30,281 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:30,281 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:30,282 - stapi - DEBUG - getIssues()
+Time to start of success() : 0.295479059219
+
+2015-07-15 10:40:30,295 - stapi - DEBUG - Time to start of success() : 0.295479059219
+
+Time to before issues_list : 0.295784950256
+
+2015-07-15 10:40:30,295 - stapi - DEBUG - Time to before issues_list : 0.295784950256
+
+Time to after bson dump : 0.2960460186
+
+2015-07-15 10:40:30,296 - stapi - DEBUG - Time to after bson dump : 0.2960460186
+
+Time to after iteration : 0.296221017838
+
+2015-07-15 10:40:30,296 - stapi - DEBUG - Time to after iteration : 0.296221017838
+
+Time to after gzip compress : 0.296487092972
+
+2015-07-15 10:40:30,296 - stapi - DEBUG - Time to after gzip compress : 0.296487092972
+
+Time to just after compressed.getvalue() : 0.296665906906
+
+2015-07-15 10:40:30,296 - stapi - DEBUG - Time to just after compressed.getvalue() : 0.296665906906
+
+127.0.0.1 - - [15/Jul/2015 10:40:30] "GET /issues/summary/fts HTTP/1.1" 200 52
+here is origin
+
+2015-07-15 10:40:30,303 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:30,303 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:30,303 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:30,303 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:30,303 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:30,304 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:30,304 - stapi - DEBUG - getIssues()
+Time to start of success() : 0.305191040039
+
+2015-07-15 10:40:30,305 - stapi - DEBUG - Time to start of success() : 0.305191040039
+
+Time to before issues_list : 0.305402994156
+
+2015-07-15 10:40:30,305 - stapi - DEBUG - Time to before issues_list : 0.305402994156
+
+Time to after bson dump : 0.32817196846
+
+2015-07-15 10:40:30,328 - stapi - DEBUG - Time to after bson dump : 0.32817196846
+
+Time to after iteration : 0.329859972
+
+2015-07-15 10:40:30,329 - stapi - DEBUG - Time to after iteration : 0.329859972
+
+Time to after gzip compress : 0.335772037506
+
+2015-07-15 10:40:30,335 - stapi - DEBUG - Time to after gzip compress : 0.335772037506
+
+Time to just after compressed.getvalue() : 0.336743116379
+
+2015-07-15 10:40:30,336 - stapi - DEBUG - Time to just after compressed.getvalue() : 0.336743116379
+
+127.0.0.1 - - [15/Jul/2015 10:40:30] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 2176
+here is origin
+
+2015-07-15 10:40:30,359 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:30,360 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:30,360 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:30,361 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:30,361 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:30,361 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 10:40:30,362 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 0.362770080566
+
+2015-07-15 10:40:30,362 - stapi - DEBUG - Time to start of success() : 0.362770080566
+
+Time to before issues_list : 0.362966060638
+
+2015-07-15 10:40:30,362 - stapi - DEBUG - Time to before issues_list : 0.362966060638
+
+Time to after bson dump : 0.369910955429
+
+2015-07-15 10:40:30,369 - stapi - DEBUG - Time to after bson dump : 0.369910955429
+
+Time to after iteration : 0.370209932327
+
+2015-07-15 10:40:30,370 - stapi - DEBUG - Time to after iteration : 0.370209932327
+
+Time to after gzip compress : 0.370541095734
+
+2015-07-15 10:40:30,370 - stapi - DEBUG - Time to after gzip compress : 0.370541095734
+
+Time to just after compressed.getvalue() : 0.370837926865
+
+2015-07-15 10:40:30,370 - stapi - DEBUG - Time to just after compressed.getvalue() : 0.370837926865
+
+127.0.0.1 - - [15/Jul/2015 10:40:30] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 10:40:30,381 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:30,382 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:30,383 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:30,383 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:30,383 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:30,384 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 10:40:30,387 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 10:40:30,388 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 10:40:30,388 - stapi - DEBUG - getIssues()
+Time to start of success() : 0.38883805275
+
+2015-07-15 10:40:30,388 - stapi - DEBUG - Time to start of success() : 0.38883805275
+
+Time to before issues_list : 0.389049053192
+
+2015-07-15 10:40:30,389 - stapi - DEBUG - Time to before issues_list : 0.389049053192
+
+Time to after bson dump : 0.396426916122
+
+2015-07-15 10:40:30,396 - stapi - DEBUG - Time to after bson dump : 0.396426916122
+
+Time to after iteration : 0.396759986877
+
+2015-07-15 10:40:30,396 - stapi - DEBUG - Time to after iteration : 0.396759986877
+
+Time to after gzip compress : 0.397167921066
+
+2015-07-15 10:40:30,397 - stapi - DEBUG - Time to after gzip compress : 0.397167921066
+
+Time to just after compressed.getvalue() : 0.397407054901
+
+2015-07-15 10:40:30,397 - stapi - DEBUG - Time to just after compressed.getvalue() : 0.397407054901
+
+127.0.0.1 - - [15/Jul/2015 10:40:30] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 10:40:30,408 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:30,408 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:30,409 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:30,409 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:30,409 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:30,409 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:30,410 - stapi - DEBUG - getIssues()
+Time to start of success() : 0.411106109619
+
+2015-07-15 10:40:30,411 - stapi - DEBUG - Time to start of success() : 0.411106109619
+
+Time to before issues_list : 0.411336898804
+
+2015-07-15 10:40:30,411 - stapi - DEBUG - Time to before issues_list : 0.411336898804
+
+Time to after bson dump : 0.719449043274
+
+2015-07-15 10:40:30,719 - stapi - DEBUG - Time to after bson dump : 0.719449043274
+
+Time to after iteration : 0.719717025757
+
+2015-07-15 10:40:30,719 - stapi - DEBUG - Time to after iteration : 0.719717025757
+
+Time to after gzip compress : 0.743761062622
+
+2015-07-15 10:40:30,743 - stapi - DEBUG - Time to after gzip compress : 0.743761062622
+
+Time to just after compressed.getvalue() : 0.744024038315
+
+2015-07-15 10:40:30,744 - stapi - DEBUG - Time to just after compressed.getvalue() : 0.744024038315
+
+127.0.0.1 - - [15/Jul/2015 10:40:30] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 59373
+here is origin
+
+2015-07-15 10:40:30,848 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:30,849 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:30,850 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:30,850 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:30,851 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:30,851 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:30,853 - stapi - DEBUG - getIssues()
+Time to start of success() : 0.853473901749
+
+2015-07-15 10:40:30,853 - stapi - DEBUG - Time to start of success() : 0.853473901749
+
+Time to before issues_list : 0.853672027588
+
+2015-07-15 10:40:30,853 - stapi - DEBUG - Time to before issues_list : 0.853672027588
+
+Time to after bson dump : 0.887294054031
+
+2015-07-15 10:40:30,887 - stapi - DEBUG - Time to after bson dump : 0.887294054031
+
+Time to after iteration : 0.887655973434
+
+2015-07-15 10:40:30,887 - stapi - DEBUG - Time to after iteration : 0.887655973434
+
+Time to after gzip compress : 0.888895988464
+
+2015-07-15 10:40:30,888 - stapi - DEBUG - Time to after gzip compress : 0.888895988464
+
+Time to just after compressed.getvalue() : 0.889050006866
+
+2015-07-15 10:40:30,889 - stapi - DEBUG - Time to just after compressed.getvalue() : 0.889050006866
+
+127.0.0.1 - - [15/Jul/2015 10:40:30] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 4058
+here is origin
+
+2015-07-15 10:40:30,901 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:30,902 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:30,903 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:30,904 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:30,904 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:30,904 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:30,905 - stapi - DEBUG - getIssues()
+Time to start of success() : 0.90588593483
+
+2015-07-15 10:40:30,905 - stapi - DEBUG - Time to start of success() : 0.90588593483
+
+Time to before issues_list : 0.906090021133
+
+2015-07-15 10:40:30,906 - stapi - DEBUG - Time to before issues_list : 0.906090021133
+
+Time to after bson dump : 1.83604598045
+
+2015-07-15 10:40:31,836 - stapi - DEBUG - Time to after bson dump : 1.83604598045
+
+Time to after iteration : 1.83631491661
+
+2015-07-15 10:40:31,836 - stapi - DEBUG - Time to after iteration : 1.83631491661
+
+Time to after gzip compress : 1.90502691269
+
+2015-07-15 10:40:31,905 - stapi - DEBUG - Time to after gzip compress : 1.90502691269
+
+Time to just after compressed.getvalue() : 1.9052670002
+
+2015-07-15 10:40:31,905 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.9052670002
+
+127.0.0.1 - - [15/Jul/2015 10:40:31] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 186338
+here is origin
+
+2015-07-15 10:40:32,411 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:32,411 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:32,411 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:32,412 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:32,412 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:32,412 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:32,413 - stapi - DEBUG - getIssues()
+Time to start of success() : 2.41956400871
+
+2015-07-15 10:40:32,419 - stapi - DEBUG - Time to start of success() : 2.41956400871
+
+Time to before issues_list : 2.41989302635
+
+2015-07-15 10:40:32,419 - stapi - DEBUG - Time to before issues_list : 2.41989302635
+
+Time to after bson dump : 2.42483711243
+
+2015-07-15 10:40:32,424 - stapi - DEBUG - Time to after bson dump : 2.42483711243
+
+Time to after iteration : 2.42516303062
+
+2015-07-15 10:40:32,425 - stapi - DEBUG - Time to after iteration : 2.42516303062
+
+Time to after gzip compress : 2.42566800117
+
+2015-07-15 10:40:32,425 - stapi - DEBUG - Time to after gzip compress : 2.42566800117
+
+Time to just after compressed.getvalue() : 2.42592310905
+
+2015-07-15 10:40:32,425 - stapi - DEBUG - Time to just after compressed.getvalue() : 2.42592310905
+
+127.0.0.1 - - [15/Jul/2015 10:40:32] "GET /issues/summary/sla HTTP/1.1" 200 1498
+here is origin
+
+2015-07-15 10:40:32,436 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:32,436 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:32,436 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:32,436 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:32,436 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:32,437 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:32,438 - stapi - DEBUG - getIssues()
+Time to start of success() : 2.45036411285
+
+2015-07-15 10:40:32,450 - stapi - DEBUG - Time to start of success() : 2.45036411285
+
+Time to before issues_list : 2.45075011253
+
+2015-07-15 10:40:32,450 - stapi - DEBUG - Time to before issues_list : 2.45075011253
+
+Time to after bson dump : 2.45113801956
+
+2015-07-15 10:40:32,451 - stapi - DEBUG - Time to after bson dump : 2.45113801956
+
+Time to after iteration : 2.45138406754
+
+2015-07-15 10:40:32,451 - stapi - DEBUG - Time to after iteration : 2.45138406754
+
+Time to after gzip compress : 2.45175290108
+
+2015-07-15 10:40:32,451 - stapi - DEBUG - Time to after gzip compress : 2.45175290108
+
+Time to just after compressed.getvalue() : 2.45198297501
+
+2015-07-15 10:40:32,452 - stapi - DEBUG - Time to just after compressed.getvalue() : 2.45198297501
+
+127.0.0.1 - - [15/Jul/2015 10:40:32] "GET /issues/summary/fts HTTP/1.1" 200 52
+here is origin
+
+2015-07-15 10:40:32,460 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:32,460 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:32,460 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:32,461 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:32,461 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:32,461 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:32,462 - stapi - DEBUG - getIssues()
+Time to start of success() : 2.46288704872
+
+2015-07-15 10:40:32,462 - stapi - DEBUG - Time to start of success() : 2.46288704872
+
+Time to before issues_list : 2.46319794655
+
+2015-07-15 10:40:32,463 - stapi - DEBUG - Time to before issues_list : 2.46319794655
+
+Time to after bson dump : 2.47715902328
+
+2015-07-15 10:40:32,477 - stapi - DEBUG - Time to after bson dump : 2.47715902328
+
+Time to after iteration : 2.47756004333
+
+2015-07-15 10:40:32,477 - stapi - DEBUG - Time to after iteration : 2.47756004333
+
+Time to after gzip compress : 2.47899699211
+
+2015-07-15 10:40:32,479 - stapi - DEBUG - Time to after gzip compress : 2.47899699211
+
+Time to just after compressed.getvalue() : 2.47952198982
+
+2015-07-15 10:40:32,479 - stapi - DEBUG - Time to just after compressed.getvalue() : 2.47952198982
+
+127.0.0.1 - - [15/Jul/2015 10:40:32] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 2176
+here is origin
+
+2015-07-15 10:40:32,491 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:32,492 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:32,492 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:32,492 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:32,492 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:32,492 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 10:40:32,493 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 2.49335002899
+
+2015-07-15 10:40:32,493 - stapi - DEBUG - Time to start of success() : 2.49335002899
+
+Time to before issues_list : 2.49345898628
+
+2015-07-15 10:40:32,493 - stapi - DEBUG - Time to before issues_list : 2.49345898628
+
+Time to after bson dump : 2.49990510941
+
+2015-07-15 10:40:32,499 - stapi - DEBUG - Time to after bson dump : 2.49990510941
+
+Time to after iteration : 2.50010204315
+
+2015-07-15 10:40:32,500 - stapi - DEBUG - Time to after iteration : 2.50010204315
+
+Time to after gzip compress : 2.50029802322
+
+2015-07-15 10:40:32,500 - stapi - DEBUG - Time to after gzip compress : 2.50029802322
+
+Time to just after compressed.getvalue() : 2.50040102005
+
+2015-07-15 10:40:32,500 - stapi - DEBUG - Time to just after compressed.getvalue() : 2.50040102005
+
+127.0.0.1 - - [15/Jul/2015 10:40:32] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 10:40:32,507 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:32,507 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:32,507 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:32,507 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:32,507 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:32,508 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 10:40:32,508 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 10:40:32,508 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 10:40:32,508 - stapi - DEBUG - getIssues()
+Time to start of success() : 2.50897192955
+
+2015-07-15 10:40:32,508 - stapi - DEBUG - Time to start of success() : 2.50897192955
+
+Time to before issues_list : 2.5090739727
+
+2015-07-15 10:40:32,509 - stapi - DEBUG - Time to before issues_list : 2.5090739727
+
+Time to after bson dump : 2.51208496094
+
+2015-07-15 10:40:32,512 - stapi - DEBUG - Time to after bson dump : 2.51208496094
+
+Time to after iteration : 2.51229810715
+
+2015-07-15 10:40:32,512 - stapi - DEBUG - Time to after iteration : 2.51229810715
+
+Time to after gzip compress : 2.51255297661
+
+2015-07-15 10:40:32,512 - stapi - DEBUG - Time to after gzip compress : 2.51255297661
+
+Time to just after compressed.getvalue() : 2.51272392273
+
+2015-07-15 10:40:32,512 - stapi - DEBUG - Time to just after compressed.getvalue() : 2.51272392273
+
+127.0.0.1 - - [15/Jul/2015 10:40:32] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 10:40:32,518 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:32,518 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:32,518 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:32,518 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:32,518 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:32,519 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:32,519 - stapi - DEBUG - getIssues()
+Time to start of success() : 2.51979899406
+
+2015-07-15 10:40:32,519 - stapi - DEBUG - Time to start of success() : 2.51979899406
+
+Time to before issues_list : 2.51991009712
+
+2015-07-15 10:40:32,519 - stapi - DEBUG - Time to before issues_list : 2.51991009712
+
+Time to after bson dump : 2.85303711891
+
+2015-07-15 10:40:32,853 - stapi - DEBUG - Time to after bson dump : 2.85303711891
+
+Time to after iteration : 2.85332894325
+
+2015-07-15 10:40:32,853 - stapi - DEBUG - Time to after iteration : 2.85332894325
+
+Time to after gzip compress : 2.87699508667
+
+2015-07-15 10:40:32,877 - stapi - DEBUG - Time to after gzip compress : 2.87699508667
+
+Time to just after compressed.getvalue() : 2.87720990181
+
+2015-07-15 10:40:32,877 - stapi - DEBUG - Time to just after compressed.getvalue() : 2.87720990181
+
+127.0.0.1 - - [15/Jul/2015 10:40:32] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 59372
+here is origin
+
+2015-07-15 10:40:32,968 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:32,968 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:32,969 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:32,969 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:32,970 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:32,970 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:32,972 - stapi - DEBUG - getIssues()
+Time to start of success() : 2.97257900238
+
+2015-07-15 10:40:32,972 - stapi - DEBUG - Time to start of success() : 2.97257900238
+
+Time to before issues_list : 2.97287106514
+
+2015-07-15 10:40:32,972 - stapi - DEBUG - Time to before issues_list : 2.97287106514
+
+Time to after bson dump : 3.00552392006
+
+2015-07-15 10:40:33,005 - stapi - DEBUG - Time to after bson dump : 3.00552392006
+
+Time to after iteration : 3.00679707527
+
+2015-07-15 10:40:33,006 - stapi - DEBUG - Time to after iteration : 3.00679707527
+
+Time to after gzip compress : 3.00958704948
+
+2015-07-15 10:40:33,009 - stapi - DEBUG - Time to after gzip compress : 3.00958704948
+
+Time to just after compressed.getvalue() : 3.00992894173
+
+2015-07-15 10:40:33,009 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.00992894173
+
+127.0.0.1 - - [15/Jul/2015 10:40:33] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 4058
+here is origin
+
+2015-07-15 10:40:33,023 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:33,024 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:33,024 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:33,025 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:33,025 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:33,025 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:33,027 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.02775788307
+
+2015-07-15 10:40:33,027 - stapi - DEBUG - Time to start of success() : 3.02775788307
+
+Time to before issues_list : 3.02803707123
+
+2015-07-15 10:40:33,028 - stapi - DEBUG - Time to before issues_list : 3.02803707123
+
+Time to after bson dump : 3.87035489082
+
+2015-07-15 10:40:33,870 - stapi - DEBUG - Time to after bson dump : 3.87035489082
+
+Time to after iteration : 3.87061500549
+
+2015-07-15 10:40:33,870 - stapi - DEBUG - Time to after iteration : 3.87061500549
+
+Time to after gzip compress : 3.94449591637
+
+2015-07-15 10:40:33,944 - stapi - DEBUG - Time to after gzip compress : 3.94449591637
+
+Time to just after compressed.getvalue() : 3.94510388374
+
+2015-07-15 10:40:33,945 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.94510388374
+
+127.0.0.1 - - [15/Jul/2015 10:40:33] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 186338
+here is origin
+
+2015-07-15 10:40:34,559 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:34,560 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:34,560 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:34,560 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:34,560 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:34,560 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:34,561 - stapi - DEBUG - getIssues()
+Time to start of success() : 4.56957101822
+
+2015-07-15 10:40:34,569 - stapi - DEBUG - Time to start of success() : 4.56957101822
+
+Time to before issues_list : 4.5699930191
+
+2015-07-15 10:40:34,570 - stapi - DEBUG - Time to before issues_list : 4.5699930191
+
+Time to after bson dump : 4.57498693466
+
+2015-07-15 10:40:34,575 - stapi - DEBUG - Time to after bson dump : 4.57498693466
+
+Time to after iteration : 4.57552909851
+
+2015-07-15 10:40:34,575 - stapi - DEBUG - Time to after iteration : 4.57552909851
+
+Time to after gzip compress : 4.5762360096
+
+2015-07-15 10:40:34,576 - stapi - DEBUG - Time to after gzip compress : 4.5762360096
+
+Time to just after compressed.getvalue() : 4.57653093338
+
+2015-07-15 10:40:34,576 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.57653093338
+
+127.0.0.1 - - [15/Jul/2015 10:40:34] "GET /issues/summary/sla HTTP/1.1" 200 1498
+here is origin
+
+2015-07-15 10:40:34,581 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:34,581 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:34,581 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:34,581 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:34,581 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:34,581 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:34,582 - stapi - DEBUG - getIssues()
+Time to start of success() : 4.58737397194
+
+2015-07-15 10:40:34,587 - stapi - DEBUG - Time to start of success() : 4.58737397194
+
+Time to before issues_list : 4.58762693405
+
+2015-07-15 10:40:34,587 - stapi - DEBUG - Time to before issues_list : 4.58762693405
+
+Time to after bson dump : 4.58779096603
+
+2015-07-15 10:40:34,587 - stapi - DEBUG - Time to after bson dump : 4.58779096603
+
+Time to after iteration : 4.5878970623
+
+2015-07-15 10:40:34,587 - stapi - DEBUG - Time to after iteration : 4.5878970623
+
+Time to after gzip compress : 4.5880548954
+
+2015-07-15 10:40:34,588 - stapi - DEBUG - Time to after gzip compress : 4.5880548954
+
+Time to just after compressed.getvalue() : 4.58815407753
+
+2015-07-15 10:40:34,588 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.58815407753
+
+127.0.0.1 - - [15/Jul/2015 10:40:34] "GET /issues/summary/fts HTTP/1.1" 200 52
+here is origin
+
+2015-07-15 10:40:34,593 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:34,594 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:34,594 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:34,594 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:34,594 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:34,594 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:34,595 - stapi - DEBUG - getIssues()
+Time to start of success() : 4.59544801712
+
+2015-07-15 10:40:34,595 - stapi - DEBUG - Time to start of success() : 4.59544801712
+
+Time to before issues_list : 4.59556102753
+
+2015-07-15 10:40:34,595 - stapi - DEBUG - Time to before issues_list : 4.59556102753
+
+Time to after bson dump : 4.60746192932
+
+2015-07-15 10:40:34,607 - stapi - DEBUG - Time to after bson dump : 4.60746192932
+
+Time to after iteration : 4.60795998573
+
+2015-07-15 10:40:34,607 - stapi - DEBUG - Time to after iteration : 4.60795998573
+
+Time to after gzip compress : 4.6091029644
+
+2015-07-15 10:40:34,609 - stapi - DEBUG - Time to after gzip compress : 4.6091029644
+
+Time to just after compressed.getvalue() : 4.6097779274
+
+2015-07-15 10:40:34,609 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.6097779274
+
+127.0.0.1 - - [15/Jul/2015 10:40:34] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 2176
+here is origin
+
+2015-07-15 10:40:34,647 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:34,648 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:34,648 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:34,648 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:34,648 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:34,648 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 10:40:34,649 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 4.65060901642
+
+2015-07-15 10:40:34,650 - stapi - DEBUG - Time to start of success() : 4.65060901642
+
+Time to before issues_list : 4.65102005005
+
+2015-07-15 10:40:34,651 - stapi - DEBUG - Time to before issues_list : 4.65102005005
+
+Time to after bson dump : 4.65791988373
+
+2015-07-15 10:40:34,658 - stapi - DEBUG - Time to after bson dump : 4.65791988373
+
+Time to after iteration : 4.6588768959
+
+2015-07-15 10:40:34,658 - stapi - DEBUG - Time to after iteration : 4.6588768959
+
+Time to after gzip compress : 4.65940093994
+
+2015-07-15 10:40:34,659 - stapi - DEBUG - Time to after gzip compress : 4.65940093994
+
+Time to just after compressed.getvalue() : 4.66000509262
+
+2015-07-15 10:40:34,660 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.66000509262
+
+127.0.0.1 - - [15/Jul/2015 10:40:34] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 10:40:34,676 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:34,676 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:34,677 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:34,677 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:34,677 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:34,677 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 10:40:34,678 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 10:40:34,678 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 10:40:34,678 - stapi - DEBUG - getIssues()
+Time to start of success() : 4.67870688438
+
+2015-07-15 10:40:34,678 - stapi - DEBUG - Time to start of success() : 4.67870688438
+
+Time to before issues_list : 4.67897796631
+
+2015-07-15 10:40:34,678 - stapi - DEBUG - Time to before issues_list : 4.67897796631
+
+Time to after bson dump : 4.68488907814
+
+2015-07-15 10:40:34,684 - stapi - DEBUG - Time to after bson dump : 4.68488907814
+
+Time to after iteration : 4.68518710136
+
+2015-07-15 10:40:34,685 - stapi - DEBUG - Time to after iteration : 4.68518710136
+
+Time to after gzip compress : 4.68543696404
+
+2015-07-15 10:40:34,685 - stapi - DEBUG - Time to after gzip compress : 4.68543696404
+
+Time to just after compressed.getvalue() : 4.68556904793
+
+2015-07-15 10:40:34,685 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.68556904793
+
+127.0.0.1 - - [15/Jul/2015 10:40:34] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 10:40:34,695 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:34,695 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:34,695 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:34,696 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:34,696 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:34,696 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:34,697 - stapi - DEBUG - getIssues()
+Time to start of success() : 4.69757509232
+
+2015-07-15 10:40:34,697 - stapi - DEBUG - Time to start of success() : 4.69757509232
+
+Time to before issues_list : 4.6977159977
+
+2015-07-15 10:40:34,697 - stapi - DEBUG - Time to before issues_list : 4.6977159977
+
+Time to after bson dump : 4.96912503242
+
+2015-07-15 10:40:34,969 - stapi - DEBUG - Time to after bson dump : 4.96912503242
+
+Time to after iteration : 4.9695019722
+
+2015-07-15 10:40:34,969 - stapi - DEBUG - Time to after iteration : 4.9695019722
+
+Time to after gzip compress : 4.99247908592
+
+2015-07-15 10:40:34,992 - stapi - DEBUG - Time to after gzip compress : 4.99247908592
+
+Time to just after compressed.getvalue() : 4.9927239418
+
+2015-07-15 10:40:34,992 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.9927239418
+
+127.0.0.1 - - [15/Jul/2015 10:40:34] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 59372
+here is origin
+
+2015-07-15 10:40:35,102 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:35,102 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:35,102 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:35,102 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:35,102 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:35,102 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:35,103 - stapi - DEBUG - getIssues()
+Time to start of success() : 5.10346388817
+
+2015-07-15 10:40:35,103 - stapi - DEBUG - Time to start of success() : 5.10346388817
+
+Time to before issues_list : 5.10357189178
+
+2015-07-15 10:40:35,103 - stapi - DEBUG - Time to before issues_list : 5.10357189178
+
+Time to after bson dump : 5.12428092957
+
+2015-07-15 10:40:35,124 - stapi - DEBUG - Time to after bson dump : 5.12428092957
+
+Time to after iteration : 5.1246008873
+
+2015-07-15 10:40:35,124 - stapi - DEBUG - Time to after iteration : 5.1246008873
+
+Time to after gzip compress : 5.12579798698
+
+2015-07-15 10:40:35,125 - stapi - DEBUG - Time to after gzip compress : 5.12579798698
+
+Time to just after compressed.getvalue() : 5.12594604492
+
+2015-07-15 10:40:35,125 - stapi - DEBUG - Time to just after compressed.getvalue() : 5.12594604492
+
+127.0.0.1 - - [15/Jul/2015 10:40:35] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 4058
+here is origin
+
+2015-07-15 10:40:35,137 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:35,137 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:35,137 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:35,137 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:35,137 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:35,137 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:35,138 - stapi - DEBUG - getIssues()
+Time to start of success() : 5.13887810707
+
+2015-07-15 10:40:35,138 - stapi - DEBUG - Time to start of success() : 5.13887810707
+
+Time to before issues_list : 5.13904809952
+
+2015-07-15 10:40:35,139 - stapi - DEBUG - Time to before issues_list : 5.13904809952
+
+Time to after bson dump : 5.97979092598
+
+2015-07-15 10:40:35,979 - stapi - DEBUG - Time to after bson dump : 5.97979092598
+
+Time to after iteration : 5.98013305664
+
+2015-07-15 10:40:35,980 - stapi - DEBUG - Time to after iteration : 5.98013305664
+
+Time to after gzip compress : 6.04767394066
+
+2015-07-15 10:40:36,047 - stapi - DEBUG - Time to after gzip compress : 6.04767394066
+
+Time to just after compressed.getvalue() : 6.04816198349
+
+2015-07-15 10:40:36,048 - stapi - DEBUG - Time to just after compressed.getvalue() : 6.04816198349
+
+127.0.0.1 - - [15/Jul/2015 10:40:36] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 186338
+here is origin
+
+2015-07-15 10:40:36,597 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:36,598 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:36,598 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:36,599 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:36,599 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:36,599 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:36,600 - stapi - DEBUG - getIssues()
+Time to start of success() : 6.60681700706
+
+2015-07-15 10:40:36,606 - stapi - DEBUG - Time to start of success() : 6.60681700706
+
+Time to before issues_list : 6.60718488693
+
+2015-07-15 10:40:36,607 - stapi - DEBUG - Time to before issues_list : 6.60718488693
+
+Time to after bson dump : 6.61291193962
+
+2015-07-15 10:40:36,612 - stapi - DEBUG - Time to after bson dump : 6.61291193962
+
+Time to after iteration : 6.61361098289
+
+2015-07-15 10:40:36,613 - stapi - DEBUG - Time to after iteration : 6.61361098289
+
+Time to after gzip compress : 6.61497402191
+
+2015-07-15 10:40:36,615 - stapi - DEBUG - Time to after gzip compress : 6.61497402191
+
+Time to just after compressed.getvalue() : 6.61554694176
+
+2015-07-15 10:40:36,615 - stapi - DEBUG - Time to just after compressed.getvalue() : 6.61554694176
+
+127.0.0.1 - - [15/Jul/2015 10:40:36] "GET /issues/summary/sla HTTP/1.1" 200 1498
+here is origin
+
+2015-07-15 10:40:36,622 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:36,623 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:36,623 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:36,623 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:36,623 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:36,623 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:36,624 - stapi - DEBUG - getIssues()
+Time to start of success() : 6.62735199928
+
+2015-07-15 10:40:36,627 - stapi - DEBUG - Time to start of success() : 6.62735199928
+
+Time to before issues_list : 6.62756490707
+
+2015-07-15 10:40:36,627 - stapi - DEBUG - Time to before issues_list : 6.62756490707
+
+Time to after bson dump : 6.62775707245
+
+2015-07-15 10:40:36,627 - stapi - DEBUG - Time to after bson dump : 6.62775707245
+
+Time to after iteration : 6.62794089317
+
+2015-07-15 10:40:36,627 - stapi - DEBUG - Time to after iteration : 6.62794089317
+
+Time to after gzip compress : 6.62819910049
+
+2015-07-15 10:40:36,628 - stapi - DEBUG - Time to after gzip compress : 6.62819910049
+
+Time to just after compressed.getvalue() : 6.62836289406
+
+2015-07-15 10:40:36,628 - stapi - DEBUG - Time to just after compressed.getvalue() : 6.62836289406
+
+127.0.0.1 - - [15/Jul/2015 10:40:36] "GET /issues/summary/fts HTTP/1.1" 200 52
+here is origin
+
+2015-07-15 10:40:36,641 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:36,641 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:36,642 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:36,642 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:36,642 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:36,642 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:36,646 - stapi - DEBUG - getIssues()
+Time to start of success() : 6.64681696892
+
+2015-07-15 10:40:36,646 - stapi - DEBUG - Time to start of success() : 6.64681696892
+
+Time to before issues_list : 6.64709997177
+
+2015-07-15 10:40:36,647 - stapi - DEBUG - Time to before issues_list : 6.64709997177
+
+Time to after bson dump : 6.67087602615
+
+2015-07-15 10:40:36,670 - stapi - DEBUG - Time to after bson dump : 6.67087602615
+
+Time to after iteration : 6.67169499397
+
+2015-07-15 10:40:36,671 - stapi - DEBUG - Time to after iteration : 6.67169499397
+
+Time to after gzip compress : 6.67476391792
+
+2015-07-15 10:40:36,674 - stapi - DEBUG - Time to after gzip compress : 6.67476391792
+
+Time to just after compressed.getvalue() : 6.6752269268
+
+2015-07-15 10:40:36,675 - stapi - DEBUG - Time to just after compressed.getvalue() : 6.6752269268
+
+127.0.0.1 - - [15/Jul/2015 10:40:36] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 2176
+here is origin
+
+2015-07-15 10:40:36,692 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:36,693 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:36,693 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:36,693 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:36,693 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:36,693 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 10:40:36,694 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 6.69458007812
+
+2015-07-15 10:40:36,694 - stapi - DEBUG - Time to start of success() : 6.69458007812
+
+Time to before issues_list : 6.69469499588
+
+2015-07-15 10:40:36,694 - stapi - DEBUG - Time to before issues_list : 6.69469499588
+
+Time to after bson dump : 6.70122694969
+
+2015-07-15 10:40:36,701 - stapi - DEBUG - Time to after bson dump : 6.70122694969
+
+Time to after iteration : 6.70170402527
+
+2015-07-15 10:40:36,701 - stapi - DEBUG - Time to after iteration : 6.70170402527
+
+Time to after gzip compress : 6.70228290558
+
+2015-07-15 10:40:36,702 - stapi - DEBUG - Time to after gzip compress : 6.70228290558
+
+Time to just after compressed.getvalue() : 6.70285010338
+
+2015-07-15 10:40:36,702 - stapi - DEBUG - Time to just after compressed.getvalue() : 6.70285010338
+
+127.0.0.1 - - [15/Jul/2015 10:40:36] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 10:40:36,711 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:36,711 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:36,711 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:36,712 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:36,712 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:36,712 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 10:40:36,714 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 10:40:36,715 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 10:40:36,716 - stapi - DEBUG - getIssues()
+Time to start of success() : 6.71684193611
+
+2015-07-15 10:40:36,716 - stapi - DEBUG - Time to start of success() : 6.71684193611
+
+Time to before issues_list : 6.71714305878
+
+2015-07-15 10:40:36,717 - stapi - DEBUG - Time to before issues_list : 6.71714305878
+
+Time to after bson dump : 6.72706604004
+
+2015-07-15 10:40:36,727 - stapi - DEBUG - Time to after bson dump : 6.72706604004
+
+Time to after iteration : 6.72748398781
+
+2015-07-15 10:40:36,727 - stapi - DEBUG - Time to after iteration : 6.72748398781
+
+Time to after gzip compress : 6.72824907303
+
+2015-07-15 10:40:36,728 - stapi - DEBUG - Time to after gzip compress : 6.72824907303
+
+Time to just after compressed.getvalue() : 6.72860193253
+
+2015-07-15 10:40:36,728 - stapi - DEBUG - Time to just after compressed.getvalue() : 6.72860193253
+
+127.0.0.1 - - [15/Jul/2015 10:40:36] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 10:40:36,738 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:36,738 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:36,738 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:36,738 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:36,739 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:36,740 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:36,742 - stapi - DEBUG - getIssues()
+Time to start of success() : 6.74295592308
+
+2015-07-15 10:40:36,742 - stapi - DEBUG - Time to start of success() : 6.74295592308
+
+Time to before issues_list : 6.74335503578
+
+2015-07-15 10:40:36,743 - stapi - DEBUG - Time to before issues_list : 6.74335503578
+
+Time to after bson dump : 7.0189409256
+
+2015-07-15 10:40:37,018 - stapi - DEBUG - Time to after bson dump : 7.0189409256
+
+Time to after iteration : 7.01945090294
+
+2015-07-15 10:40:37,019 - stapi - DEBUG - Time to after iteration : 7.01945090294
+
+Time to after gzip compress : 7.04279398918
+
+2015-07-15 10:40:37,042 - stapi - DEBUG - Time to after gzip compress : 7.04279398918
+
+Time to just after compressed.getvalue() : 7.04304003716
+
+2015-07-15 10:40:37,043 - stapi - DEBUG - Time to just after compressed.getvalue() : 7.04304003716
+
+127.0.0.1 - - [15/Jul/2015 10:40:37] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 59372
+here is origin
+
+2015-07-15 10:40:37,134 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:37,134 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:37,134 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:37,134 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:37,135 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:37,135 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:37,135 - stapi - DEBUG - getIssues()
+Time to start of success() : 7.13602900505
+
+2015-07-15 10:40:37,136 - stapi - DEBUG - Time to start of success() : 7.13602900505
+
+Time to before issues_list : 7.13614106178
+
+2015-07-15 10:40:37,136 - stapi - DEBUG - Time to before issues_list : 7.13614106178
+
+Time to after bson dump : 7.16383290291
+
+2015-07-15 10:40:37,163 - stapi - DEBUG - Time to after bson dump : 7.16383290291
+
+Time to after iteration : 7.16499090195
+
+2015-07-15 10:40:37,165 - stapi - DEBUG - Time to after iteration : 7.16499090195
+
+Time to after gzip compress : 7.16698694229
+
+2015-07-15 10:40:37,167 - stapi - DEBUG - Time to after gzip compress : 7.16698694229
+
+Time to just after compressed.getvalue() : 7.16750192642
+
+2015-07-15 10:40:37,167 - stapi - DEBUG - Time to just after compressed.getvalue() : 7.16750192642
+
+127.0.0.1 - - [15/Jul/2015 10:40:37] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 4058
+here is origin
+
+2015-07-15 10:40:37,179 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:37,179 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:37,180 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:37,180 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:37,180 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:37,181 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:37,182 - stapi - DEBUG - getIssues()
+Time to start of success() : 7.18341588974
+
+2015-07-15 10:40:37,183 - stapi - DEBUG - Time to start of success() : 7.18341588974
+
+Time to before issues_list : 7.18399310112
+
+2015-07-15 10:40:37,184 - stapi - DEBUG - Time to before issues_list : 7.18399310112
+
+Time to after bson dump : 8.17166805267
+
+2015-07-15 10:40:38,171 - stapi - DEBUG - Time to after bson dump : 8.17166805267
+
+Time to after iteration : 8.17208695412
+
+2015-07-15 10:40:38,172 - stapi - DEBUG - Time to after iteration : 8.17208695412
+
+Time to after gzip compress : 8.24761891365
+
+2015-07-15 10:40:38,247 - stapi - DEBUG - Time to after gzip compress : 8.24761891365
+
+Time to just after compressed.getvalue() : 8.24814605713
+
+2015-07-15 10:40:38,248 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.24814605713
+
+127.0.0.1 - - [15/Jul/2015 10:40:38] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 186338
+here is origin
+
+2015-07-15 10:40:51,802 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:51,802 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:51,803 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:51,803 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:51,803 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:51,803 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:51,804 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.81201004982
+
+2015-07-15 10:40:51,812 - stapi - DEBUG - Time to start of success() : 1.81201004982
+
+Time to before issues_list : 1.81241798401
+
+2015-07-15 10:40:51,812 - stapi - DEBUG - Time to before issues_list : 1.81241798401
+
+Time to after bson dump : 1.8175098896
+
+2015-07-15 10:40:51,817 - stapi - DEBUG - Time to after bson dump : 1.8175098896
+
+Time to after iteration : 1.81780695915
+
+2015-07-15 10:40:51,817 - stapi - DEBUG - Time to after iteration : 1.81780695915
+
+Time to after gzip compress : 1.81827092171
+
+2015-07-15 10:40:51,818 - stapi - DEBUG - Time to after gzip compress : 1.81827092171
+
+Time to just after compressed.getvalue() : 1.81849503517
+
+2015-07-15 10:40:51,818 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.81849503517
+
+127.0.0.1 - - [15/Jul/2015 10:40:51] "GET /issues/summary/sla HTTP/1.1" 200 1498
+here is origin
+
+2015-07-15 10:40:51,825 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:51,826 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:51,826 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:51,826 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:51,826 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:51,827 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:51,828 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.8351650238
+
+2015-07-15 10:40:51,835 - stapi - DEBUG - Time to start of success() : 1.8351650238
+
+Time to before issues_list : 1.83551311493
+
+2015-07-15 10:40:51,835 - stapi - DEBUG - Time to before issues_list : 1.83551311493
+
+Time to after bson dump : 1.83581590652
+
+2015-07-15 10:40:51,835 - stapi - DEBUG - Time to after bson dump : 1.83581590652
+
+Time to after iteration : 1.83636307716
+
+2015-07-15 10:40:51,836 - stapi - DEBUG - Time to after iteration : 1.83636307716
+
+Time to after gzip compress : 1.83669400215
+
+2015-07-15 10:40:51,836 - stapi - DEBUG - Time to after gzip compress : 1.83669400215
+
+Time to just after compressed.getvalue() : 1.83692407608
+
+2015-07-15 10:40:51,836 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.83692407608
+
+127.0.0.1 - - [15/Jul/2015 10:40:51] "GET /issues/summary/fts HTTP/1.1" 200 52
+here is origin
+
+2015-07-15 10:40:51,843 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:51,844 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:51,844 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:51,844 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:51,844 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:51,844 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:51,846 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.84640288353
+
+2015-07-15 10:40:51,846 - stapi - DEBUG - Time to start of success() : 1.84640288353
+
+Time to before issues_list : 1.84659409523
+
+2015-07-15 10:40:51,846 - stapi - DEBUG - Time to before issues_list : 1.84659409523
+
+Time to after bson dump : 1.86380910873
+
+2015-07-15 10:40:51,863 - stapi - DEBUG - Time to after bson dump : 1.86380910873
+
+Time to after iteration : 1.86420702934
+
+2015-07-15 10:40:51,864 - stapi - DEBUG - Time to after iteration : 1.86420702934
+
+Time to after gzip compress : 1.86489605904
+
+2015-07-15 10:40:51,864 - stapi - DEBUG - Time to after gzip compress : 1.86489605904
+
+Time to just after compressed.getvalue() : 1.86522507668
+
+2015-07-15 10:40:51,865 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.86522507668
+
+127.0.0.1 - - [15/Jul/2015 10:40:51] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 2176
+here is origin
+
+2015-07-15 10:40:51,876 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:51,876 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:51,876 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:51,877 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:51,877 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:51,877 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 10:40:51,878 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 1.87892699242
+
+2015-07-15 10:40:51,878 - stapi - DEBUG - Time to start of success() : 1.87892699242
+
+Time to before issues_list : 1.87919592857
+
+2015-07-15 10:40:51,879 - stapi - DEBUG - Time to before issues_list : 1.87919592857
+
+Time to after bson dump : 1.88433098793
+
+2015-07-15 10:40:51,884 - stapi - DEBUG - Time to after bson dump : 1.88433098793
+
+Time to after iteration : 1.88464808464
+
+2015-07-15 10:40:51,884 - stapi - DEBUG - Time to after iteration : 1.88464808464
+
+Time to after gzip compress : 1.88503193855
+
+2015-07-15 10:40:51,885 - stapi - DEBUG - Time to after gzip compress : 1.88503193855
+
+Time to just after compressed.getvalue() : 1.88529610634
+
+2015-07-15 10:40:51,885 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.88529610634
+
+127.0.0.1 - - [15/Jul/2015 10:40:51] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 10:40:51,894 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:51,894 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:51,894 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:51,895 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:51,895 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:51,895 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 10:40:51,896 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 10:40:51,896 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 10:40:51,897 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.8972260952
+
+2015-07-15 10:40:51,897 - stapi - DEBUG - Time to start of success() : 1.8972260952
+
+Time to before issues_list : 1.89745688438
+
+2015-07-15 10:40:51,897 - stapi - DEBUG - Time to before issues_list : 1.89745688438
+
+Time to after bson dump : 1.9030020237
+
+2015-07-15 10:40:51,903 - stapi - DEBUG - Time to after bson dump : 1.9030020237
+
+Time to after iteration : 1.90336203575
+
+2015-07-15 10:40:51,903 - stapi - DEBUG - Time to after iteration : 1.90336203575
+
+Time to after gzip compress : 1.90379190445
+
+2015-07-15 10:40:51,903 - stapi - DEBUG - Time to after gzip compress : 1.90379190445
+
+Time to just after compressed.getvalue() : 1.90407109261
+
+2015-07-15 10:40:51,904 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.90407109261
+
+127.0.0.1 - - [15/Jul/2015 10:40:51] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 10:40:51,916 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:51,916 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:51,916 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:51,917 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:51,917 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:51,917 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:51,918 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.91930389404
+
+2015-07-15 10:40:51,919 - stapi - DEBUG - Time to start of success() : 1.91930389404
+
+Time to before issues_list : 1.9205429554
+
+2015-07-15 10:40:51,920 - stapi - DEBUG - Time to before issues_list : 1.9205429554
+
+Time to after bson dump : 2.44455289841
+
+2015-07-15 10:40:52,444 - stapi - DEBUG - Time to after bson dump : 2.44455289841
+
+Time to after iteration : 2.44488096237
+
+2015-07-15 10:40:52,444 - stapi - DEBUG - Time to after iteration : 2.44488096237
+
+Time to after gzip compress : 2.47707605362
+
+2015-07-15 10:40:52,477 - stapi - DEBUG - Time to after gzip compress : 2.47707605362
+
+Time to just after compressed.getvalue() : 2.47755098343
+
+2015-07-15 10:40:52,477 - stapi - DEBUG - Time to just after compressed.getvalue() : 2.47755098343
+
+127.0.0.1 - - [15/Jul/2015 10:40:52] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 59372
+here is origin
+
+2015-07-15 10:40:52,646 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:52,647 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:52,648 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:52,649 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:52,650 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:52,651 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:52,653 - stapi - DEBUG - getIssues()
+Time to start of success() : 2.65380597115
+
+2015-07-15 10:40:52,653 - stapi - DEBUG - Time to start of success() : 2.65380597115
+
+Time to before issues_list : 2.65427708626
+
+2015-07-15 10:40:52,654 - stapi - DEBUG - Time to before issues_list : 2.65427708626
+
+Time to after bson dump : 2.69464802742
+
+2015-07-15 10:40:52,694 - stapi - DEBUG - Time to after bson dump : 2.69464802742
+
+Time to after iteration : 2.69511795044
+
+2015-07-15 10:40:52,695 - stapi - DEBUG - Time to after iteration : 2.69511795044
+
+Time to after gzip compress : 2.69691801071
+
+2015-07-15 10:40:52,696 - stapi - DEBUG - Time to after gzip compress : 2.69691801071
+
+Time to just after compressed.getvalue() : 2.69730305672
+
+2015-07-15 10:40:52,697 - stapi - DEBUG - Time to just after compressed.getvalue() : 2.69730305672
+
+127.0.0.1 - - [15/Jul/2015 10:40:52] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 4058
+here is origin
+
+2015-07-15 10:40:52,716 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:52,717 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:52,717 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:52,718 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:52,718 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:52,718 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:52,719 - stapi - DEBUG - getIssues()
+Time to start of success() : 2.71984910965
+
+2015-07-15 10:40:52,719 - stapi - DEBUG - Time to start of success() : 2.71984910965
+
+Time to before issues_list : 2.72010302544
+
+2015-07-15 10:40:52,720 - stapi - DEBUG - Time to before issues_list : 2.72010302544
+
+Time to after bson dump : 4.131731987
+
+2015-07-15 10:40:54,131 - stapi - DEBUG - Time to after bson dump : 4.131731987
+
+Time to after iteration : 4.13221406937
+
+2015-07-15 10:40:54,132 - stapi - DEBUG - Time to after iteration : 4.13221406937
+
+Time to after gzip compress : 4.21801304817
+
+2015-07-15 10:40:54,218 - stapi - DEBUG - Time to after gzip compress : 4.21801304817
+
+Time to just after compressed.getvalue() : 4.2186870575
+
+2015-07-15 10:40:54,218 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.2186870575
+
+127.0.0.1 - - [15/Jul/2015 10:40:54] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 186338
+here is origin
+
+2015-07-15 10:40:55,033 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:55,033 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:55,033 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:55,034 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:55,034 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:55,034 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:55,035 - stapi - DEBUG - getIssues()
+Time to start of success() : 5.04202508926
+
+2015-07-15 10:40:55,042 - stapi - DEBUG - Time to start of success() : 5.04202508926
+
+Time to before issues_list : 5.04239606857
+
+2015-07-15 10:40:55,042 - stapi - DEBUG - Time to before issues_list : 5.04239606857
+
+Time to after bson dump : 5.04731106758
+
+2015-07-15 10:40:55,047 - stapi - DEBUG - Time to after bson dump : 5.04731106758
+
+Time to after iteration : 5.04762411118
+
+2015-07-15 10:40:55,047 - stapi - DEBUG - Time to after iteration : 5.04762411118
+
+Time to after gzip compress : 5.04815411568
+
+2015-07-15 10:40:55,048 - stapi - DEBUG - Time to after gzip compress : 5.04815411568
+
+Time to just after compressed.getvalue() : 5.04839992523
+
+2015-07-15 10:40:55,048 - stapi - DEBUG - Time to just after compressed.getvalue() : 5.04839992523
+
+127.0.0.1 - - [15/Jul/2015 10:40:55] "GET /issues/summary/sla HTTP/1.1" 200 1498
+here is origin
+
+2015-07-15 10:40:55,056 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:55,056 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:55,057 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:55,057 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:55,057 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:55,057 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:55,058 - stapi - DEBUG - getIssues()
+Time to start of success() : 5.06482410431
+
+2015-07-15 10:40:55,064 - stapi - DEBUG - Time to start of success() : 5.06482410431
+
+Time to before issues_list : 5.06533193588
+
+2015-07-15 10:40:55,065 - stapi - DEBUG - Time to before issues_list : 5.06533193588
+
+Time to after bson dump : 5.06575798988
+
+2015-07-15 10:40:55,065 - stapi - DEBUG - Time to after bson dump : 5.06575798988
+
+Time to after iteration : 5.06606507301
+
+2015-07-15 10:40:55,066 - stapi - DEBUG - Time to after iteration : 5.06606507301
+
+Time to after gzip compress : 5.06643605232
+
+2015-07-15 10:40:55,066 - stapi - DEBUG - Time to after gzip compress : 5.06643605232
+
+Time to just after compressed.getvalue() : 5.06669092178
+
+2015-07-15 10:40:55,066 - stapi - DEBUG - Time to just after compressed.getvalue() : 5.06669092178
+
+127.0.0.1 - - [15/Jul/2015 10:40:55] "GET /issues/summary/fts HTTP/1.1" 200 52
+here is origin
+
+2015-07-15 10:40:55,071 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:55,071 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:55,072 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:55,072 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:55,072 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:55,072 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:55,073 - stapi - DEBUG - getIssues()
+Time to start of success() : 5.07396101952
+
+2015-07-15 10:40:55,073 - stapi - DEBUG - Time to start of success() : 5.07396101952
+
+Time to before issues_list : 5.07416200638
+
+2015-07-15 10:40:55,074 - stapi - DEBUG - Time to before issues_list : 5.07416200638
+
+Time to after bson dump : 5.08700990677
+
+2015-07-15 10:40:55,087 - stapi - DEBUG - Time to after bson dump : 5.08700990677
+
+Time to after iteration : 5.08737707138
+
+2015-07-15 10:40:55,087 - stapi - DEBUG - Time to after iteration : 5.08737707138
+
+Time to after gzip compress : 5.08799791336
+
+2015-07-15 10:40:55,088 - stapi - DEBUG - Time to after gzip compress : 5.08799791336
+
+Time to just after compressed.getvalue() : 5.08832597733
+
+2015-07-15 10:40:55,088 - stapi - DEBUG - Time to just after compressed.getvalue() : 5.08832597733
+
+127.0.0.1 - - [15/Jul/2015 10:40:55] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 2176
+here is origin
+
+2015-07-15 10:40:55,099 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:55,099 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:55,100 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:55,100 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:55,100 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:55,100 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 10:40:55,101 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 5.10168504715
+
+2015-07-15 10:40:55,101 - stapi - DEBUG - Time to start of success() : 5.10168504715
+
+Time to before issues_list : 5.10188508034
+
+2015-07-15 10:40:55,101 - stapi - DEBUG - Time to before issues_list : 5.10188508034
+
+Time to after bson dump : 5.1081829071
+
+2015-07-15 10:40:55,108 - stapi - DEBUG - Time to after bson dump : 5.1081829071
+
+Time to after iteration : 5.10848808289
+
+2015-07-15 10:40:55,108 - stapi - DEBUG - Time to after iteration : 5.10848808289
+
+Time to after gzip compress : 5.10880899429
+
+2015-07-15 10:40:55,108 - stapi - DEBUG - Time to after gzip compress : 5.10880899429
+
+Time to just after compressed.getvalue() : 5.10903692245
+
+2015-07-15 10:40:55,109 - stapi - DEBUG - Time to just after compressed.getvalue() : 5.10903692245
+
+127.0.0.1 - - [15/Jul/2015 10:40:55] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 10:40:55,117 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:55,117 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:55,117 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:55,118 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:55,118 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:55,118 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 10:40:55,119 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 10:40:55,119 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 10:40:55,119 - stapi - DEBUG - getIssues()
+Time to start of success() : 5.12018799782
+
+2015-07-15 10:40:55,120 - stapi - DEBUG - Time to start of success() : 5.12018799782
+
+Time to before issues_list : 5.12038993835
+
+2015-07-15 10:40:55,120 - stapi - DEBUG - Time to before issues_list : 5.12038993835
+
+Time to after bson dump : 5.12655496597
+
+2015-07-15 10:40:55,126 - stapi - DEBUG - Time to after bson dump : 5.12655496597
+
+Time to after iteration : 5.12697005272
+
+2015-07-15 10:40:55,126 - stapi - DEBUG - Time to after iteration : 5.12697005272
+
+Time to after gzip compress : 5.12741303444
+
+2015-07-15 10:40:55,127 - stapi - DEBUG - Time to after gzip compress : 5.12741303444
+
+Time to just after compressed.getvalue() : 5.12764406204
+
+2015-07-15 10:40:55,127 - stapi - DEBUG - Time to just after compressed.getvalue() : 5.12764406204
+
+127.0.0.1 - - [15/Jul/2015 10:40:55] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 10:40:55,139 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:55,139 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:55,139 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:55,139 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:55,139 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:55,139 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:55,141 - stapi - DEBUG - getIssues()
+Time to start of success() : 5.14171791077
+
+2015-07-15 10:40:55,141 - stapi - DEBUG - Time to start of success() : 5.14171791077
+
+Time to before issues_list : 5.1419479847
+
+2015-07-15 10:40:55,141 - stapi - DEBUG - Time to before issues_list : 5.1419479847
+
+Time to after bson dump : 5.54623293877
+
+2015-07-15 10:40:55,546 - stapi - DEBUG - Time to after bson dump : 5.54623293877
+
+Time to after iteration : 5.54662299156
+
+2015-07-15 10:40:55,546 - stapi - DEBUG - Time to after iteration : 5.54662299156
+
+Time to after gzip compress : 5.57030797005
+
+2015-07-15 10:40:55,570 - stapi - DEBUG - Time to after gzip compress : 5.57030797005
+
+Time to just after compressed.getvalue() : 5.57077097893
+
+2015-07-15 10:40:55,570 - stapi - DEBUG - Time to just after compressed.getvalue() : 5.57077097893
+
+127.0.0.1 - - [15/Jul/2015 10:40:55] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 59166
+here is origin
+
+2015-07-15 10:40:55,678 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:55,678 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:55,678 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:55,678 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:55,679 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:55,679 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:55,680 - stapi - DEBUG - getIssues()
+Time to start of success() : 5.68031597137
+
+2015-07-15 10:40:55,680 - stapi - DEBUG - Time to start of success() : 5.68031597137
+
+Time to before issues_list : 5.68048000336
+
+2015-07-15 10:40:55,680 - stapi - DEBUG - Time to before issues_list : 5.68048000336
+
+Time to after bson dump : 5.7244079113
+
+2015-07-15 10:40:55,724 - stapi - DEBUG - Time to after bson dump : 5.7244079113
+
+Time to after iteration : 5.72471189499
+
+2015-07-15 10:40:55,724 - stapi - DEBUG - Time to after iteration : 5.72471189499
+
+Time to after gzip compress : 5.72599005699
+
+2015-07-15 10:40:55,726 - stapi - DEBUG - Time to after gzip compress : 5.72599005699
+
+Time to just after compressed.getvalue() : 5.72655701637
+
+2015-07-15 10:40:55,726 - stapi - DEBUG - Time to just after compressed.getvalue() : 5.72655701637
+
+127.0.0.1 - - [15/Jul/2015 10:40:55] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 4058
+here is origin
+
+2015-07-15 10:40:55,744 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:40:55,746 - stapi - INFO - *
+
+
+
+2015-07-15 10:40:55,746 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:40:55,746 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:40:55,746 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:40:55,747 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:40:55,748 - stapi - DEBUG - getIssues()
+Time to start of success() : 5.74959802628
+
+2015-07-15 10:40:55,749 - stapi - DEBUG - Time to start of success() : 5.74959802628
+
+Time to before issues_list : 5.74982905388
+
+2015-07-15 10:40:55,749 - stapi - DEBUG - Time to before issues_list : 5.74982905388
+
+Time to after bson dump : 6.96447396278
+
+2015-07-15 10:40:56,964 - stapi - DEBUG - Time to after bson dump : 6.96447396278
+
+Time to after iteration : 6.96480488777
+
+2015-07-15 10:40:56,964 - stapi - DEBUG - Time to after iteration : 6.96480488777
+
+Time to after gzip compress : 7.04120111465
+
+2015-07-15 10:40:57,041 - stapi - DEBUG - Time to after gzip compress : 7.04120111465
+
+Time to just after compressed.getvalue() : 7.04148292542
+
+2015-07-15 10:40:57,041 - stapi - DEBUG - Time to just after compressed.getvalue() : 7.04148292542
+
+127.0.0.1 - - [15/Jul/2015 10:40:57] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 186578
+here is origin
+
+2015-07-15 10:41:57,883 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:41:57,883 - stapi - INFO - *
+
+
+
+2015-07-15 10:41:57,883 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:41:57,883 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:41:57,883 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:41:57,883 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:41:57,884 - stapi - DEBUG - getIssues()
+Time to start of success() : 7.8899269104
+
+2015-07-15 10:41:57,889 - stapi - DEBUG - Time to start of success() : 7.8899269104
+
+Time to before issues_list : 7.89014291763
+
+2015-07-15 10:41:57,890 - stapi - DEBUG - Time to before issues_list : 7.89014291763
+
+Time to after bson dump : 7.89584994316
+
+2015-07-15 10:41:57,895 - stapi - DEBUG - Time to after bson dump : 7.89584994316
+
+Time to after iteration : 7.89615607262
+
+2015-07-15 10:41:57,896 - stapi - DEBUG - Time to after iteration : 7.89615607262
+
+Time to after gzip compress : 7.89673089981
+
+2015-07-15 10:41:57,896 - stapi - DEBUG - Time to after gzip compress : 7.89673089981
+
+Time to just after compressed.getvalue() : 7.89747691154
+
+2015-07-15 10:41:57,897 - stapi - DEBUG - Time to just after compressed.getvalue() : 7.89747691154
+
+127.0.0.1 - - [15/Jul/2015 10:41:57] "GET /issues/summary/sla HTTP/1.1" 200 2185
+here is origin
+
+2015-07-15 10:41:57,903 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:41:57,904 - stapi - INFO - *
+
+
+
+2015-07-15 10:41:57,904 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:41:57,904 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:41:57,904 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:41:57,904 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:41:57,905 - stapi - DEBUG - getIssues()
+Time to start of success() : 7.91353797913
+
+2015-07-15 10:41:57,913 - stapi - DEBUG - Time to start of success() : 7.91353797913
+
+Time to before issues_list : 7.91385293007
+
+2015-07-15 10:41:57,913 - stapi - DEBUG - Time to before issues_list : 7.91385293007
+
+Time to after bson dump : 7.91601610184
+
+2015-07-15 10:41:57,916 - stapi - DEBUG - Time to after bson dump : 7.91601610184
+
+Time to after iteration : 7.91630005836
+
+2015-07-15 10:41:57,916 - stapi - DEBUG - Time to after iteration : 7.91630005836
+
+Time to after gzip compress : 7.91654396057
+
+2015-07-15 10:41:57,916 - stapi - DEBUG - Time to after gzip compress : 7.91654396057
+
+Time to just after compressed.getvalue() : 7.91665291786
+
+2015-07-15 10:41:57,916 - stapi - DEBUG - Time to just after compressed.getvalue() : 7.91665291786
+
+127.0.0.1 - - [15/Jul/2015 10:41:57] "GET /issues/summary/fts HTTP/1.1" 200 979
+here is origin
+
+2015-07-15 10:41:57,922 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:41:57,923 - stapi - INFO - *
+
+
+
+2015-07-15 10:41:57,923 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:41:57,923 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:41:57,923 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:41:57,923 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:41:57,924 - stapi - DEBUG - getIssues()
+Time to start of success() : 7.92538404465
+
+2015-07-15 10:41:57,925 - stapi - DEBUG - Time to start of success() : 7.92538404465
+
+Time to before issues_list : 7.9256811142
+
+2015-07-15 10:41:57,925 - stapi - DEBUG - Time to before issues_list : 7.9256811142
+
+Time to after bson dump : 7.94384694099
+
+2015-07-15 10:41:57,943 - stapi - DEBUG - Time to after bson dump : 7.94384694099
+
+Time to after iteration : 7.94425988197
+
+2015-07-15 10:41:57,944 - stapi - DEBUG - Time to after iteration : 7.94425988197
+
+Time to after gzip compress : 7.94508910179
+
+2015-07-15 10:41:57,945 - stapi - DEBUG - Time to after gzip compress : 7.94508910179
+
+Time to just after compressed.getvalue() : 7.94539690018
+
+2015-07-15 10:41:57,945 - stapi - DEBUG - Time to just after compressed.getvalue() : 7.94539690018
+
+127.0.0.1 - - [15/Jul/2015 10:41:57] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 2410
+here is origin
+
+2015-07-15 10:41:57,987 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:41:57,988 - stapi - INFO - *
+
+
+
+2015-07-15 10:41:57,988 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:41:57,988 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:41:57,988 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:41:57,988 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 10:41:57,989 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 7.99003195763
+
+2015-07-15 10:41:57,990 - stapi - DEBUG - Time to start of success() : 7.99003195763
+
+Time to before issues_list : 7.99023389816
+
+2015-07-15 10:41:57,990 - stapi - DEBUG - Time to before issues_list : 7.99023389816
+
+Time to after bson dump : 7.99716806412
+
+2015-07-15 10:41:57,997 - stapi - DEBUG - Time to after bson dump : 7.99716806412
+
+Time to after iteration : 7.99743795395
+
+2015-07-15 10:41:57,997 - stapi - DEBUG - Time to after iteration : 7.99743795395
+
+Time to after gzip compress : 7.99774289131
+
+2015-07-15 10:41:57,997 - stapi - DEBUG - Time to after gzip compress : 7.99774289131
+
+Time to just after compressed.getvalue() : 7.99792790413
+
+2015-07-15 10:41:57,997 - stapi - DEBUG - Time to just after compressed.getvalue() : 7.99792790413
+
+127.0.0.1 - - [15/Jul/2015 10:41:57] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 10:41:58,017 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:41:58,018 - stapi - INFO - *
+
+
+
+2015-07-15 10:41:58,019 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:41:58,020 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:41:58,020 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:41:58,020 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 10:41:58,022 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 10:41:58,023 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 10:41:58,023 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.02389097214
+
+2015-07-15 10:41:58,023 - stapi - DEBUG - Time to start of success() : 8.02389097214
+
+Time to before issues_list : 8.02422595024
+
+2015-07-15 10:41:58,024 - stapi - DEBUG - Time to before issues_list : 8.02422595024
+
+Time to after bson dump : 8.03503489494
+
+2015-07-15 10:41:58,035 - stapi - DEBUG - Time to after bson dump : 8.03503489494
+
+Time to after iteration : 8.03548002243
+
+2015-07-15 10:41:58,035 - stapi - DEBUG - Time to after iteration : 8.03548002243
+
+Time to after gzip compress : 8.03644299507
+
+2015-07-15 10:41:58,036 - stapi - DEBUG - Time to after gzip compress : 8.03644299507
+
+Time to just after compressed.getvalue() : 8.03674793243
+
+2015-07-15 10:41:58,036 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.03674793243
+
+127.0.0.1 - - [15/Jul/2015 10:41:58] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 10:41:58,052 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:41:58,053 - stapi - INFO - *
+
+
+
+2015-07-15 10:41:58,053 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:41:58,062 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:41:58,062 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:41:58,062 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:41:58,063 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.06365990639
+
+2015-07-15 10:41:58,063 - stapi - DEBUG - Time to start of success() : 8.06365990639
+
+Time to before issues_list : 8.0637960434
+
+2015-07-15 10:41:58,063 - stapi - DEBUG - Time to before issues_list : 8.0637960434
+
+Time to after bson dump : 8.37822794914
+
+2015-07-15 10:41:58,378 - stapi - DEBUG - Time to after bson dump : 8.37822794914
+
+Time to after iteration : 8.37855696678
+
+2015-07-15 10:41:58,378 - stapi - DEBUG - Time to after iteration : 8.37855696678
+
+Time to after gzip compress : 8.40645194054
+
+2015-07-15 10:41:58,406 - stapi - DEBUG - Time to after gzip compress : 8.40645194054
+
+Time to just after compressed.getvalue() : 8.40669608116
+
+2015-07-15 10:41:58,406 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.40669608116
+
+127.0.0.1 - - [15/Jul/2015 10:41:58] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 62023
+here is origin
+
+2015-07-15 10:41:58,508 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:41:58,511 - stapi - INFO - *
+
+
+
+2015-07-15 10:41:58,511 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:41:58,512 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:41:58,512 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:41:58,512 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:41:58,513 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.51480293274
+
+2015-07-15 10:41:58,514 - stapi - DEBUG - Time to start of success() : 8.51480293274
+
+Time to before issues_list : 8.51514101028
+
+2015-07-15 10:41:58,515 - stapi - DEBUG - Time to before issues_list : 8.51514101028
+
+Time to after bson dump : 8.5445599556
+
+2015-07-15 10:41:58,544 - stapi - DEBUG - Time to after bson dump : 8.5445599556
+
+Time to after iteration : 8.54486203194
+
+2015-07-15 10:41:58,544 - stapi - DEBUG - Time to after iteration : 8.54486203194
+
+Time to after gzip compress : 8.54630804062
+
+2015-07-15 10:41:58,546 - stapi - DEBUG - Time to after gzip compress : 8.54630804062
+
+Time to just after compressed.getvalue() : 8.54652500153
+
+2015-07-15 10:41:58,546 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.54652500153
+
+127.0.0.1 - - [15/Jul/2015 10:41:58] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 4283
+here is origin
+
+2015-07-15 10:41:58,570 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:41:58,570 - stapi - INFO - *
+
+
+
+2015-07-15 10:41:58,571 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:41:58,571 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:41:58,571 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:41:58,571 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:41:58,572 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.57308602333
+
+2015-07-15 10:41:58,573 - stapi - DEBUG - Time to start of success() : 8.57308602333
+
+Time to before issues_list : 8.57339501381
+
+2015-07-15 10:41:58,573 - stapi - DEBUG - Time to before issues_list : 8.57339501381
+
+Time to after bson dump : 9.5053730011
+
+2015-07-15 10:41:59,505 - stapi - DEBUG - Time to after bson dump : 9.5053730011
+
+Time to after iteration : 9.50571990013
+
+2015-07-15 10:41:59,505 - stapi - DEBUG - Time to after iteration : 9.50571990013
+
+Time to after gzip compress : 9.57994794846
+
+2015-07-15 10:41:59,579 - stapi - DEBUG - Time to after gzip compress : 9.57994794846
+
+Time to just after compressed.getvalue() : 9.58044600487
+
+2015-07-15 10:41:59,580 - stapi - DEBUG - Time to just after compressed.getvalue() : 9.58044600487
+
+127.0.0.1 - - [15/Jul/2015 10:41:59] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 185739
+here is origin
+
+2015-07-15 10:42:04,310 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:04,310 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:04,310 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:04,311 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:04,311 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:04,311 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:42:04,312 - stapi - DEBUG - getIssues()
+Time to start of success() : 4.32124710083
+
+2015-07-15 10:42:04,321 - stapi - DEBUG - Time to start of success() : 4.32124710083
+
+Time to before issues_list : 4.32156300545
+
+2015-07-15 10:42:04,321 - stapi - DEBUG - Time to before issues_list : 4.32156300545
+
+Time to after bson dump : 4.3310239315
+
+2015-07-15 10:42:04,331 - stapi - DEBUG - Time to after bson dump : 4.3310239315
+
+Time to after iteration : 4.33135890961
+
+2015-07-15 10:42:04,331 - stapi - DEBUG - Time to after iteration : 4.33135890961
+
+Time to after gzip compress : 4.33201909065
+
+2015-07-15 10:42:04,332 - stapi - DEBUG - Time to after gzip compress : 4.33201909065
+
+Time to just after compressed.getvalue() : 4.33227300644
+
+2015-07-15 10:42:04,332 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.33227300644
+
+127.0.0.1 - - [15/Jul/2015 10:42:04] "GET /issues/summary/sla HTTP/1.1" 200 2185
+here is origin
+
+2015-07-15 10:42:04,339 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:04,340 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:04,340 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:04,340 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:04,340 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:04,340 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:42:04,341 - stapi - DEBUG - getIssues()
+Time to start of success() : 4.34634208679
+
+2015-07-15 10:42:04,346 - stapi - DEBUG - Time to start of success() : 4.34634208679
+
+Time to before issues_list : 4.3466899395
+
+2015-07-15 10:42:04,346 - stapi - DEBUG - Time to before issues_list : 4.3466899395
+
+Time to after bson dump : 4.35388493538
+
+2015-07-15 10:42:04,353 - stapi - DEBUG - Time to after bson dump : 4.35388493538
+
+Time to after iteration : 4.35420107841
+
+2015-07-15 10:42:04,354 - stapi - DEBUG - Time to after iteration : 4.35420107841
+
+Time to after gzip compress : 4.35478997231
+
+2015-07-15 10:42:04,354 - stapi - DEBUG - Time to after gzip compress : 4.35478997231
+
+Time to just after compressed.getvalue() : 4.35504293442
+
+2015-07-15 10:42:04,355 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.35504293442
+
+127.0.0.1 - - [15/Jul/2015 10:42:04] "GET /issues/summary/fts HTTP/1.1" 200 1735
+here is origin
+
+2015-07-15 10:42:04,363 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:04,363 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:04,364 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:04,364 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:04,364 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:04,364 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:42:04,366 - stapi - DEBUG - getIssues()
+Time to start of success() : 4.3667550087
+
+2015-07-15 10:42:04,366 - stapi - DEBUG - Time to start of success() : 4.3667550087
+
+Time to before issues_list : 4.36709094048
+
+2015-07-15 10:42:04,367 - stapi - DEBUG - Time to before issues_list : 4.36709094048
+
+Time to after bson dump : 4.3922059536
+
+2015-07-15 10:42:04,392 - stapi - DEBUG - Time to after bson dump : 4.3922059536
+
+Time to after iteration : 4.39249205589
+
+2015-07-15 10:42:04,392 - stapi - DEBUG - Time to after iteration : 4.39249205589
+
+Time to after gzip compress : 4.39321398735
+
+2015-07-15 10:42:04,393 - stapi - DEBUG - Time to after gzip compress : 4.39321398735
+
+Time to just after compressed.getvalue() : 4.39336895943
+
+2015-07-15 10:42:04,393 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.39336895943
+
+127.0.0.1 - - [15/Jul/2015 10:42:04] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 2410
+here is origin
+
+2015-07-15 10:42:04,410 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:04,410 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:04,410 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:04,410 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:04,411 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:04,411 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 10:42:04,414 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 4.41606688499
+
+2015-07-15 10:42:04,416 - stapi - DEBUG - Time to start of success() : 4.41606688499
+
+Time to before issues_list : 4.41631603241
+
+2015-07-15 10:42:04,416 - stapi - DEBUG - Time to before issues_list : 4.41631603241
+
+Time to after bson dump : 4.42366790771
+
+2015-07-15 10:42:04,423 - stapi - DEBUG - Time to after bson dump : 4.42366790771
+
+Time to after iteration : 4.42395210266
+
+2015-07-15 10:42:04,423 - stapi - DEBUG - Time to after iteration : 4.42395210266
+
+Time to after gzip compress : 4.42424893379
+
+2015-07-15 10:42:04,424 - stapi - DEBUG - Time to after gzip compress : 4.42424893379
+
+Time to just after compressed.getvalue() : 4.4244260788
+
+2015-07-15 10:42:04,424 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.4244260788
+
+127.0.0.1 - - [15/Jul/2015 10:42:04] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 10:42:04,436 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:04,436 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:04,436 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:04,436 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:04,436 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:04,437 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 10:42:04,437 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 10:42:04,438 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 10:42:04,438 - stapi - DEBUG - getIssues()
+Time to start of success() : 4.43894600868
+
+2015-07-15 10:42:04,438 - stapi - DEBUG - Time to start of success() : 4.43894600868
+
+Time to before issues_list : 4.43933200836
+
+2015-07-15 10:42:04,439 - stapi - DEBUG - Time to before issues_list : 4.43933200836
+
+Time to after bson dump : 4.44703507423
+
+2015-07-15 10:42:04,447 - stapi - DEBUG - Time to after bson dump : 4.44703507423
+
+Time to after iteration : 4.44738101959
+
+2015-07-15 10:42:04,447 - stapi - DEBUG - Time to after iteration : 4.44738101959
+
+Time to after gzip compress : 4.44793200493
+
+2015-07-15 10:42:04,447 - stapi - DEBUG - Time to after gzip compress : 4.44793200493
+
+Time to just after compressed.getvalue() : 4.44819402695
+
+2015-07-15 10:42:04,448 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.44819402695
+
+127.0.0.1 - - [15/Jul/2015 10:42:04] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 10:42:04,460 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:04,460 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:04,461 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:04,461 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:04,461 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:04,461 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:42:04,462 - stapi - DEBUG - getIssues()
+Time to start of success() : 4.46329593658
+
+2015-07-15 10:42:04,463 - stapi - DEBUG - Time to start of success() : 4.46329593658
+
+Time to before issues_list : 4.46438002586
+
+2015-07-15 10:42:04,464 - stapi - DEBUG - Time to before issues_list : 4.46438002586
+
+Time to after bson dump : 4.84496903419
+
+2015-07-15 10:42:04,844 - stapi - DEBUG - Time to after bson dump : 4.84496903419
+
+Time to after iteration : 4.84520888329
+
+2015-07-15 10:42:04,845 - stapi - DEBUG - Time to after iteration : 4.84520888329
+
+Time to after gzip compress : 4.87129497528
+
+2015-07-15 10:42:04,871 - stapi - DEBUG - Time to after gzip compress : 4.87129497528
+
+Time to just after compressed.getvalue() : 4.87152099609
+
+2015-07-15 10:42:04,871 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.87152099609
+
+127.0.0.1 - - [15/Jul/2015 10:42:04] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 62803
+here is origin
+
+2015-07-15 10:42:04,994 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:04,997 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:04,999 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:04,999 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:04,999 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:04,999 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:42:05,004 - stapi - DEBUG - getIssues()
+Time to start of success() : 5.004529953
+
+2015-07-15 10:42:05,004 - stapi - DEBUG - Time to start of success() : 5.004529953
+
+Time to before issues_list : 5.00472903252
+
+2015-07-15 10:42:05,004 - stapi - DEBUG - Time to before issues_list : 5.00472903252
+
+Time to after bson dump : 5.05405902863
+
+2015-07-15 10:42:05,054 - stapi - DEBUG - Time to after bson dump : 5.05405902863
+
+Time to after iteration : 5.05452299118
+
+2015-07-15 10:42:05,054 - stapi - DEBUG - Time to after iteration : 5.05452299118
+
+Time to after gzip compress : 5.05631995201
+
+2015-07-15 10:42:05,056 - stapi - DEBUG - Time to after gzip compress : 5.05631995201
+
+Time to just after compressed.getvalue() : 5.05663609505
+
+2015-07-15 10:42:05,056 - stapi - DEBUG - Time to just after compressed.getvalue() : 5.05663609505
+
+127.0.0.1 - - [15/Jul/2015 10:42:05] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 4283
+here is origin
+
+2015-07-15 10:42:05,085 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:05,086 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:05,086 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:05,086 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:05,086 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:05,087 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:42:05,090 - stapi - DEBUG - getIssues()
+Time to start of success() : 5.09483408928
+
+2015-07-15 10:42:05,094 - stapi - DEBUG - Time to start of success() : 5.09483408928
+
+Time to before issues_list : 5.0958199501
+
+2015-07-15 10:42:05,095 - stapi - DEBUG - Time to before issues_list : 5.0958199501
+
+Time to after bson dump : 5.9762430191
+
+2015-07-15 10:42:05,976 - stapi - DEBUG - Time to after bson dump : 5.9762430191
+
+Time to after iteration : 5.97677898407
+
+2015-07-15 10:42:05,976 - stapi - DEBUG - Time to after iteration : 5.97677898407
+
+Time to after gzip compress : 6.0455019474
+
+2015-07-15 10:42:06,045 - stapi - DEBUG - Time to after gzip compress : 6.0455019474
+
+Time to just after compressed.getvalue() : 6.0459549427
+
+2015-07-15 10:42:06,045 - stapi - DEBUG - Time to just after compressed.getvalue() : 6.0459549427
+
+127.0.0.1 - - [15/Jul/2015 10:42:06] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 184997
+here is origin
+
+2015-07-15 10:42:08,728 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:08,729 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:08,729 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:08,729 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:08,729 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:08,729 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:42:08,730 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.73589301109
+
+2015-07-15 10:42:08,735 - stapi - DEBUG - Time to start of success() : 8.73589301109
+
+Time to before issues_list : 8.7362101078
+
+2015-07-15 10:42:08,736 - stapi - DEBUG - Time to before issues_list : 8.7362101078
+
+Time to after bson dump : 8.74602103233
+
+2015-07-15 10:42:08,746 - stapi - DEBUG - Time to after bson dump : 8.74602103233
+
+Time to after iteration : 8.74635195732
+
+2015-07-15 10:42:08,746 - stapi - DEBUG - Time to after iteration : 8.74635195732
+
+Time to after gzip compress : 8.74696803093
+
+2015-07-15 10:42:08,746 - stapi - DEBUG - Time to after gzip compress : 8.74696803093
+
+Time to just after compressed.getvalue() : 8.74722194672
+
+2015-07-15 10:42:08,747 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.74722194672
+
+127.0.0.1 - - [15/Jul/2015 10:42:08] "GET /issues/summary/sla HTTP/1.1" 200 2185
+here is origin
+
+2015-07-15 10:42:08,755 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:08,755 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:08,755 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:08,755 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:08,755 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:08,756 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:42:08,756 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.76049804688
+
+2015-07-15 10:42:08,760 - stapi - DEBUG - Time to start of success() : 8.76049804688
+
+Time to before issues_list : 8.760835886
+
+2015-07-15 10:42:08,760 - stapi - DEBUG - Time to before issues_list : 8.760835886
+
+Time to after bson dump : 8.7711520195
+
+2015-07-15 10:42:08,771 - stapi - DEBUG - Time to after bson dump : 8.7711520195
+
+Time to after iteration : 8.77151799202
+
+2015-07-15 10:42:08,771 - stapi - DEBUG - Time to after iteration : 8.77151799202
+
+Time to after gzip compress : 8.77447509766
+
+2015-07-15 10:42:08,774 - stapi - DEBUG - Time to after gzip compress : 8.77447509766
+
+Time to just after compressed.getvalue() : 8.77633190155
+
+2015-07-15 10:42:08,776 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.77633190155
+
+127.0.0.1 - - [15/Jul/2015 10:42:08] "GET /issues/summary/fts HTTP/1.1" 200 1735
+here is origin
+
+2015-07-15 10:42:08,792 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:08,792 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:08,792 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:08,793 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:08,793 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:08,793 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:42:08,795 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.79797410965
+
+2015-07-15 10:42:08,798 - stapi - DEBUG - Time to start of success() : 8.79797410965
+
+Time to before issues_list : 8.79830908775
+
+2015-07-15 10:42:08,798 - stapi - DEBUG - Time to before issues_list : 8.79830908775
+
+Time to after bson dump : 8.8166539669
+
+2015-07-15 10:42:08,816 - stapi - DEBUG - Time to after bson dump : 8.8166539669
+
+Time to after iteration : 8.81687498093
+
+2015-07-15 10:42:08,816 - stapi - DEBUG - Time to after iteration : 8.81687498093
+
+Time to after gzip compress : 8.8178050518
+
+2015-07-15 10:42:08,817 - stapi - DEBUG - Time to after gzip compress : 8.8178050518
+
+Time to just after compressed.getvalue() : 8.81845998764
+
+2015-07-15 10:42:08,818 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.81845998764
+
+127.0.0.1 - - [15/Jul/2015 10:42:08] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 2410
+here is origin
+
+2015-07-15 10:42:08,833 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:08,836 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:08,836 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:08,836 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:08,837 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:08,837 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 10:42:08,838 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 8.83905291557
+
+2015-07-15 10:42:08,839 - stapi - DEBUG - Time to start of success() : 8.83905291557
+
+Time to before issues_list : 8.83924007416
+
+2015-07-15 10:42:08,839 - stapi - DEBUG - Time to before issues_list : 8.83924007416
+
+Time to after bson dump : 8.84466505051
+
+2015-07-15 10:42:08,844 - stapi - DEBUG - Time to after bson dump : 8.84466505051
+
+Time to after iteration : 8.84497499466
+
+2015-07-15 10:42:08,844 - stapi - DEBUG - Time to after iteration : 8.84497499466
+
+Time to after gzip compress : 8.84530711174
+
+2015-07-15 10:42:08,845 - stapi - DEBUG - Time to after gzip compress : 8.84530711174
+
+Time to just after compressed.getvalue() : 8.84550499916
+
+2015-07-15 10:42:08,845 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.84550499916
+
+127.0.0.1 - - [15/Jul/2015 10:42:08] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 10:42:08,856 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:08,856 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:08,857 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:08,857 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:08,857 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:08,857 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 10:42:08,858 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 10:42:08,858 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 10:42:08,858 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.8625600338
+
+2015-07-15 10:42:08,862 - stapi - DEBUG - Time to start of success() : 8.8625600338
+
+Time to before issues_list : 8.86288189888
+
+2015-07-15 10:42:08,862 - stapi - DEBUG - Time to before issues_list : 8.86288189888
+
+Time to after bson dump : 8.87628006935
+
+2015-07-15 10:42:08,876 - stapi - DEBUG - Time to after bson dump : 8.87628006935
+
+Time to after iteration : 8.87657403946
+
+2015-07-15 10:42:08,876 - stapi - DEBUG - Time to after iteration : 8.87657403946
+
+Time to after gzip compress : 8.87705302238
+
+2015-07-15 10:42:08,877 - stapi - DEBUG - Time to after gzip compress : 8.87705302238
+
+Time to just after compressed.getvalue() : 8.8773150444
+
+2015-07-15 10:42:08,877 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.8773150444
+
+127.0.0.1 - - [15/Jul/2015 10:42:08] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 10:42:08,892 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:08,895 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:08,895 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:08,896 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:08,896 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:08,897 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:42:08,897 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.89812588692
+
+2015-07-15 10:42:08,898 - stapi - DEBUG - Time to start of success() : 8.89812588692
+
+Time to before issues_list : 8.89827108383
+
+2015-07-15 10:42:08,898 - stapi - DEBUG - Time to before issues_list : 8.89827108383
+
+Time to after bson dump : 9.16807198524
+
+2015-07-15 10:42:09,168 - stapi - DEBUG - Time to after bson dump : 9.16807198524
+
+Time to after iteration : 9.16860795021
+
+2015-07-15 10:42:09,168 - stapi - DEBUG - Time to after iteration : 9.16860795021
+
+Time to after gzip compress : 9.19335508347
+
+2015-07-15 10:42:09,193 - stapi - DEBUG - Time to after gzip compress : 9.19335508347
+
+Time to just after compressed.getvalue() : 9.19359397888
+
+2015-07-15 10:42:09,193 - stapi - DEBUG - Time to just after compressed.getvalue() : 9.19359397888
+
+127.0.0.1 - - [15/Jul/2015 10:42:09] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 62803
+here is origin
+
+2015-07-15 10:42:09,298 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:09,298 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:09,299 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:09,299 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:09,299 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:09,300 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:42:09,303 - stapi - DEBUG - getIssues()
+Time to start of success() : 9.30430293083
+
+2015-07-15 10:42:09,304 - stapi - DEBUG - Time to start of success() : 9.30430293083
+
+Time to before issues_list : 9.30503201485
+
+2015-07-15 10:42:09,305 - stapi - DEBUG - Time to before issues_list : 9.30503201485
+
+Time to after bson dump : 9.32887101173
+
+2015-07-15 10:42:09,328 - stapi - DEBUG - Time to after bson dump : 9.32887101173
+
+Time to after iteration : 9.32944989204
+
+2015-07-15 10:42:09,329 - stapi - DEBUG - Time to after iteration : 9.32944989204
+
+Time to after gzip compress : 9.33193898201
+
+2015-07-15 10:42:09,332 - stapi - DEBUG - Time to after gzip compress : 9.33193898201
+
+Time to just after compressed.getvalue() : 9.33286905289
+
+2015-07-15 10:42:09,332 - stapi - DEBUG - Time to just after compressed.getvalue() : 9.33286905289
+
+127.0.0.1 - - [15/Jul/2015 10:42:09] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 4283
+here is origin
+
+2015-07-15 10:42:09,351 - stapi - INFO - here is origin
+
+*
+2015-07-15 10:42:09,352 - stapi - INFO - *
+
+
+
+2015-07-15 10:42:09,352 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 10:42:09,352 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 10:42:09,352 - stapi - INFO - ['*']
+
+
+
+2015-07-15 10:42:09,352 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 10:42:09,355 - stapi - DEBUG - getIssues()
+Time to start of success() : 9.35552191734
+
+2015-07-15 10:42:09,355 - stapi - DEBUG - Time to start of success() : 9.35552191734
+
+Time to before issues_list : 9.35581803322
+
+2015-07-15 10:42:09,355 - stapi - DEBUG - Time to before issues_list : 9.35581803322
+
+Time to after bson dump : 0.251570940018
+
+2015-07-15 10:42:10,251 - stapi - DEBUG - Time to after bson dump : 0.251570940018
+
+Time to after iteration : 0.251925945282
+
+2015-07-15 10:42:10,251 - stapi - DEBUG - Time to after iteration : 0.251925945282
+
+Time to after gzip compress : 0.320847034454
+
+2015-07-15 10:42:10,320 - stapi - DEBUG - Time to after gzip compress : 0.320847034454
+
+Time to just after compressed.getvalue() : 0.321327924728
+
+2015-07-15 10:42:10,321 - stapi - DEBUG - Time to just after compressed.getvalue() : 0.321327924728
+
+127.0.0.1 - - [15/Jul/2015 10:42:10] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 184997
+here is origin
+
+2015-07-15 11:25:53,038 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:25:53,038 - stapi - INFO - *
+
+
+
+2015-07-15 11:25:53,038 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:25:53,038 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:25:53,038 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:25:53,038 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:25:53,039 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.04756593704
+
+2015-07-15 11:25:53,047 - stapi - DEBUG - Time to start of success() : 3.04756593704
+
+Time to before issues_list : 3.04780006409
+
+2015-07-15 11:25:53,047 - stapi - DEBUG - Time to before issues_list : 3.04780006409
+
+Time to after bson dump : 3.0535159111
+
+2015-07-15 11:25:53,053 - stapi - DEBUG - Time to after bson dump : 3.0535159111
+
+Time to after iteration : 3.05373096466
+
+2015-07-15 11:25:53,053 - stapi - DEBUG - Time to after iteration : 3.05373096466
+
+Time to after gzip compress : 3.05421900749
+
+2015-07-15 11:25:53,054 - stapi - DEBUG - Time to after gzip compress : 3.05421900749
+
+Time to just after compressed.getvalue() : 3.05435490608
+
+2015-07-15 11:25:53,054 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.05435490608
+
+127.0.0.1 - - [15/Jul/2015 11:25:53] "GET /issues/summary/sla HTTP/1.1" 200 2425
+here is origin
+
+2015-07-15 11:25:53,063 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:25:53,063 - stapi - INFO - *
+
+
+
+2015-07-15 11:25:53,064 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:25:53,064 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:25:53,064 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:25:53,064 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:25:53,065 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.08007001877
+
+2015-07-15 11:25:53,080 - stapi - DEBUG - Time to start of success() : 3.08007001877
+
+Time to before issues_list : 3.08053994179
+
+2015-07-15 11:25:53,080 - stapi - DEBUG - Time to before issues_list : 3.08053994179
+
+Time to after bson dump : 3.09603905678
+
+2015-07-15 11:25:53,096 - stapi - DEBUG - Time to after bson dump : 3.09603905678
+
+Time to after iteration : 3.09635591507
+
+2015-07-15 11:25:53,096 - stapi - DEBUG - Time to after iteration : 3.09635591507
+
+Time to after gzip compress : 3.09682106972
+
+2015-07-15 11:25:53,096 - stapi - DEBUG - Time to after gzip compress : 3.09682106972
+
+Time to just after compressed.getvalue() : 3.09698009491
+
+2015-07-15 11:25:53,096 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.09698009491
+
+127.0.0.1 - - [15/Jul/2015 11:25:53] "GET /issues/summary/fts HTTP/1.1" 200 1780
+here is origin
+
+2015-07-15 11:25:53,103 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:25:53,104 - stapi - INFO - *
+
+
+
+2015-07-15 11:25:53,104 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:25:53,104 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:25:53,104 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:25:53,104 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:25:53,105 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.10579705238
+
+2015-07-15 11:25:53,105 - stapi - DEBUG - Time to start of success() : 3.10579705238
+
+Time to before issues_list : 3.10603690147
+
+2015-07-15 11:25:53,106 - stapi - DEBUG - Time to before issues_list : 3.10603690147
+
+Time to after bson dump : 3.14890193939
+
+2015-07-15 11:25:53,148 - stapi - DEBUG - Time to after bson dump : 3.14890193939
+
+Time to after iteration : 3.14942288399
+
+2015-07-15 11:25:53,149 - stapi - DEBUG - Time to after iteration : 3.14942288399
+
+Time to after gzip compress : 3.1503739357
+
+2015-07-15 11:25:53,150 - stapi - DEBUG - Time to after gzip compress : 3.1503739357
+
+Time to just after compressed.getvalue() : 3.15064001083
+
+2015-07-15 11:25:53,150 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.15064001083
+
+127.0.0.1 - - [15/Jul/2015 11:25:53] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 3095
+here is origin
+
+2015-07-15 11:25:53,164 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:25:53,166 - stapi - INFO - *
+
+
+
+2015-07-15 11:25:53,167 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:25:53,167 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:25:53,167 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:25:53,167 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 11:25:53,168 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 3.16892004013
+
+2015-07-15 11:25:53,168 - stapi - DEBUG - Time to start of success() : 3.16892004013
+
+Time to before issues_list : 3.16903495789
+
+2015-07-15 11:25:53,169 - stapi - DEBUG - Time to before issues_list : 3.16903495789
+
+Time to after bson dump : 3.17484307289
+
+2015-07-15 11:25:53,174 - stapi - DEBUG - Time to after bson dump : 3.17484307289
+
+Time to after iteration : 3.17544388771
+
+2015-07-15 11:25:53,175 - stapi - DEBUG - Time to after iteration : 3.17544388771
+
+Time to after gzip compress : 3.17735791206
+
+2015-07-15 11:25:53,177 - stapi - DEBUG - Time to after gzip compress : 3.17735791206
+
+Time to just after compressed.getvalue() : 3.17772698402
+
+2015-07-15 11:25:53,177 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.17772698402
+
+127.0.0.1 - - [15/Jul/2015 11:25:53] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 11:25:53,186 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:25:53,187 - stapi - INFO - *
+
+
+
+2015-07-15 11:25:53,187 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:25:53,187 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:25:53,187 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:25:53,187 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 11:25:53,188 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 11:25:53,188 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 11:25:53,188 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.18911504745
+
+2015-07-15 11:25:53,189 - stapi - DEBUG - Time to start of success() : 3.18911504745
+
+Time to before issues_list : 3.18922901154
+
+2015-07-15 11:25:53,189 - stapi - DEBUG - Time to before issues_list : 3.18922901154
+
+Time to after bson dump : 3.23692798615
+
+2015-07-15 11:25:53,236 - stapi - DEBUG - Time to after bson dump : 3.23692798615
+
+Time to after iteration : 3.23739695549
+
+2015-07-15 11:25:53,237 - stapi - DEBUG - Time to after iteration : 3.23739695549
+
+Time to after gzip compress : 3.2378590107
+
+2015-07-15 11:25:53,237 - stapi - DEBUG - Time to after gzip compress : 3.2378590107
+
+Time to just after compressed.getvalue() : 3.2382349968
+
+2015-07-15 11:25:53,238 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.2382349968
+
+127.0.0.1 - - [15/Jul/2015 11:25:53] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 11:25:53,252 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:25:53,252 - stapi - INFO - *
+
+
+
+2015-07-15 11:25:53,252 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:25:53,253 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:25:53,253 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:25:53,253 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:25:53,254 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.25467205048
+
+2015-07-15 11:25:53,254 - stapi - DEBUG - Time to start of success() : 3.25467205048
+
+Time to before issues_list : 3.25480699539
+
+2015-07-15 11:25:53,254 - stapi - DEBUG - Time to before issues_list : 3.25480699539
+
+Time to after bson dump : 3.59117507935
+
+2015-07-15 11:25:53,591 - stapi - DEBUG - Time to after bson dump : 3.59117507935
+
+Time to after iteration : 3.59149694443
+
+2015-07-15 11:25:53,591 - stapi - DEBUG - Time to after iteration : 3.59149694443
+
+Time to after gzip compress : 3.61720705032
+
+2015-07-15 11:25:53,617 - stapi - DEBUG - Time to after gzip compress : 3.61720705032
+
+Time to just after compressed.getvalue() : 3.61746096611
+
+2015-07-15 11:25:53,617 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.61746096611
+
+127.0.0.1 - - [15/Jul/2015 11:25:53] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 64982
+here is origin
+
+2015-07-15 11:25:53,721 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:25:53,721 - stapi - INFO - *
+
+
+
+2015-07-15 11:25:53,722 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:25:53,722 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:25:53,723 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:25:53,724 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:25:53,727 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.72768497467
+
+2015-07-15 11:25:53,727 - stapi - DEBUG - Time to start of success() : 3.72768497467
+
+Time to before issues_list : 3.72784900665
+
+2015-07-15 11:25:53,727 - stapi - DEBUG - Time to before issues_list : 3.72784900665
+
+Time to after bson dump : 3.77184391022
+
+2015-07-15 11:25:53,771 - stapi - DEBUG - Time to after bson dump : 3.77184391022
+
+Time to after iteration : 3.77214407921
+
+2015-07-15 11:25:53,772 - stapi - DEBUG - Time to after iteration : 3.77214407921
+
+Time to after gzip compress : 3.77349305153
+
+2015-07-15 11:25:53,773 - stapi - DEBUG - Time to after gzip compress : 3.77349305153
+
+Time to just after compressed.getvalue() : 3.77365708351
+
+2015-07-15 11:25:53,773 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.77365708351
+
+127.0.0.1 - - [15/Jul/2015 11:25:53] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 4930
+here is origin
+
+2015-07-15 11:25:53,788 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:25:53,788 - stapi - INFO - *
+
+
+
+2015-07-15 11:25:53,788 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:25:53,788 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:25:53,788 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:25:53,789 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:25:53,789 - stapi - DEBUG - getIssues()
+Time to start of success() : 3.79010391235
+
+2015-07-15 11:25:53,790 - stapi - DEBUG - Time to start of success() : 3.79010391235
+
+Time to before issues_list : 3.79023790359
+
+2015-07-15 11:25:53,790 - stapi - DEBUG - Time to before issues_list : 3.79023790359
+
+Time to after bson dump : 4.86782503128
+
+2015-07-15 11:25:54,867 - stapi - DEBUG - Time to after bson dump : 4.86782503128
+
+Time to after iteration : 4.86830210686
+
+2015-07-15 11:25:54,868 - stapi - DEBUG - Time to after iteration : 4.86830210686
+
+Time to after gzip compress : 4.9415640831
+
+2015-07-15 11:25:54,941 - stapi - DEBUG - Time to after gzip compress : 4.9415640831
+
+Time to just after compressed.getvalue() : 4.94208693504
+
+2015-07-15 11:25:54,942 - stapi - DEBUG - Time to just after compressed.getvalue() : 4.94208693504
+
+127.0.0.1 - - [15/Jul/2015 11:25:54] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 184379
+here is origin
+
+2015-07-15 11:26:38,164 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:26:38,164 - stapi - INFO - *
+
+
+
+2015-07-15 11:26:38,164 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:26:38,164 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:26:38,164 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:26:38,164 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:26:38,165 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.17088603973
+
+2015-07-15 11:26:38,170 - stapi - DEBUG - Time to start of success() : 8.17088603973
+
+Time to before issues_list : 8.17116904259
+
+2015-07-15 11:26:38,171 - stapi - DEBUG - Time to before issues_list : 8.17116904259
+
+Time to after bson dump : 8.18096995354
+
+2015-07-15 11:26:38,181 - stapi - DEBUG - Time to after bson dump : 8.18096995354
+
+Time to after iteration : 8.18134188652
+
+2015-07-15 11:26:38,181 - stapi - DEBUG - Time to after iteration : 8.18134188652
+
+Time to after gzip compress : 8.18212509155
+
+2015-07-15 11:26:38,182 - stapi - DEBUG - Time to after gzip compress : 8.18212509155
+
+Time to just after compressed.getvalue() : 8.18254208565
+
+2015-07-15 11:26:38,182 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.18254208565
+
+127.0.0.1 - - [15/Jul/2015 11:26:38] "GET /issues/summary/sla HTTP/1.1" 200 2577
+here is origin
+
+2015-07-15 11:26:38,200 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:26:38,200 - stapi - INFO - *
+
+
+
+2015-07-15 11:26:38,200 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:26:38,201 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:26:38,201 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:26:38,201 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:26:38,205 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.21239900589
+
+2015-07-15 11:26:38,212 - stapi - DEBUG - Time to start of success() : 8.21239900589
+
+Time to before issues_list : 8.21312403679
+
+2015-07-15 11:26:38,213 - stapi - DEBUG - Time to before issues_list : 8.21312403679
+
+Time to after bson dump : 8.23408198357
+
+2015-07-15 11:26:38,234 - stapi - DEBUG - Time to after bson dump : 8.23408198357
+
+Time to after iteration : 8.23449611664
+
+2015-07-15 11:26:38,234 - stapi - DEBUG - Time to after iteration : 8.23449611664
+
+Time to after gzip compress : 8.23527288437
+
+2015-07-15 11:26:38,235 - stapi - DEBUG - Time to after gzip compress : 8.23527288437
+
+Time to just after compressed.getvalue() : 8.2356710434
+
+2015-07-15 11:26:38,235 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.2356710434
+
+127.0.0.1 - - [15/Jul/2015 11:26:38] "GET /issues/summary/fts HTTP/1.1" 200 1780
+here is origin
+
+2015-07-15 11:26:38,246 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:26:38,246 - stapi - INFO - *
+
+
+
+2015-07-15 11:26:38,247 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:26:38,247 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:26:38,247 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:26:38,247 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:26:38,248 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.2488489151
+
+2015-07-15 11:26:38,248 - stapi - DEBUG - Time to start of success() : 8.2488489151
+
+Time to before issues_list : 8.24896407127
+
+2015-07-15 11:26:38,248 - stapi - DEBUG - Time to before issues_list : 8.24896407127
+
+Time to after bson dump : 8.26493000984
+
+2015-07-15 11:26:38,264 - stapi - DEBUG - Time to after bson dump : 8.26493000984
+
+Time to after iteration : 8.26519489288
+
+2015-07-15 11:26:38,265 - stapi - DEBUG - Time to after iteration : 8.26519489288
+
+Time to after gzip compress : 8.26581096649
+
+2015-07-15 11:26:38,265 - stapi - DEBUG - Time to after gzip compress : 8.26581096649
+
+Time to just after compressed.getvalue() : 8.26593208313
+
+2015-07-15 11:26:38,265 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.26593208313
+
+127.0.0.1 - - [15/Jul/2015 11:26:38] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 3243
+here is origin
+
+2015-07-15 11:26:38,276 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:26:38,276 - stapi - INFO - *
+
+
+
+2015-07-15 11:26:38,277 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:26:38,277 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:26:38,277 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:26:38,278 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 11:26:38,281 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 8.28194594383
+
+2015-07-15 11:26:38,281 - stapi - DEBUG - Time to start of success() : 8.28194594383
+
+Time to before issues_list : 8.28262495995
+
+2015-07-15 11:26:38,282 - stapi - DEBUG - Time to before issues_list : 8.28262495995
+
+Time to after bson dump : 8.28784990311
+
+2015-07-15 11:26:38,287 - stapi - DEBUG - Time to after bson dump : 8.28784990311
+
+Time to after iteration : 8.28804993629
+
+2015-07-15 11:26:38,288 - stapi - DEBUG - Time to after iteration : 8.28804993629
+
+Time to after gzip compress : 8.28824210167
+
+2015-07-15 11:26:38,288 - stapi - DEBUG - Time to after gzip compress : 8.28824210167
+
+Time to just after compressed.getvalue() : 8.28834700584
+
+2015-07-15 11:26:38,288 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.28834700584
+
+127.0.0.1 - - [15/Jul/2015 11:26:38] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 11:26:38,295 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:26:38,295 - stapi - INFO - *
+
+
+
+2015-07-15 11:26:38,295 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:26:38,295 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:26:38,296 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:26:38,296 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 11:26:38,297 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 11:26:38,297 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 11:26:38,297 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.29805994034
+
+2015-07-15 11:26:38,298 - stapi - DEBUG - Time to start of success() : 8.29805994034
+
+Time to before issues_list : 8.29832100868
+
+2015-07-15 11:26:38,298 - stapi - DEBUG - Time to before issues_list : 8.29832100868
+
+Time to after bson dump : 8.30656790733
+
+2015-07-15 11:26:38,306 - stapi - DEBUG - Time to after bson dump : 8.30656790733
+
+Time to after iteration : 8.30690193176
+
+2015-07-15 11:26:38,306 - stapi - DEBUG - Time to after iteration : 8.30690193176
+
+Time to after gzip compress : 8.30921888351
+
+2015-07-15 11:26:38,309 - stapi - DEBUG - Time to after gzip compress : 8.30921888351
+
+Time to just after compressed.getvalue() : 8.30977511406
+
+2015-07-15 11:26:38,309 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.30977511406
+
+127.0.0.1 - - [15/Jul/2015 11:26:38] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 11:26:38,331 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:26:38,332 - stapi - INFO - *
+
+
+
+2015-07-15 11:26:38,332 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:26:38,332 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:26:38,332 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:26:38,334 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:26:38,336 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.33673501015
+
+2015-07-15 11:26:38,336 - stapi - DEBUG - Time to start of success() : 8.33673501015
+
+Time to before issues_list : 8.33729600906
+
+2015-07-15 11:26:38,337 - stapi - DEBUG - Time to before issues_list : 8.33729600906
+
+Time to after bson dump : 8.66664290428
+
+2015-07-15 11:26:38,666 - stapi - DEBUG - Time to after bson dump : 8.66664290428
+
+Time to after iteration : 8.66701197624
+
+2015-07-15 11:26:38,667 - stapi - DEBUG - Time to after iteration : 8.66701197624
+
+Time to after gzip compress : 8.69677400589
+
+2015-07-15 11:26:38,696 - stapi - DEBUG - Time to after gzip compress : 8.69677400589
+
+Time to just after compressed.getvalue() : 8.697067976
+
+2015-07-15 11:26:38,697 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.697067976
+
+127.0.0.1 - - [15/Jul/2015 11:26:38] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 65122
+here is origin
+
+2015-07-15 11:26:38,816 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:26:38,817 - stapi - INFO - *
+
+
+
+2015-07-15 11:26:38,817 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:26:38,817 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:26:38,817 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:26:38,817 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:26:38,819 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.81950306892
+
+2015-07-15 11:26:38,819 - stapi - DEBUG - Time to start of success() : 8.81950306892
+
+Time to before issues_list : 8.81973004341
+
+2015-07-15 11:26:38,819 - stapi - DEBUG - Time to before issues_list : 8.81973004341
+
+Time to after bson dump : 8.86330699921
+
+2015-07-15 11:26:38,863 - stapi - DEBUG - Time to after bson dump : 8.86330699921
+
+Time to after iteration : 8.8637509346
+
+2015-07-15 11:26:38,863 - stapi - DEBUG - Time to after iteration : 8.8637509346
+
+Time to after gzip compress : 8.86510396004
+
+2015-07-15 11:26:38,865 - stapi - DEBUG - Time to after gzip compress : 8.86510396004
+
+Time to just after compressed.getvalue() : 8.86522698402
+
+2015-07-15 11:26:38,865 - stapi - DEBUG - Time to just after compressed.getvalue() : 8.86522698402
+
+127.0.0.1 - - [15/Jul/2015 11:26:38] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 5069
+here is origin
+
+2015-07-15 11:26:38,879 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:26:38,880 - stapi - INFO - *
+
+
+
+2015-07-15 11:26:38,880 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:26:38,880 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:26:38,880 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:26:38,881 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:26:38,884 - stapi - DEBUG - getIssues()
+Time to start of success() : 8.88547611237
+
+2015-07-15 11:26:38,885 - stapi - DEBUG - Time to start of success() : 8.88547611237
+
+Time to before issues_list : 8.88600802422
+
+2015-07-15 11:26:38,886 - stapi - DEBUG - Time to before issues_list : 8.88600802422
+
+Time to after bson dump : 9.97308301926
+
+2015-07-15 11:26:39,973 - stapi - DEBUG - Time to after bson dump : 9.97308301926
+
+Time to after iteration : 9.97347092628
+
+2015-07-15 11:26:39,973 - stapi - DEBUG - Time to after iteration : 9.97347092628
+
+Time to after gzip compress : 0.0513370037079
+
+2015-07-15 11:26:40,051 - stapi - DEBUG - Time to after gzip compress : 0.0513370037079
+
+Time to just after compressed.getvalue() : 0.052011013031
+
+2015-07-15 11:26:40,052 - stapi - DEBUG - Time to just after compressed.getvalue() : 0.052011013031
+
+127.0.0.1 - - [15/Jul/2015 11:26:40] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 184379
+here is origin
+
+2015-07-15 11:30:01,688 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:30:01,688 - stapi - INFO - *
+
+
+
+2015-07-15 11:30:01,689 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:30:01,689 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:30:01,689 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:30:01,689 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:30:01,689 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.69545006752
+
+2015-07-15 11:30:01,695 - stapi - DEBUG - Time to start of success() : 1.69545006752
+
+Time to before issues_list : 1.69575095177
+
+2015-07-15 11:30:01,695 - stapi - DEBUG - Time to before issues_list : 1.69575095177
+
+Time to after bson dump : 1.70391392708
+
+2015-07-15 11:30:01,703 - stapi - DEBUG - Time to after bson dump : 1.70391392708
+
+Time to after iteration : 1.70427489281
+
+2015-07-15 11:30:01,704 - stapi - DEBUG - Time to after iteration : 1.70427489281
+
+Time to after gzip compress : 1.70491695404
+
+2015-07-15 11:30:01,704 - stapi - DEBUG - Time to after gzip compress : 1.70491695404
+
+Time to just after compressed.getvalue() : 1.70517802238
+
+2015-07-15 11:30:01,705 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.70517802238
+
+127.0.0.1 - - [15/Jul/2015 11:30:01] "GET /issues/summary/sla HTTP/1.1" 200 2400
+here is origin
+
+2015-07-15 11:30:01,713 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:30:01,713 - stapi - INFO - *
+
+
+
+2015-07-15 11:30:01,713 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:30:01,713 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:30:01,713 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:30:01,714 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:30:01,714 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.7189309597
+
+2015-07-15 11:30:01,718 - stapi - DEBUG - Time to start of success() : 1.7189309597
+
+Time to before issues_list : 1.7193210125
+
+2015-07-15 11:30:01,719 - stapi - DEBUG - Time to before issues_list : 1.7193210125
+
+Time to after bson dump : 1.72831511497
+
+2015-07-15 11:30:01,728 - stapi - DEBUG - Time to after bson dump : 1.72831511497
+
+Time to after iteration : 1.72855710983
+
+2015-07-15 11:30:01,728 - stapi - DEBUG - Time to after iteration : 1.72855710983
+
+Time to after gzip compress : 1.72893691063
+
+2015-07-15 11:30:01,728 - stapi - DEBUG - Time to after gzip compress : 1.72893691063
+
+Time to just after compressed.getvalue() : 1.72975993156
+
+2015-07-15 11:30:01,729 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.72975993156
+
+127.0.0.1 - - [15/Jul/2015 11:30:01] "GET /issues/summary/fts HTTP/1.1" 200 1780
+here is origin
+
+2015-07-15 11:30:01,746 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:30:01,747 - stapi - INFO - *
+
+
+
+2015-07-15 11:30:01,747 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:30:01,748 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:30:01,748 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:30:01,748 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:30:01,751 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.75248003006
+
+2015-07-15 11:30:01,752 - stapi - DEBUG - Time to start of success() : 1.75248003006
+
+Time to before issues_list : 1.75304198265
+
+2015-07-15 11:30:01,753 - stapi - DEBUG - Time to before issues_list : 1.75304198265
+
+Time to after bson dump : 1.77984690666
+
+2015-07-15 11:30:01,779 - stapi - DEBUG - Time to after bson dump : 1.77984690666
+
+Time to after iteration : 1.78023004532
+
+2015-07-15 11:30:01,780 - stapi - DEBUG - Time to after iteration : 1.78023004532
+
+Time to after gzip compress : 1.7812640667
+
+2015-07-15 11:30:01,781 - stapi - DEBUG - Time to after gzip compress : 1.7812640667
+
+Time to just after compressed.getvalue() : 1.78151607513
+
+2015-07-15 11:30:01,781 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.78151607513
+
+127.0.0.1 - - [15/Jul/2015 11:30:01] "GET /issues/summary?active=true&una=true&support=true HTTP/1.1" 200 3243
+here is origin
+
+2015-07-15 11:30:01,793 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:30:01,793 - stapi - INFO - *
+
+
+
+2015-07-15 11:30:01,794 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:30:01,794 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:30:01,794 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:30:01,794 - stapi - INFO - 
+
+
+getActiveReviews()
+2015-07-15 11:30:01,795 - stapi - DEBUG - getActiveReviews()
+Time to start of success() : 1.79608011246
+
+2015-07-15 11:30:01,796 - stapi - DEBUG - Time to start of success() : 1.79608011246
+
+Time to before issues_list : 1.79650497437
+
+2015-07-15 11:30:01,796 - stapi - DEBUG - Time to before issues_list : 1.79650497437
+
+Time to after bson dump : 1.80416488647
+
+2015-07-15 11:30:01,804 - stapi - DEBUG - Time to after bson dump : 1.80416488647
+
+Time to after iteration : 1.80444407463
+
+2015-07-15 11:30:01,804 - stapi - DEBUG - Time to after iteration : 1.80444407463
+
+Time to after gzip compress : 1.8047170639
+
+2015-07-15 11:30:01,804 - stapi - DEBUG - Time to after gzip compress : 1.8047170639
+
+Time to just after compressed.getvalue() : 1.8048889637
+
+2015-07-15 11:30:01,804 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.8048889637
+
+127.0.0.1 - - [15/Jul/2015 11:30:01] "GET /reviews?active=true HTTP/1.1" 200 377
+here is origin
+
+2015-07-15 11:30:01,811 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:30:01,811 - stapi - INFO - *
+
+
+
+2015-07-15 11:30:01,811 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:30:01,812 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:30:01,812 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:30:01,812 - stapi - INFO - 
+
+
+jacob.ribnik
+2015-07-15 11:30:01,815 - stapi - DEBUG - jacob.ribnik
+here jacob.ribnik
+ 
+2015-07-15 11:30:01,816 - stapi - DEBUG - here jacob.ribnik
+ 
+getIssues()
+2015-07-15 11:30:01,816 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.81704711914
+
+2015-07-15 11:30:01,817 - stapi - DEBUG - Time to start of success() : 1.81704711914
+
+Time to before issues_list : 1.81730890274
+
+2015-07-15 11:30:01,817 - stapi - DEBUG - Time to before issues_list : 1.81730890274
+
+Time to after bson dump : 1.8237080574
+
+2015-07-15 11:30:01,823 - stapi - DEBUG - Time to after bson dump : 1.8237080574
+
+Time to after iteration : 1.82391309738
+
+2015-07-15 11:30:01,823 - stapi - DEBUG - Time to after iteration : 1.82391309738
+
+Time to after gzip compress : 1.82415509224
+
+2015-07-15 11:30:01,824 - stapi - DEBUG - Time to after gzip compress : 1.82415509224
+
+Time to just after compressed.getvalue() : 1.82427191734
+
+2015-07-15 11:30:01,824 - stapi - DEBUG - Time to just after compressed.getvalue() : 1.82427191734
+
+127.0.0.1 - - [15/Jul/2015 11:30:01] "GET /issues/summary?active=true&usr_assigned=true&support=true HTTP/1.1" 200 1020
+here is origin
+
+2015-07-15 11:30:01,843 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:30:01,844 - stapi - INFO - *
+
+
+
+2015-07-15 11:30:01,844 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:30:01,846 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:30:01,846 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:30:01,846 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:30:01,848 - stapi - DEBUG - getIssues()
+Time to start of success() : 1.85031294823
+
+2015-07-15 11:30:01,850 - stapi - DEBUG - Time to start of success() : 1.85031294823
+
+Time to before issues_list : 1.85126590729
+
+2015-07-15 11:30:01,851 - stapi - DEBUG - Time to before issues_list : 1.85126590729
+
+Time to after bson dump : 2.14548206329
+
+2015-07-15 11:30:02,145 - stapi - DEBUG - Time to after bson dump : 2.14548206329
+
+Time to after iteration : 2.14581108093
+
+2015-07-15 11:30:02,145 - stapi - DEBUG - Time to after iteration : 2.14581108093
+
+Time to after gzip compress : 2.17185091972
+
+2015-07-15 11:30:02,171 - stapi - DEBUG - Time to after gzip compress : 2.17185091972
+
+Time to just after compressed.getvalue() : 2.17239403725
+
+2015-07-15 11:30:02,172 - stapi - DEBUG - Time to just after compressed.getvalue() : 2.17239403725
+
+127.0.0.1 - - [15/Jul/2015 11:30:02] "GET /issues/summary?active=true&support=true HTTP/1.1" 200 65261
+here is origin
+
+2015-07-15 11:30:02,278 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:30:02,279 - stapi - INFO - *
+
+
+
+2015-07-15 11:30:02,279 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:30:02,280 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:30:02,281 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:30:02,282 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:30:02,283 - stapi - DEBUG - getIssues()
+Time to start of success() : 2.28402709961
+
+2015-07-15 11:30:02,284 - stapi - DEBUG - Time to start of success() : 2.28402709961
+
+Time to before issues_list : 2.28414201736
+
+2015-07-15 11:30:02,284 - stapi - DEBUG - Time to before issues_list : 2.28414201736
+
+Time to after bson dump : 2.31282496452
+
+2015-07-15 11:30:02,312 - stapi - DEBUG - Time to after bson dump : 2.31282496452
+
+Time to after iteration : 2.31310200691
+
+2015-07-15 11:30:02,313 - stapi - DEBUG - Time to after iteration : 2.31310200691
+
+Time to after gzip compress : 2.31519794464
+
+2015-07-15 11:30:02,315 - stapi - DEBUG - Time to after gzip compress : 2.31519794464
+
+Time to just after compressed.getvalue() : 2.3155169487
+
+2015-07-15 11:30:02,315 - stapi - DEBUG - Time to just after compressed.getvalue() : 2.3155169487
+
+127.0.0.1 - - [15/Jul/2015 11:30:02] "GET /issues/summary?active=true&una=true&support=true&wait=true HTTP/1.1" 200 5069
+here is origin
+
+2015-07-15 11:30:02,329 - stapi - INFO - here is origin
+
+*
+2015-07-15 11:30:02,329 - stapi - INFO - *
+
+
+
+2015-07-15 11:30:02,330 - stapi - INFO - 
+
+
+and here is allowed_origins
+
+2015-07-15 11:30:02,330 - stapi - INFO - and here is allowed_origins
+
+['*']
+2015-07-15 11:30:02,330 - stapi - INFO - ['*']
+
+
+
+2015-07-15 11:30:02,331 - stapi - INFO - 
+
+
+getIssues()
+2015-07-15 11:30:02,333 - stapi - DEBUG - getIssues()
+Time to start of success() : 2.33376097679
+
+2015-07-15 11:30:02,333 - stapi - DEBUG - Time to start of success() : 2.33376097679
+
+Time to before issues_list : 2.33392000198
+
+2015-07-15 11:30:02,333 - stapi - DEBUG - Time to before issues_list : 2.33392000198
+
+Time to after bson dump : 3.28621006012
+
+2015-07-15 11:30:03,286 - stapi - DEBUG - Time to after bson dump : 3.28621006012
+
+Time to after iteration : 3.28661608696
+
+2015-07-15 11:30:03,286 - stapi - DEBUG - Time to after iteration : 3.28661608696
+
+Time to after gzip compress : 3.35950303078
+
+2015-07-15 11:30:03,359 - stapi - DEBUG - Time to after gzip compress : 3.35950303078
+
+Time to just after compressed.getvalue() : 3.35997891426
+
+2015-07-15 11:30:03,359 - stapi - DEBUG - Time to just after compressed.getvalue() : 3.35997891426
+
+127.0.0.1 - - [15/Jul/2015 11:30:03] "GET /issues/summary?support=true&wait=true HTTP/1.1" 200 184293
+Terminating on signal 15
